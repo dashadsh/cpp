@@ -1,0 +1,82 @@
+"Theoretical concepts" in the context of C++ generally refer to the ideas and principles that underlie the language and its use. Some key concepts in C++ include:
+
+Object-Oriented Programming (OOP): C++ is an object-oriented language, which means it encourages programming using objects – instances of classes, which are like data types, or blueprints. OOP revolves around the concepts of classes, objects, inheritance, polymorphism, encapsulation, and abstraction.
+
+Procedural Programming: Apart from being an object-oriented language, C++ also supports procedural or function-oriented programming, which is based on the concept of "procedure call" or simply calling a sequence of procedures (which are also known as functions or methods) to perform a task.
+
+Generic Programming: Generic programming is a way of developing software that maximizes code reuse in a way that does not sacrifice efficiency. This is achieved in C++ primarily using templates, which allow you to write code that can handle any type, subject to certain constraints.
+
+Memory Management: One of the powerful aspects of C++ is its ability to give the programmer precise control over memory management. This includes concepts such as manual object creation and destruction, and the ability to directly manipulate memory through pointers.
+
+RAII (Resource Acquisition Is Initialization): This is a programming idiom used in C++ where you tie the life cycle of a resource that must be acquired before use (like a mutex lock, a file handle, a network socket, or a dynamically allocated memory) to the lifetime of an object.
+
+Exception Handling: C++ has robust support for exception handling that allows for the detection and handling of runtime anomalies or errors.
+
+STL (Standard Template Library): The STL is a powerful library within C++ that contains several generic templates like a collection of reusable classes. It includes things like algorithms, containers, iterators, and function objects.
+
+Concurrency: Modern C++ (C++11 and later) includes support for multi-threaded programming, allowing for concurrent execution of tasks.
+-----------
+Object-oriented programming (OOP) is a programming paradigm or style of programming that organizes data and code into reusable structures called objects. In OOP, an object is an instance of a class, which serves as a blueprint or template defining the properties (attributes) and behaviors (methods) that objects of that class possess.
+
+The main concepts in object-oriented programming are:
+
+Classes: A class is a blueprint or template that defines the properties and behaviors that objects of that class will have. It encapsulates data (attributes) and functions (methods) into a single unit.
+Objects: An object is an instance of a class. It represents a specific occurrence or occurrence of the class, and it can store data and perform operations defined by the class.
+
+Encapsulation: Encapsulation is the process of bundling data and related methods/functions together into a single unit (class). It allows for data hiding, where the internal state of an object is not directly accessible from outside the object. Access to the object's data is typically provided through methods, which are defined by the class.
+
+Inheritance: Inheritance allows classes to inherit properties and behaviors from other classes. It establishes a parent-child relationship between classes, where the child class (derived class) inherits the attributes and methods of the parent class (base class). This promotes code reuse and enables the creation of specialized classes based on existing ones.
+
+Polymorphism: Polymorphism means that objects of different classes can be treated as objects of a common superclass. It allows objects to be processed in a generic way, where different objects can respond to the same message (method call) in different ways based on their specific class implementation.
+
+Abstraction: Abstraction focuses on creating simplified and generalized models of complex systems. It allows programmers to define abstract classes or interfaces that specify a set of methods without providing their implementation details. Concrete classes can then implement these interfaces or inherit from abstract classes and provide their own implementation.
+Object-oriented programming provides benefits such as code reusability, modularity, and easier maintenance. It allows for the creation of complex systems by breaking them down into manageable, self-contained objects that interact with each other.
+------------
+Here's a simple overview of how classes work in C++:
+
+Data Encapsulation: Classes encapsulate data and functions that operate on that data into a single unit. The data of a class is represented by the variables within the class (also called member variables or data members), and the functions are represented by methods (also called member functions).
+
+Abstraction: By using classes, you can abstract away the details of what a piece of code does and simply use it through its public interface. This simplifies your code and makes it easier to understand and maintain.
+
+Inheritance: In C++, one class can inherit from another. This means that a class can inherit data members and functions from a base class, allowing you to create a hierarchy of related classes that share common attributes and behaviors.
+
+Polymorphism: This refers to the ability of a function or an object to behave in multiple ways. In the context of classes, polymorphism enables you to use a child class where a parent class is expected.
+-----------
+STANDART C++ LIBRARIES:
+<iostream>: for Input/Output streams.
+<fstream>: for file handling.
+<iomanip>: provides facilities to manipulate output formatting.
+<string>: for string operations.
+<cmath>: for mathematical operations.
+<cstdlib>: for general purpose functions, including dynamic memory management, random numbers, etc.
+<ctime>: for manipulating date and time.
+<cctype>: for character handling functions.
+<algorithm>: for various algorithms like sorting, searching, etc.
+<vector>, <list>, <deque>, <set>, <map>, <unordered_set>, <unordered_map>, <stack>, <queue>: for various commonly used data structures.
+<numeric>: for numeric operations.
+<iterator>: for iterator functions.
+<regex>: for regular expressions.
+<thread>, <mutex>, <condition_variable>, <future>, <chrono>: for multithreading and concurrency.
+<random>: for random number generation.
+---------
+using namespace <ns_name>: 
+This directive tells the compiler to assume the namespace <ns_name> for the code that follows. 
+This can make the code easier to write and read because you don't have to prefix every use 
+of a name from that namespace with the namespace name. 
+However, it can also lead to naming conflicts if different namespaces have elements with the same 
+names, and it can make the code harder to understand if it's not clear where a particular name 
+is coming from. Therefore, some coding guidelines prohibit or discourage the use of using namespace 
+directives, especially in header files. When the statement says "unless explicitly stated otherwise, 
+the using namespace <ns_name> is forbidden", it means that you should not use this directive 
+unless you are specifically told that it's okay to do so in a particular context.
+
+friend keyword: 
+In C++, the friend keyword is used to grant a function or another class access 
+to private and protected members of a class. 
+This can be useful in some cases, but it can also break encapsulation by allowing external code 
+to access and potentially modify a class's internal state. 
+Therefore, some coding guidelines limit or prohibit the use of friend. 
+When the statement says "unless explicitly stated otherwise, the friend keyword is forbidden", 
+it means that you should not use the friend keyword unless you are specifically told that it's okay 
+to do so in a particular context.
+-----------
