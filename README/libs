@@ -1,0 +1,49 @@
+
+-----------
+STANDART C++ LIBRARIES:
+<iostream>: for Input/Output streams.
+<fstream>: for file handling.
+<iomanip>: provides facilities to manipulate output formatting.
+<string>: for string operations.
+<cmath>: for mathematical operations.
+<cstdlib>: for general purpose functions, including dynamic memory management, random numbers, etc.
+<ctime>: for manipulating date and time.
+<cctype>: for character handling functions.
+<algorithm>: for various algorithms like sorting, searching, etc.
+<vector>, <list>, <deque>, <set>, <map>, <unordered_set>, <unordered_map>, <stack>, <queue>: for various commonly used data structures.
+<numeric>: for numeric operations.
+<iterator>: for iterator functions.
+<regex>: for regular expressions.
+<thread>, <mutex>, <condition_variable>, <future>, <chrono>: for multithreading and concurrency.
+<random>: for random number generation.
+---------
+In C++, the string library is a part of the Standard Library that provides support for string manipulation. It includes the std::string class, which offers a convenient and powerful way for handling and manipulating text.
+
+Here are some things you can do with the string library in C++:
+
+String Construction and Assignment: The std::string class has several constructors that let you create strings in different ways, including from C-style strings, repeating a character, copying from other strings, and more. You can also assign new values to strings.
+String Concatenation: You can use the + operator to concatenate (combine) strings together.
+String Comparison: You can compare strings using relational operators like ==, !=, <, >, <=, and >=.
+String Length: The length() or size() method returns the number of characters in a string.
+String Substring: The substr() method extracts a portion of a string.
+String Searching: Functions like find(), rfind(), find_first_of(), find_last_of(), find_first_not_of(), and find_last_not_of() can be used to search for specific characters or substrings.
+String Modification: Methods like insert(), append(), replace(), and erase() allow you to modify strings.
+Accessing Individual Characters: You can access individual characters in a string with the [] or at() methods.
+Conversion to C-style String: If you need to interface with code that expects C-style strings, you can use the c_str() method.
+Input/Output: You can use std::cin and std::cout (or other input/output streams) to read and write strings.
+And much more.
+
+This library simplifies a lot of tasks related to string handling, which would otherwise be quite complex and error-prone, especially if you were working with raw character arrays.
+------------------------
+The iomanip header is part of the C++ Standard Library. It contains functions that can be used in conjunction with the input/output (I/O) streams to control the formatting of the I/O operations. This is where you get manipulators like setw, setprecision, fixed, boolalpha, and others.
+
+Here are a few examples of manipulators from the iomanip library:
+
+std::setw(int n): Sets the width of the field for the next I/O operation.
+std::setprecision(int n): Specifies the number of digits to be displayed in floating-point numbers.
+std::fixed: Use fixed-point notation for floating-point numbers.
+std::scientific: Use scientific notation for floating-point numbers.
+std::boolalpha: Outputs bool values as true or false.
+std::noboolalpha: Outputs bool values as 1 or 0.
+std::setfill(char_type c): Sets the fill character for the field padding.
+std::left, std::right, std::internal: Set the alignment of output within its field.

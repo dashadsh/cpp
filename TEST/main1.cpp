@@ -6,13 +6,6 @@ int main()
 	std::cin.get();
 }
 
-// The #include <iostream> line is a preprocessor command
-//  that tells the compiler to include the iostream standard file. 
-//  This file allows input and output operations.
-
-// int main() is the main function where the program starts. 
-// The integer type means it will return an integer.
-
 // std::cout << "HELLO" << std::endl; uses the cout object, 
 // along with the insertion operator (<<), to output the string "HELLO". 
 // The std::endl part puts a newline and flushes the output.

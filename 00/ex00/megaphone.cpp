@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:31:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/05/25 09:50:07 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/05/29 00:13:52 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 // }
 
 #include <cctype> // for 'toupper'
+// If you need to support non-ASCII letters, 
+// you should use the version from the <locale> header and 
+// specify the appropriate locale.
 
 int main(int argc, char* argv[])
 {
