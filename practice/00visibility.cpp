@@ -11,14 +11,12 @@
 // For instance, if you tried to assign a new value to public_int or private_int 
 // inside either public_func or private_func, you would get a compiler error because those functions 
 // are declared as const. This is a way to guarantee that a function does not modify the state of an object.
-class Sample
-{
+class Sample {
 public:
 	Sample(void);
 	~Sample(void);
 	int public_int;
 	void public_func(void) const;
-
 private:
 	// use _ prefix for all private identifier
 	// it gives reader a quick idea of which is public or private
@@ -27,10 +25,8 @@ private:
 };
 
 // this can also be written with initialisation list
-Sample::Sample(void)
-{
+Sample::Sample(void) {
 	std::cout << "constructor called" << std::endl;
-
 	this->public_int = 0;
 	std::cout << "this->public_int = " << this->public_int <<std::endl;
 	this->private_int = 0;
@@ -46,26 +42,22 @@ Sample::Sample(void)
 	return;
 }
 
-Sample::~Sample(void)
-{
+Sample::~Sample(void) {
 	std::cout << "destructor called" << std::endl;
 	return;
 }
 
-void	Sample::public_func(void) const
-{
+void	Sample::public_func(void) const {
 	std::cout << "public_func called" << std::endl;
 	return;
 }
 
-void	Sample::private_func(void) const
-{
+void	Sample::private_func(void) const {
 	std::cout << "private_func called" << std::endl;
 	return;
 }
 
-int	main(void)
-{
+int	main(void) {
 	Sample	instance;
 
 	instance.public_int = 42;

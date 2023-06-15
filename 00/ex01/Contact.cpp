@@ -1,17 +1,17 @@
 
 #include "Contact.hpp"
 
-// --------------- constructor ----------------
+// ------------------- constructor --------------------
 Contact::Contact(void) {
-	// std::cout << "Constructor called" << std::endl;
+	// std::cout << "constructor called" << std::endl;
 }
 
-// ---------------- destructor ----------------
+// -------------------- destructor --------------------
 Contact::~Contact(void) {
-	// std::cout << "Destructor called" << std::endl;
+	// std::cout << "destructor called" << std::endl;
 }
 
-// ----------------- setters ----------------------
+// -------------------- setters -----------------------
 void	Contact::set_idx(int val) {	
 	this->idx = val;
 }
@@ -31,7 +31,7 @@ void	Contact::set_darkest_secret(std::string val) {
 	this->_darkest_secret = val;
 }
 
-// ---------------- getters ------------------------
+// -------------- accessors (getters) -----------------
 int	Contact::get_idx(void) {
 	return (this->idx);
 }
