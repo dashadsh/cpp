@@ -16,7 +16,6 @@ public:
 	~Contact();
 
 	// ----------- getters ------------
-	int get_index() const;
     std::string get_first_name() const;
 	std::string get_last_name() const;
     std::string get_nickname() const;
@@ -30,7 +29,6 @@ public:
 	// Since they don't modify the object's state, it is appropriate to declare them as const member functions.
 
 	// ----------- setters -------------
-    void set_index(int value);
     void set_first_name(const std::string& value);
     void set_last_name(const std::string& value);
     void set_nickname(const std::string& value);
@@ -51,7 +49,6 @@ private:
 	// attributes (or member variables)
 	// hold the values specific to EACH INSTANCE of the Contact class, 
 	// allowing to store and retrieve information about individual contacts
-    int _index;
     std::string _first_name;
     std::string _last_name;
     std::string _nickname;

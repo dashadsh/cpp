@@ -5,7 +5,7 @@
 // The part after the colon : is called the initializer list. 
 // It initializes the member variables of the Contact class with the specified values. 
 // Each member variable is followed by its initializer in parentheses.
-Contact::Contact() : _index(0), 
+Contact::Contact() : 
 					_first_name(""), 
 					_last_name(""), 
 					_nickname(""), 
@@ -15,9 +15,6 @@ Contact::Contact() : _index(0),
 Contact::~Contact() {}
 
 // ---------------- getters ----------------------
-int Contact::get_index() const {
-    return _index;
-}
 std::string Contact::get_first_name() const {
     return _first_name;
 }
@@ -35,9 +32,6 @@ std::string Contact::get_darkest_secret() const {
 }
 
 // ---------------- setters ----------------------
-void Contact::set_index(int value) {
-    _index = value;
-}
 void Contact::set_first_name(const std::string& value) {
     _first_name = value;
 }
