@@ -1,52 +1,66 @@
-#include <iostream>
-#include <string> // std::string.
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
-// constructors and destructors should be declared as public in your class. 
-// because you usually want to allow code outside the class to create and destroy 
-// instances of the class. 
+#include <string>
+//////////////////////////////////////////////////
+// the code must include a Contact class, 
+// or whatever name the student used.
+// This class must contain attributes for the 
+// different fields.
+//////////////////////////////////////////////////
 
 class Contact {
 public:
-    Contact(); // CPP use the name of the class for constructor
-    ~Contact(); // and the name of the class for destructor
-    
-	// Getters
-	// it's common to declare methods that don't modify the object as const. 
-	// This lets the compiler know that the method won't modify the object, 
-	// and allows you to call the method on a const object. 
-	// It's common to declare getter methods as const because they typically 
-	// don't need to modify the object:
-	// int get_idx() const;
-    // std::string get_first_name() const;
-	int get_idx();
-    std::string get_first_name();
-    std::string get_last_name();
-    std::string get_nickname();
-    std::string get_phone_nbr();
-	std::string	get_darkest_secret(void);
+    Contact();
+	~Contact();
 
-    // Setters
-	// Passing by const reference (const std::string&) instead of by value (std::string) 
-	// is a common optimization when the function doesn't need to modify the original argument.
-	// This avoids the cost of copying the string, which can be expensive for large strings. 
-	// The const keyword ensures that the function doesn't modify the passed string.
-	void set_idx(int val);
-    void set_first_name(std::string val);
-    void set_last_name(std::string val);
-    void set_nickname(std::string val);
-    void set_phone_nbr(std::string val);
-    void set_darkest_secret(std::string val);
+	// ----------- getters ------------
+	int get_index() const;
+    std::string get_first_name() const;
+	std::string get_last_name() const;
+    std::string get_nickname() const;
+	std::string get_phone_nbr() const;
+    std::string get_darkest_secret() const;
+	// A const member function is a member function that promises not to modify the state 
+	// of the object on which it is called. It is used to ensure that calling the function 
+	// won't cause any changes to the object's data members.
+	//
+	// Getters simply return the values of the corresponding member variables. 
+	// Since they don't modify the object's state, it is appropriate to declare them as const member functions.
+
+	// ----------- setters -------------
+    void set_index(int value);
+    void set_first_name(const std::string& value);
+    void set_last_name(const std::string& value);
+    void set_nickname(const std::string& value);
+    void set_phone_nbr(const std::string& value);
+    void set_darkest_secret(const std::string& value);
+	// Passing the parameter by reference (const std::string&) instead of by value (const std::string) 
+	// is a common practice when you don't need to modify the original argument and want to avoid 
+	// unnecessary copies of the argument.
+	//
+	// Using a reference allows the function to work directly with the original object without 
+	// creating a new copy. This can be more efficient, especially when dealing with large objects or 
+	// when the function is called frequently.
+	//
+	// By using const std::string& value, you ensure that the function won't modify the original string 
+	// argument passed to it.
 
 private:
-    int idx;
+	// attributes (or member variables)
+	// hold the values specific to EACH INSTANCE of the Contact class, 
+	// allowing to store and retrieve information about individual contacts
+    int _index;
     std::string _first_name;
     std::string _last_name;
     std::string _nickname;
     std::string _phone_nbr;
     std::string _darkest_secret;
+	// std::string handles memory management for you, automatically allocating and deallocating memory 
+	// as needed to store the string data.
+	// An alternative to using std::string that could potentially lead to memory leaks is using raw C-style 
+	// character arrays (char arrays) to store strings: char _first_name[50];
 };
 
 #endif

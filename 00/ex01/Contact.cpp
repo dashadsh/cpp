@@ -1,78 +1,55 @@
 
-#include "Contact.hpp"
+#include "contact.hpp"
 
-// ------------------- constructor --------------------
-Contact::Contact(void) {
-	// std::cout << "constructor called" << std::endl;
-}
+// ------------ constructor + destructor -------------
+// The part after the colon : is called the initializer list. 
+// It initializes the member variables of the Contact class with the specified values. 
+// Each member variable is followed by its initializer in parentheses.
+Contact::Contact() : _index(0), 
+					_first_name(""), 
+					_last_name(""), 
+					_nickname(""), 
+					_phone_nbr(""), 
+					_darkest_secret("") {}
 
-// -------------------- destructor --------------------
-Contact::~Contact(void) {
-	// std::cout << "destructor called" << std::endl;
-}
+Contact::~Contact() {}
 
-// -------------------- setters -----------------------
-void	Contact::set_idx(int val) {	
-	this->idx = val;
+// ---------------- getters ----------------------
+int Contact::get_index() const {
+    return _index;
 }
-void	Contact::set_first_name(std::string val) {	
-	this->_first_name = val;
+std::string Contact::get_first_name() const {
+    return _first_name;
 }
-void	Contact::set_last_name(std::string val) {	
-	this->_last_name = val;
+std::string Contact::get_last_name() const {
+    return _last_name;
 }
-void	Contact::set_nickname(std::string val) {
-	this->_nickname = val;
+std::string Contact::get_nickname() const {
+    return _nickname;
 }
-void	Contact::set_phone_nbr(std::string val) {
-	this->_phone_nbr = val;
+std::string Contact::get_phone_nbr() const {
+    return _phone_nbr;
 }
-void	Contact::set_darkest_secret(std::string val) {
-	this->_darkest_secret = val;
-}
-
-// -------------- accessors (getters) -----------------
-int	Contact::get_idx(void) {
-	return (this->idx);
-}
-std::string	Contact::get_first_name(void) {
-	return (this->_first_name);
-}
-std::string	Contact::get_last_name(void) {
-	return (this->_last_name);
-}
-std::string	Contact::get_nickname(void) {
-	return (this->_nickname);
-}
-std::string	Contact::get_phone_nbr(void) {
-	return (this->_phone_nbr);
-}
-std::string	Contact::get_darkest_secret(void) {
-	return (this->_darkest_secret);
+std::string Contact::get_darkest_secret() const {
+    return _darkest_secret;
 }
 
-// std::string is a class in the C++ Standard Library that represents 
-// a sequence of characters. It is used to manipulate strings of characters.
-
-// std::string is used as the return type of the getter functions, 
-// this is because the members first_name, last_name, nickname, phone_nbr, and darkest_secret 
-// of the Contact class are declared as std::string types. 
-// These methods return the current values of those string members.
-
-// Ease of Use: 
-// std::string provides a lot of built-in functions for manipulating and working with strings. 
-// For example, you can easily concatenate two strings using the + operator.
-
-// Dynamic Size: 
-// Unlike C-style strings, which require you to manually allocate memory 
-// if you need a different size, std::string can automatically adjust its size as needed.
-
-// Safety: 
-// std::string takes care of some of the memory management for you, 
-// so you are less likely to encounter errors related to memory management, 
-// such as buffer overflows.
-
-// Compatibility with C++ Standard Library: 
-// Many functions in the C++ Standard Library, such as those in <algorithm> and <iostream>, 
-// are designed to work with std::string, which makes it easier to use these 
-// library functions with your strings.
+// ---------------- setters ----------------------
+void Contact::set_index(int value) {
+    _index = value;
+}
+void Contact::set_first_name(const std::string& value) {
+    _first_name = value;
+}
+void Contact::set_last_name(const std::string& value) {
+    _last_name = value;
+}
+void Contact::set_nickname(const std::string& value) {
+    _nickname = value;
+}
+void Contact::set_phone_nbr(const std::string& value) {
+    _phone_nbr = value;
+}
+void Contact::set_darkest_secret(const std::string& value) {
+    _darkest_secret = value;
+}
