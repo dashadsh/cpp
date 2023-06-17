@@ -83,12 +83,15 @@ void handle_add(PhoneBook& phonebook) {
     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
 }
 
+//////////////////////////////////////////////////////////////////
+// The program must present a read/eval loop at some point: reading
+// the input, evaluating it, then loop until an EXIT command appears in input.
+//////////////////////////////////////////////////////////////////
+
 int main() {
     PhoneBook phonebook;
     std::string command;
 
-// The program must present a read/eval loop at some point: reading
-// the input, evaluating it, then loop until an EXIT command appears in input.
     while (true) {
         std::cout << "Enter command (ADD, SEARCH, or EXIT): ";
         std::getline(std::cin, command);
