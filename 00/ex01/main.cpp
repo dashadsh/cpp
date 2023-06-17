@@ -65,23 +65,73 @@ void handle_search(const PhoneBook& phonebook) {
 // as long as it respects the spirit of the exercise.
 //////////////////////////////////////////////////////////////////
 
-
 void handle_add(PhoneBook& phonebook) {
     std::string first_name, last_name, nickname, phone_nbr, darkest_secret;
 
-    std::cout << "Enter first name: ";
-    std::getline(std::cin, first_name);
-    std::cout << "Enter last name: ";
-    std::getline(std::cin, last_name);
-    std::cout << "Enter nickname: ";
-    std::getline(std::cin, nickname);
-    std::cout << "Enter phone number: ";
-    std::getline(std::cin, phone_nbr);
-    std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, darkest_secret);
+    while (true) {
+        std::cout << "Enter first name: ";
+        std::getline(std::cin, first_name);
+        if (!first_name.empty()) {
+            break;
+        }
+        std::cout << "First name cannot be empty. Please try again." << std::endl;
+    }
+
+    while (true) {
+        std::cout << "Enter last name: ";
+        std::getline(std::cin, last_name);
+        if (!last_name.empty()) {
+            break;
+        }
+        std::cout << "Last name cannot be empty. Please try again." << std::endl;
+    }
+
+    while (true) {
+        std::cout << "Enter nickname: ";
+        std::getline(std::cin, nickname);
+        if (!nickname.empty()) {
+            break;
+        }
+        std::cout << "Nickname cannot be empty. Please try again." << std::endl;
+    }
+
+    while (true) {
+        std::cout << "Enter phone number: ";
+        std::getline(std::cin, phone_nbr);
+        if (!phone_nbr.empty()) {
+            break;
+        }
+        std::cout << "Phone number cannot be empty. Please try again." << std::endl;
+    }
+
+    while (true) {
+        std::cout << "Enter darkest secret: ";
+        std::getline(std::cin, darkest_secret);
+        if (!darkest_secret.empty()) {
+            break;
+        }
+        std::cout << "Darkest secret cannot be empty. Please try again." << std::endl;
+    }
 
     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
 }
+
+// void handle_add(PhoneBook& phonebook) {
+//     std::string first_name, last_name, nickname, phone_nbr, darkest_secret;
+
+//     std::cout << "Enter first name: ";
+//     std::getline(std::cin, first_name);
+//     std::cout << "Enter last name: ";
+//     std::getline(std::cin, last_name);
+//     std::cout << "Enter nickname: ";
+//     std::getline(std::cin, nickname);
+//     std::cout << "Enter phone number: ";
+//     std::getline(std::cin, phone_nbr);
+//     std::cout << "Enter darkest secret: ";
+//     std::getline(std::cin, darkest_secret);
+
+//     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
+// }
 
 //////////////////////////////////////////////////////////////////
 // The program must present a read/eval loop at some point: reading
