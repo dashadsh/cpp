@@ -2,7 +2,6 @@
 #include <iomanip>
 
 PhoneBook::PhoneBook(void) {}
-
 PhoneBook::~PhoneBook(void) {}
 
 // set_contact function enables adding new contacts to the phone book by finding an empty slot 
