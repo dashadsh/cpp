@@ -5,13 +5,7 @@
 // The part after the colon : is called the initializer list. 
 // It initializes the member variables of the Contact class with the specified values. 
 // Each member variable is followed by its initializer in parentheses.
-Contact::Contact() : 
-					_first_name(""), 
-					_last_name(""), 
-					_nickname(""), 
-					_phone_nbr(""), 
-					_darkest_secret("") {}
-
+Contact::Contact() {}
 Contact::~Contact() {}
 
 // ---------------- getters ----------------------
