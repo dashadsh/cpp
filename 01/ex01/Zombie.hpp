@@ -6,9 +6,12 @@
 class Zombie {
 public:
     Zombie();
+	~Zombie();
+
+	// member function takes a std::string parameter name and sets the name 
+	// of the Zombie object to the provided value
     void setName(std::string name);
     void announce();
-    ~Zombie();
 
 private:
     std::string name;
