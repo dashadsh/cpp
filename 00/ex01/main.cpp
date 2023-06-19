@@ -49,12 +49,12 @@ void handle_search(const PhoneBook& phonebook) {
 	// It returns a boolean value indicating whether the string is empty or not.
     if (found_contact.get_first_name().empty()) {
         std::cout << "Invalid index! Nothing is stored there." << std::endl;
-    } else {
-        std::cout << "First Name: " << std::setw(10) << std::right << found_contact.get_first_name() << std::endl;
-        std::cout << "Last Name: " << std::setw(10) << std::right << found_contact.get_last_name() << std::endl;
-        std::cout << "Nickname: " << std::setw(10) << std::right << found_contact.get_nickname() << std::endl;
-        std::cout << "Phone Number: " << std::setw(10) << std::right << found_contact.get_phone_nbr() << std::endl;
-        std::cout << "Darkest Secret: " << std::setw(10) << std::right << found_contact.get_darkest_secret() << std::endl;
+    } else {        
+        std::cout << "First Name: " << found_contact.get_first_name() << std::endl;
+        std::cout << "Last Name: " << found_contact.get_last_name() << std::endl;
+        std::cout << "Nickname: "  << found_contact.get_nickname() << std::endl;
+        std::cout << "Phone Number: "  << found_contact.get_phone_nbr() << std::endl;
+        std::cout << "Darkest Secret: " << found_contact.get_darkest_secret() << std::endl;
     }
 }
 }
