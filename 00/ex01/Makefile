@@ -1,4 +1,4 @@
-NAME = awesome_phonebook
+NAME = phonebook
 SRCS = contact.cpp phoneBook.cpp main.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
