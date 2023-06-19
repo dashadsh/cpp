@@ -111,7 +111,6 @@ void handle_add(PhoneBook& phonebook) {
         }
         std::cout << "Darkest secret cannot be empty. Please try again." << std::endl;
     }
-
     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
 }
 
