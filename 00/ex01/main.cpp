@@ -42,13 +42,13 @@ void handle_search(const PhoneBook& phonebook) {
 	// std::cin >> index; - promt was 2 times 
 
 	if (index < 0 || index > 7) {
-        std::cout << "Invalid index! Only 0-7 can contain some data" << std::endl;
+        std::cout << "Invalid index! Only 0-7 can contain some data." << std::endl;
 	} else {
     Contact found_contact = phonebook.get_contact(index);
 	//  The empty() function is a member function of the std::string class. 
 	// It returns a boolean value indicating whether the string is empty or not.
     if (found_contact.get_first_name().empty()) {
-        std::cout << "Invalid index! Nothing is stored there" << std::endl;
+        std::cout << "Invalid index! Nothing is stored there." << std::endl;
     } else {
         std::cout << "First Name: " << std::setw(10) << std::right << found_contact.get_first_name() << std::endl;
         std::cout << "Last Name: " << std::setw(10) << std::right << found_contact.get_last_name() << std::endl;
