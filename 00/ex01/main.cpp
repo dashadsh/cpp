@@ -1,16 +1,17 @@
 #include "phonebook.hpp"
 #include <sstream> // std::istringstream
 #include <iostream>
-#include <iomanip> 
-// By using std::setw(10) and std::right manipulators, 
+#include <iomanip>  // std::setw(10) and std::right,
 // each field will be displayed with a width of 10 characters and 
 // will be right-aligned within that width.
+//
+// library provides functions that can control input and output, such as
+// setw(num), setfill('char')
 
-//////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------------------------
 // A minor divergence in the expected formating is not relevant. 
 // The aim of this part is to use C++ iomanips and that's what you should focus on.
-//////////////////////////////////////////////////////////////////
-
+// ------------------------------------------------------------------------------------------------------------
 
 void handle_search(const PhoneBook& phonebook) {
     phonebook.print_contacts();
@@ -18,19 +19,12 @@ void handle_search(const PhoneBook& phonebook) {
     std::cout << "Enter the index of the contact you want to view: ";
 
 	// variable declaration
-    std::string command;
+	std::string command;
 
-	// reads a line of input from the standard input (std::cin) 
-	// and stores it in the command variable. 
-    std::getline(std::cin, command);
+    std::getline(std::cin, command); // reads the entire line of input, incl. non-numeric chars
 
-	// creates an input string stream (std::istringstream) named iss 
-	// using the content of the command string.
-	// The input string stream allows you to treat the command string as a stream, 
-	// enabling you to extract values from it in a similar way to reading from std::cin.
-    std::istringstream iss(command);
+    std::istringstream iss(command); // extract the idx from the command str, if the extract.fails, error is displayed
     int index;
- 	//  iss >> index;
 	//  If you enter a non-numeric value, the extraction from std::istringstream will fail
       if (!(iss >> index)) {
         std::cout << "Invalid input! Please enter a valid index." << std::endl;
@@ -39,8 +33,10 @@ void handle_search(const PhoneBook& phonebook) {
 
 	// -------- WRONG -----------
 	// int index;
-	// std::cin >> index; - promt was 2 times 
-
+	// std::cin >> index; - promt was 2 times / infinite loop when entering non-numeric values
+	// instead of relying on std::cin for input, 
+	// i could use std::getline and std::istringstream for extracting idx
+	
 	if (index < 0 || index > 7) {
         std::cout << "Invalid index! Only 0-7 can contain some data." << std::endl;
 	} else {
@@ -59,10 +55,10 @@ void handle_search(const PhoneBook& phonebook) {
 }
 }
 
-//////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------------------------
 // The field names are not relevant, nor the number of fields 
 // as long as it respects the spirit of the exercise.
-//////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------------------------
 
 void handle_add(PhoneBook& phonebook) {
     std::string first_name, last_name, nickname, phone_nbr, darkest_secret;
@@ -114,27 +110,10 @@ void handle_add(PhoneBook& phonebook) {
     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
 }
 
-// void handle_add(PhoneBook& phonebook) {
-//     std::string first_name, last_name, nickname, phone_nbr, darkest_secret;
-
-//     std::cout << "Enter first name: ";
-//     std::getline(std::cin, first_name);
-//     std::cout << "Enter last name: ";
-//     std::getline(std::cin, last_name);
-//     std::cout << "Enter nickname: ";
-//     std::getline(std::cin, nickname);
-//     std::cout << "Enter phone number: ";
-//     std::getline(std::cin, phone_nbr);
-//     std::cout << "Enter darkest secret: ";
-//     std::getline(std::cin, darkest_secret);
-
-//     phonebook.set_contact(first_name, last_name, nickname, phone_nbr, darkest_secret);
-// }
-
-//////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------------------------
 // The program must present a read/eval loop at some point: reading
 // the input, evaluating it, then loop until an EXIT command appears in input.
-//////////////////////////////////////////////////////////////////
+// ------------------------------------------------------------------------------------------------------------
 
 int main() {
     PhoneBook phonebook;
@@ -155,3 +134,28 @@ int main() {
     }
     return 0;
 }
+
+// ------------------------------------------------------------------------------------------------------------
+// advantages of using std::istringstream:
+//
+// Extraction of Values: 
+// std::istringstream allows you to extract values of different types from a string. 
+// It provides the same functionality as std::cin, 
+// allowing you to parse and extract individual values from a string.
+//
+// Data Conversion: 
+// With std::istringstream, you can easily convert string representations of data into their appropriate types. 
+// For example, you can extract an integer or a floating-point number from a string using the >> operator.
+//
+// Input Validation: 
+// std::istringstream provides a convenient way to validate input. 
+// By using the extraction operator (>>), you can check if the extraction was successful or not. 
+// If the extraction fails due to invalid input or mismatched data types, you can handle the error accordingly.
+//
+// Stream Operations: 
+// Since std::istringstream inherits from std::istream, it supports various stream operations like 
+// formatting, manipulators, and error state checks. 
+// You can use functions like std::setw, std::right, etc., to format the output extracted from the string.
+//
+// Overall, std::istringstream allows for easy parsing, extraction, and conversion of data from a string, 
+// making it a useful tool when working with input that needs to be processed or validated.

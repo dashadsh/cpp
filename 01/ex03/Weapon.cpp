@@ -1,18 +1,20 @@
 #include "Weapon.hpp"
 
 // constructor
-Weapon::Weapon(std::string type) : type(std::move(type)) {}
+Weapon::Weapon(std::string someType) : type(someType) {
+	// will copy passed parameter to the 'type' variable
+}
 
 Weapon::~Weapon() {}
 
-// Return the weapon type
+// return weapon type
 std::string Weapon::getType() {
     return type;
 }
 
-// Set the weapon type using the new type passed as a parameter
+// set weapon type using new type passed as a param.
 void Weapon::setType(std::string newType) {
-    type = std::move(newType);
+    this->type = newType;
 }
 
 //---------------------------------------------------------------------------------------------

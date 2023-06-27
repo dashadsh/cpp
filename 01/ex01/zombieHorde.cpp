@@ -1,4 +1,3 @@
-
 #include "Zombie.hpp"
 
 	// dynamically allocates an array of N Zombie objects 

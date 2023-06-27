@@ -1,4 +1,3 @@
-
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -21,12 +20,11 @@ public:
     std::string get_nickname() const;
 	std::string get_phone_nbr() const;
     std::string get_darkest_secret() const;
-	// A const member function is a member function that promises not to modify the state 
-	// of the object on which it is called. It is used to ensure that calling the function 
-	// won't cause any changes to the object's data members.
+	// CONST member funct. -  promises not to modify the state of the obj. on which it is called,
+	// used to ensure that calling the func. won't cause any changes to the obj's data members
 	//
-	// Getters simply return the values of the corresponding member variables. 
-	// Since they don't modify the object's state, it is appropriate to declare them as const member functions.
+	// getters  - simply return val of the corresponding member var's;
+	// they don't modify the object's state => declare them as CONST member func's
 
 	// ----------- setters -------------
     void set_first_name(const std::string& value);
@@ -34,16 +32,14 @@ public:
     void set_nickname(const std::string& value);
     void set_phone_nbr(const std::string& value);
     void set_darkest_secret(const std::string& value);
-	// Passing the parameter by reference (const std::string&) instead of by value (const std::string) 
-	// is a common practice when you don't need to modify the original argument and want to avoid 
-	// unnecessary copies of the argument.
+	// passing by REF. (const std::string&) instead of by VAL. (const std::string);
+	// common practice when you don't need to modify the orig. arg. +
+	// want to avoid unnecessary copies of the arg.
 	//
-	// Using a reference allows the function to work directly with the original object without 
-	// creating a new copy. This can be more efficient, especially when dealing with large objects or 
-	// when the function is called frequently.
+	// using a ref. allows the func. to work directly with the orig. obj. w/o creating a new copy. 
+	// can be more efficient, especially for large objects / when the function is called frequently
 	//
-	// By using const std::string& value, you ensure that the function won't modify the original string 
-	// argument passed to it.
+	// using CONSR std::string& value, you ensure that the func. won't modify the orig. str. arg. passed to it.
 
 private:
 	// attributes (or member variables)

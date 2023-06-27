@@ -2,22 +2,19 @@
 #include <string>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-// reference is an alternative name or alias given to an existing variable, 
-// it allows you to create a new name that refers to the same memory location as the original variable. 
-// Once a reference is established, any changes made through the reference will 
-// affect the original variable, and vice versa.
+// reference -  alternative name / alias given to an existing var, 
+// allows to create a new name that refers to the same memory location as the orig.var. 
 //
-// SIC!
-// References are often used as function parameters to pass variables by reference, 
-// allowing modifications to be made directly to the original variable.
+// Once a REF is created, any changes made through the REF will affect the orig. var. & vice versa.
 //
-// References provide a more readable and convenient syntax compared to 
-// using pointers in certain scenarios.
+// REFs are often used as func. param. to pass variables by ref., 
+// allowing modifications to be made directly to the orig. variable.
 //
-// Unlike pointers, references cannot be null or uninitialized. 
-// They must be bound to an existing variable upon declaration.
+// REFs provide a more readable and convenient syntax compared to using PTRs in certain scenarios.
 //
-// References cannot be reassigned to refer to a different variable after initialization.
+// unlike PTRs, REFs cannot be null or uninitialized => must be bound to an existing var. upon declaration
+//
+// REFs cannot be reassigned to refer to a different var. after initialization.
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // the reference stringREF is declared and initialized to reference the str variable.
@@ -39,8 +36,8 @@ int main() {
 
     // ---------------------- print the values ----------------------
     std::cout << "Value of the string variable: " << str << std::endl;
-    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
+    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl; // dereferenced PTR
+    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl; // REF is like a dereferenced PTR => don't need to add any symbol to access it
 
     return 0;
 }

@@ -14,37 +14,35 @@
 #include <iostream>
 #include "HumanB.hpp"
 
+// constructor
 // weapon PTR is initialized to nullptr, so
 // it doesn't currently point to any valid memory address.
-HumanB::HumanB(std::string name) : name(std::move(name)), weapon(nullptr) {
-    // constructor
+HumanB::HumanB(std::string name) : name(name), weapon(nullptr) {
+	// name parameter will be copied into the name member variable of the HumanB class
 }
 
 HumanB::~HumanB() {}
 
 void HumanB::setWeapon(Weapon& weapon) {
-    this->weapon = &weapon; // Set the weapon pointer to the address of the passed weapon object
+    this->weapon = &weapon; // set the weapon pointer to the address of the passed weapon object
 }
 
-// usage of nullptr is important because it allows us to check if the HumanB obj.
-// is currently unarmed. 
-// There is a condition that checks if the weapon 
-// PTR is nullptr before attempting to access the weapon:
+// usage of nullptr is important bc it allows us to check if the HumanB obj. is currently unarmed. 
+// there is a condition that checks if the weapon PTR is nullptr before attempting to access the weapon:
 void HumanB::attack() {
-	// By checking if the weapon pointer is nullptr, 
-	// we can determine if the HumanB object has a valid weapon assigned to it or if it is unarmed. 
+	// checking if the weapon pointer is nullptr =>
+	// we can determine if the HumanB object has a valid weapon assigned/is unarmed. 
     if (weapon != nullptr) {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-        // Display the human's name and the weapon type they are attacking with
+        // display human's name + weapon type they are attacking with
     } else {
         std::cout << name << " is unarmed and cannot attack!" << std::endl;
-        // Display a message indicating that the human is unarmed
-		// If the weapon pointer is nullptr, 
-		// we display a message indicating that the HumanB object is unarmed and cannot attack.
+		// If the weapon PTR is nullptr =>
+		// display a mssg that the HumanB obj is unarmed & cannot attack.
     }
 }
-// Later in the main() function, 
-// after creating the HumanB object jim, a weapon is assigned to it using the setWeapon() function.
+// later in the main(), after creating the HumanB object jim, 
+// a weapon is assigned to it using the setWeapon() func.
 
 
 // --------------------------------------------------------------------------------------------

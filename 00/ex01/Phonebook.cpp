@@ -1,8 +1,8 @@
 #include "phonebook.hpp"
 #include <iomanip>
 
-PhoneBook::PhoneBook(void) {}
-PhoneBook::~PhoneBook(void) {}
+PhoneBook::PhoneBook() {}
+PhoneBook::~PhoneBook() {}
 
 // set_contact function enables adding new contacts to the phone book by finding an empty slot 
 // in the array and setting the contact information for that slot.

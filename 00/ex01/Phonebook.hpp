@@ -1,5 +1,5 @@
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "contact.hpp"
 #include <string>
@@ -11,8 +11,8 @@
 // and exposes member functions to interact with and manipulate the contacts.
 class PhoneBook {
 public:
-    PhoneBook(void);
-    ~PhoneBook(void);
+    PhoneBook();
+    ~PhoneBook();
 
 	// member func sets the contact info for a specific entry in the phonebook,
 	// takes: first name, last name etc. as parameters, 

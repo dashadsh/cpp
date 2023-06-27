@@ -5,14 +5,14 @@
 
 class Weapon {
 private:
-    std::string type; // Private attribute to store the weapon type
+    std::string type; // private attribute to store the weapon type
 
 public:
-    Weapon(std::string type); // Constructor to initialize the weapon type
+    Weapon(std::string type); // constructor to initialize the weapon type
 	~Weapon();
-	
-    std::string getType(); // Member function to get the weapon type
-    void setType(std::string newType); // Member function to set the weapon type
+
+    std::string getType(); // member func. to get the weapon type
+    void setType(std::string newType); // member func. to set the weapon type
 };
 
 

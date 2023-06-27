@@ -2,15 +2,17 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main() 
-{
+
+// if i comment out jim.setWeapon(club); - should club.setType("some other type of club"); still work??
+int main() {
 	{
     Weapon  club = Weapon("crude spiked club");
     HumanA bob("Bob", club);
     bob.attack();
     club.setType("some other type of club");
-    bob.attack();
+    bob.attack(); 
 	} 
+
 	{
 	Weapon  club = Weapon("crude spiked club");
 
@@ -22,8 +24,8 @@ int main()
 	// and perform attacks correctly.
 	jim.attack();
 	club.setType("some other type of club");
-	jim.attack();
+	jim.attack(); 
 	}
 
-return 0; 
+return 0;
 }

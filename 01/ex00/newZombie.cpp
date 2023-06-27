@@ -1,11 +1,12 @@
 
 #include "Zombie.hpp"
 
-// dynamically allocates memory for a Zombie object on the heap, 
-// initializes it with the provided name, 
-// and returns a pointer to the created Zombie object. 
-// This allows you to create Zombie objects with dynamic memory allocation and 
-// access them outside the scope of the newZombie function.
+// dynamically allocates memory for a Zombie obj on the heap, 
+// init. it with the provided name, returns a PTR to the created Zombie obj. 
+
+// This allows you to create Zombie obj's with dynamic memory allocation and 
+// access them outside the scope of the newZombie func.
+
 Zombie* newZombie(std::string name) {
 	// allocates memory on the heap
     Zombie* zombie = new Zombie(name);
