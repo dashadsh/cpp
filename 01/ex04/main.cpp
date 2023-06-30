@@ -12,8 +12,7 @@
 // because it won't match any of the words extracted from the line.
 
 // 1st implementation doesn't split the lines into words. 
-// Instead, it checks the entire line for instances of s1, 
-// regardless of whether s1 is an entire word or part of a word. 
+// Instead, it checks the entire line for instances of s1,  
 // If a match is found, it's replaced with s2.
 
 // ------------------------------------------------------------------------------------------------------------
@@ -52,7 +51,8 @@ int main(int ac, char *av[]) {
     // while there are lines to read from input file:
     while (std::getline(inFile, line)) {
         // keep replacing s1 with s2 in current line
-        std::size_t pos;
+     	std::size_t pos;
+
 		// this loop will find and process each occurrence of s1 in line, 
 		// stopping when there are no more occurrences of s1 left:
         while ((pos = line.find(s1)) != std::string::npos) {
