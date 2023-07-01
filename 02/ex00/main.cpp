@@ -105,3 +105,30 @@ int main(void) {
 
 // Destructor called - 
 // called when c goes out of scope and is being destructed.
+
+// ----------------------------------------------------------------------------------------------------------
+
+// FIXED-POINT NUMBERS
+// Fixed-point number representation is a way of encoding real numbers within a computer. 
+// It is an alternative to floating-point numbers, and the reason you might use one over the other depends on the specific needs of your application.
+
+// Here's why you might use fixed-point numbers:
+
+// Accuracy: 
+// Fixed-point arithmetic is exact. There are no rounding errors (as long as you don't overflow). 
+// This can be particularly important in certain types of numerical algorithms where rounding errors can accumulate and cause significant inaccuracies in the results.
+
+// Performance: 
+// In some systems (especially older or simpler processors), fixed-point arithmetic can be faster than floating-point arithmetic. 
+// This is because fixed-point operations can often be implemented using integer operations which are usually faster.
+
+// Predictability: 
+// Fixed-point arithmetic has no surprise behaviours such as NaN or infinity, and no sudden huge jumps in the size of the error 
+// (as you can get with floating-point when denormals kick in).
+
+// Space Efficiency: 
+// Fixed-point numbers can require less memory than floating-point numbers. This might be important in memory-constrained systems.
+
+// The trade-off is that fixed-point numbers have a smaller range than floating-point numbers for the same bit-width,
+// and handling the fixed-point fractional numbers might be a bit tricky, especially for division and multiplication.
+
