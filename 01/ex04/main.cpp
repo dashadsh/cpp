@@ -17,9 +17,68 @@
 
 // ------------------------------------------------------------------------------------------------------------
 
+// The std::string class in C++ is a sequence of characters. 
+// It has several useful member functions for manipulating and accessing strings, like:
+//
+// size() / length(): Returns the number of characters in the string.
+// empty(): Returns true if the string is empty (i.e., its size is zero).
+// append(str): Appends the string str at the end of the current string.
+// substr(pos, len): Returns a substring of the current string. The substring starts at index pos and has length len. If len is not given, it returns the substring from pos to the end of the string.
+// c_str(): Returns a pointer to an array that contains a null-terminated sequence of characters representing the current value of the string object.
+// find(str): Searches the string for the first occurrence of the sequence specified by str and returns the position of the first character of the first match. If no matches were found, the function returns std::string::npos.
+// rfind(str): Same as find, but searches for the last occurrence of str instead of the first.
+// insert(pos, str): Inserts the string str at the position pos.
+// erase(pos, len): Erases a portion of the string, reducing its length. The portion removed starts at index pos and has a length of len characters.
+// compare(str): Compares the current string with the string str. Returns 0 if they are equal, a negative integer if the current string is less than str, and a positive integer if it is greater.
+// replace(pos, len, str): Replaces the portion of the string that begins at character pos and spans len characters by the string str.
+// operator+=: Appends a given string to the current string.
+// operator+: Concatenates two strings.
+// operator[]: Accesses the character at a given position.
+
+// ------------------------------------------------------------------------------------------------------------
+
+// The std::ifstream and std::ofstream are classes provided by C++ Standard Library 
+// for reading from (std::ifstream for "input file stream") 
+// and writing to (std::ofstream for "output file stream") files respectively.
+//
+// These classes inherit from the std::istream and std::ostream classes, 
+// and thus they provide all the member functions of these classes, 
+// plus some additional ones for handling files. Here are some important member functions:
+//
+// Common member functions for std::ifstream and std::ofstream:
+//
+// open(filename, mode): Opens the file with the given filename. The mode can be used to specify how the file should be opened (e.g., std::ios::in for reading, std::ios::out for writing, std::ios::binary for binary mode, etc.). If the file stream was already associated with a file (i.e., it was already open), calling this function will first close that file.
+// close(): Closes the file currently associated with the object, disassociating it from the stream.
+// is_open(): Checks if the file stream is currently associated with a file.
+// good(): Returns true if none of the stream's error flags (eofbit, failbit, badbit) are set.
+// fail(): Returns true if either (or both) the failbit or the badbit error state flags is set for the stream.
+// bad(): Returns true if the badbit error state flag is set for the stream. This flag is generally set by an operation when an error occurs while reading or writing data.
+// eof(): Returns true if the eofbit error state flag is set for the stream. The EOF (End-Of-File) is generally set by an operation when it encounters the end of the file.
+//
+// std::ifstream specific member functions:
+// //
+// get(): Extracts a single character from the stream.
+// getline(char* s, streamsize n): Extracts characters from the stream and stores them in s as a c-string, until either (n - 1) characters have been extracted or the delimiter is encountered (newline character by default).
+// read(char* s, streamsize n): Reads n characters from the file and stores them in the array pointed to by s. This function is usually used for reading binary data.
+// 
+// std::ofstream specific member functions:
+//
+// put(char c): Inserts the character c into the output stream.
+// write(const char* s, streamsize n): Inserts n characters from the array pointed to by s into the output stream. This function is usually used for writing binary data.
+// flush(): Synchronizes the associated stream buffer with its controlled output sequence.
+// 
+// Remember that these are member functions. 
+// For example, to use open function you would need to do something like: 
+// std::ofstream outFile; outFile.open("filename.txt", std::ios::out);
+// 
+// Also, note that the error checking functions (e.g., fail(), bad(), eof(), and good()) can be called after any operation 
+// to check whether the operation succeeded.
+
+// ------------------------------------------------------------------------------------------------------------
+
 #include <fstream>  // file input/output
-#include <iostream> // input/output on the console
-#include <string>   // for string data type
+#include <iostream> // input/output on the console, std::cerr
+#include <string>   // for string data type, std::getline()
 
 int main(int ac, char *av[]) {
 

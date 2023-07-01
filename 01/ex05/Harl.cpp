@@ -1,22 +1,22 @@
 #include "Harl.hpp"
 
 void Harl::_debug() {
-	std::cout << "\n# DEBUG #" << std::endl;
+	std::cout << "\n[ DEBUG ]" << std::endl;
     std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!\n";
 }
 
 void Harl::_info() {
-	std::cout << "\n# INFO #" << std::endl;
+	std::cout << "\n[ INFO ]" << std::endl;
     std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!\n";
 }
 
 void Harl::_warning() {
-	std::cout << "\n# WARNING #" << std::endl;
+	std::cout << "\n[ WARNING ]" << std::endl;
     std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month.\n";
 }
 
 void Harl::_error() {
-	std::cout << "\n# ERROR #" << std::endl;
+	std::cout << "\n[ ERROR ]" << std::endl;
     std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 // to add a new level -  sadd a new function and update the collection of func. pointers accordingly, 
@@ -57,7 +57,7 @@ void Harl::complain(std::string level)
     }
 
     // provided level was invalid:
-	std::cout << "\n# EXCEPTION #" << std::endl;
+	std::cout << "\n[ EXCEPTION ]" << std::endl;
     std::cout << "Harl left the chat." << std::endl; 
 
     return;
