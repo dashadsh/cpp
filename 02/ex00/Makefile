@@ -1,4 +1,4 @@
-NAME = orthodox_class
+NAME = fixed00
 SRCS = main.cpp Fixed.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
