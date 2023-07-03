@@ -1,14 +1,14 @@
 
 #include "contact.hpp"
 
-// ------------ constructor + destructor -------------
+// ------------------------ constructor + destructor ------------------------------------
 // The part after the colon : is called the initializer list. 
 // It initializes the member variables of the Contact class with the specified values. 
 // Each member variable is followed by its initializer in parentheses.
 Contact::Contact() {}
 Contact::~Contact() {}
 
-// ---------------- getters ----------------------
+// ------------------------------ getters -----------------------------------------------
 std::string Contact::get_first_name() const {
     return _first_name;
 }
@@ -25,7 +25,7 @@ std::string Contact::get_darkest_secret() const {
     return _darkest_secret;
 }
 
-// ---------------- setters ----------------------
+// ----------------------------------- setters -----------------------------------------
 void Contact::set_first_name(const std::string& value) {
     _first_name = value;
 }

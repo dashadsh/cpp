@@ -2,19 +2,19 @@
 #define CONTACT_HPP
 
 #include <string>
-//////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 // the code must include a Contact class, 
 // or whatever name the student used.
 // This class must contain attributes for the 
 // different fields.
-//////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Contact {
 public:
     Contact();
 	~Contact();
 
-	// ----------- getters ------------
+	// ------------------------------ getters -----------------------------------------------
     std::string get_first_name() const;
 	std::string get_last_name() const;
     std::string get_nickname() const;
@@ -26,7 +26,7 @@ public:
 	// getters  - simply return val of the corresponding member var's;
 	// they don't modify the object's state => declare them as CONST member func's
 
-	// ----------- setters -------------
+	// ----------------------------------- setters -----------------------------------------
     void set_first_name(const std::string& value);
     void set_last_name(const std::string& value);
     void set_nickname(const std::string& value);

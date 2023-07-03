@@ -24,28 +24,13 @@ private:
 
 public:
     HumanB(std::string name); // Constructor to initialize the human's name
+//	HumanB(const std::string& name); // BETTER PRACTICE
 	~HumanB();
 	
     void setWeapon(Weapon& weapon); // Member function to set the weapon for the human
     void attack(); // Member function for the human to attack
+//	void attack() const; // BETTER PRACTICE
 };
-
-
-
-
-//---------------------------------------------------------------------------------------------
-// class HumanB {
-// private:
-//     std::string name; // Name of the human
-//     Weapon* weapon; // Pointer to the weapon held by the human
-
-// public:
-//     HumanB(const std::string& name); // Constructor to initialize the human's name
-// 	~HumanB();
-
-//     void setWeapon(Weapon& weapon); // Member function to set the weapon for the human
-//     void attack() const; // Member function for the human to attack
-// };
 
 #endif
 

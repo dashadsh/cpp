@@ -5,13 +5,13 @@
 // writes the result to a new file
 // ------------------------------------------------------------------------------------------------------------
 
-// In 2nd implementation each line is splitted into words and each word is checked against s1. 
-// if a match is found,the word will be replaced with s2. 
-// This approach will work well if you're trying to match and replace entire words. 
-// If s1 is a substring that's part of a larger word, it won't be replaced 
+// 2nd implementation: each line is splitted into words and each word is checked against s1. 
+// if a match is found,the word will be replaced with s2,
+// this approach will work well if you're trying to match and replace entire words,
+// but if s1 is a substring that's part of a larger word, it won't be replaced 
 // because it won't match any of the words extracted from the line.
 
-// 1st implementation doesn't split the lines into words. 
+// 1st implementation: doesn't split the lines into words. 
 // Instead, it checks the entire line for instances of s1,  
 // If a match is found, it's replaced with s2.
 
@@ -37,13 +37,11 @@
 
 // ------------------------------------------------------------------------------------------------------------
 
-// The std::ifstream and std::ofstream are classes provided by C++ Standard Library 
+// std::ifstream & std::ofstream  - classes provided by C++ Standard Library 
 // for reading from (std::ifstream for "input file stream") 
-// and writing to (std::ofstream for "output file stream") files respectively.
+// and writing to (std::ofstream for "output file stream") files.
 //
-// These classes inherit from the std::istream and std::ostream classes, 
-// and thus they provide all the member functions of these classes, 
-// plus some additional ones for handling files. Here are some important member functions:
+// Some important member functions:
 //
 // Common member functions for std::ifstream and std::ofstream:
 //
@@ -56,7 +54,7 @@
 // eof(): Returns true if the eofbit error state flag is set for the stream. The EOF (End-Of-File) is generally set by an operation when it encounters the end of the file.
 //
 // std::ifstream specific member functions:
-// //
+//
 // get(): Extracts a single character from the stream.
 // getline(char* s, streamsize n): Extracts characters from the stream and stores them in s as a c-string, until either (n - 1) characters have been extracted or the delimiter is encountered (newline character by default).
 // read(char* s, streamsize n): Reads n characters from the file and stores them in the array pointed to by s. This function is usually used for reading binary data.
@@ -71,7 +69,7 @@
 // For example, to use open function you would need to do something like: 
 // std::ofstream outFile; outFile.open("filename.txt", std::ios::out);
 // 
-// Also, note that the error checking functions (e.g., fail(), bad(), eof(), and good()) can be called after any operation 
+// SIC! Error checking functions (e.g., fail(), bad(), eof(), and good()) can be called after any operation 
 // to check whether the operation succeeded.
 
 // ------------------------------------------------------------------------------------------------------------

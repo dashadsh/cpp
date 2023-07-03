@@ -1,24 +1,45 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-int	main( void ) { 
+int	main() { 
 
-	Fixed a;
+	// Default constructor called
+	Fixed a; 
+
+	// "Float constructor called"
+	// "Int constructor called" 
+	// "Destructor called" twice (temp. obj's Fixed(5.05f) and Fixed(2) are destroyed)
 	Fixed const b(Fixed(5.05f) * Fixed(2));
-
+ 
+	// "0" - value of a
 	std::cout << a << std::endl;
+
+	// "0.00390625" - value of a after the pre-increment operation (++a)
+	// "Copy constructor called" - operation creates a temporary copy of a
+	// "Copy assignment operator called" - result of the increment operation is assigned back to a.
 	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
+
+	// "0.00390625" - prints the original value of a before the increment operation
+	// The post-increment operator is used here. 
+	// It increments a but returns the original value of a before the increment, 
+	// which is why the output is still "0.00390625".
+	// "Destructor called" - temp Fixed object (copy of a before the increment) is destroyed as it goes out of scope
+	std::cout << a++ << std::endl; 
+
+	// "0.0078125" -  new value of a after increment operation
 	std::cout << a << std::endl;
 
+	// "10.1016" - prints value of b, which was initialized with a result of multiplication operation
 	std::cout << b << std::endl;
 
+	// "10.1016" - prints larger of a and b, which is b
 	std::cout << Fixed::max(a, b) << std::endl;
 	
+	// "Destructor called" is output twice, for a and b.
 	return 0; 
 }
 
+// --------------------------------- EXPECTED OUTPUT -------------------------------------------
 // dasha_dsh@Darias-MBP ex02 % ./fixed02 
 // Default constructor called
 // Float constructor called
@@ -39,7 +60,7 @@ int	main( void ) {
 // Destructor called
 // Destructor called
 
-
+// ------------------------------- OUTPUT BREAKDOWN -------------------------------------------
 // "Default constructor called" - 
 // Fixed a - creates an instance of the Fixed class using default constructor
 

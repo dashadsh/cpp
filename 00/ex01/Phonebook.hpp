@@ -5,10 +5,11 @@
 #include <string>
 #include <iostream>
 
-// PhoneBook class provides functionality to store, retrieve, and display contact information 
-// in a phone book-like structure. 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// PhoneBook class can: store, retrieve, and display contact information in a phone book-like structure. 
 // It uses an array of Contact objects internally to store the contacts, 
 // and exposes member functions to interact with and manipulate the contacts.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class PhoneBook {
 public:
     PhoneBook();

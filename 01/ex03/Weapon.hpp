@@ -9,25 +9,13 @@ private:
 
 public:
     Weapon(std::string type); // constructor to initialize the weapon type
+//	Weapon(const std::string& type); // BETTER PRACTICE
 	~Weapon();
 
     std::string getType(); // member func. to get the weapon type
+//	const std::string& getType() const; // BETTER PRACTICE
     void setType(std::string newType); // member func. to set the weapon type
+//	void setType(const std::string& newType); // BETTER PRACTICE
 };
-
-
-
-//---------------------------------------------------------------------------------------------
-// class Weapon {
-// private:
-//     std::string type; // Private attribute to store the weapon type
-
-// public:
-//     Weapon(const std::string& type); // Constructor to initialize the weapon type
-// 	~Weapon();
-
-//     const std::string& getType() const; // Member function to get the weapon type
-//     void setType(const std::string& newType); // Member function to set the weapon type
-// };
 
 #endif

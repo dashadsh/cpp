@@ -8,7 +8,7 @@ PhoneBook::~PhoneBook() {}
 // in the array and setting the contact information for that slot.
 void PhoneBook::set_contact(const std::string& first_name, const std::string& last_name, const std::string& nickname,
                             const std::string& phone_nbr, const std::string& darkest_secret) {
-    static int index = 0; // Static index variable to keep track of the current position
+    static int index = 0; // static index variable to keep track of the current position
 
     contacts[index].set_first_name(first_name);
     contacts[index].set_last_name(last_name);
@@ -16,7 +16,7 @@ void PhoneBook::set_contact(const std::string& first_name, const std::string& la
     contacts[index].set_phone_nbr(phone_nbr);
     contacts[index].set_darkest_secret(darkest_secret);
 
-    index = (index + 1) % 8; // Move the index to the next position in a circular manner
+    index = (index + 1) % 8; // move the index to the next position in a circular manner
 }
 
 // contacts in the phone book will be displayed as a list with each field aligned in its respective column
@@ -34,10 +34,10 @@ void PhoneBook::print_contacts() const {
         std::string nickname = truncate(contacts[i].get_nickname(), 10);
 
 		// formatted output is then printed using std::cout. 
-		// Each line of the output represents a contact and consists of four columns: 
-		// index, first name, last name, and nickname. 
-		// The std::setw(10) manipulator is used to set the width of each column to 10 characters, ensuring consistent alignment. 
-		// The | character is used as a separator between the columns.
+		// each line of the output represents a contact and consists of four columns: 
+		// index, first name, last name, nickname. 
+		// std::setw(10) - sets the width of each column to 10 characters, ensuring consistent alignment. 
+		// | -  separator between the columns.
         std::cout << "|" << std::setw(10) << index << "|" << std::setw(10) << first_name << "|" << std::setw(10)
                   << last_name << "|" << std::setw(10) << nickname << "|" << std::endl;
     }
@@ -46,7 +46,7 @@ void PhoneBook::print_contacts() const {
 // responsible for retrieving a specific contact from the phone book based on the given idx
 Contact PhoneBook::get_contact(int index) const {
     if (index < 0 || index > 7) {
-        return Contact(); // Return a default-constructed Contact object,
+        return Contact(); // return a default-constructed Contact object,
 		// which can be used to indicate an error or non-existent contact
     }
     return contacts[index];

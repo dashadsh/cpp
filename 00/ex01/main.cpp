@@ -9,7 +9,7 @@
 // setw(num), setfill('char')
 
 // ------------------------------------------------------------------------------------------------------------
-// A minor divergence in the expected formating is not relevant. 
+// a minor divergence in the expected formating is not relevant. 
 // The aim of this part is to use C++ iomanips and that's what you should focus on.
 // ------------------------------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ void handle_search(const PhoneBook& phonebook) {
         return;
     }
 
-	// -------- WRONG -----------
+	// ------------------ WRONG ------------------
 	// int index;
 	// std::cin >> index; - promt was 2 times / infinite loop when entering non-numeric values
 	// instead of relying on std::cin for input, 

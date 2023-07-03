@@ -14,24 +14,28 @@
 #include <iostream>
 #include "HumanB.hpp"
 
-// constructor
+// ------------------------------ CONSTRUCTOR ---------------------------------------
 // weapon PTR is initialized to nullptr, so
 // it doesn't currently point to any valid memory address.
 HumanB::HumanB(std::string name) : name(name), weapon(nullptr) {
-	// name parameter will be copied into the name member variable of the HumanB class
+// HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) // BETTER PRACTICE
+// name parameter will be copied into the name member variable of the HumanB class
 }
 
+// ------------------------------ DESTRUCTOR ---------------------------------------
 HumanB::~HumanB() {}
 
+// ------------------------------ MEMBER FUNC. ---------------------------------------
 void HumanB::setWeapon(Weapon& weapon) {
     this->weapon = &weapon; // set the weapon pointer to the address of the passed weapon object
 }
 
-// usage of nullptr is important bc it allows us to check if the HumanB obj. is currently unarmed. 
-// there is a condition that checks if the weapon PTR is nullptr before attempting to access the weapon:
+// nullptr - allows us to check if the HumanB obj. is currently unarmed. 
+// condition checks if the weapon PTR is nullptr before attempting to access the weapon:
 void HumanB::attack() {
-	// checking if the weapon pointer is nullptr =>
-	// we can determine if the HumanB object has a valid weapon assigned/is unarmed. 
+// void HumanB::attack() const // BETTER PRACTICE
+// checking if the weapon pointer is nullptr =>
+// we can determine if the HumanB object has a valid weapon assigned/is unarmed. 
     if (weapon != nullptr) {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
         // display human's name + weapon type they are attacking with
@@ -44,25 +48,3 @@ void HumanB::attack() {
 // later in the main(), after creating the HumanB object jim, 
 // a weapon is assigned to it using the setWeapon() func.
 
-
-// --------------------------------------------------------------------------------------------
-// HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) {
-//     // Constructor implementation
-// }
-
-// HumanB::~HumanB() {
-// }
-
-// void HumanB::setWeapon(Weapon& weapon) {
-//     this->weapon = &weapon; // Set the weapon pointer to the address of the passed weapon object
-// }
-
-// void HumanB::attack() const {
-//     if (weapon != nullptr) {
-//         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-//         // Display the human's name and the weapon type they are attacking with
-//     } else {
-//         std::cout << name << " is unarmed and cannot attack!" << std::endl;
-//         // Display a message indicating that the human is unarmed
-//     }
-// }

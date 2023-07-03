@@ -1,3 +1,4 @@
+
 // ------------------------------------------------------------------------------------------------------------
 // PTR member func. allows to store a reference to a func. that belongs to a class. 
 //
@@ -19,7 +20,7 @@ int main() {
     harl.complain("INFO");
     harl.complain("WARNING");
     harl.complain("ERROR");
-//	harl.complain("YOU BETTER BURN IN HELL");
+// 	harl.complain("YOU BETTER BURN IN HELL");
 
     return 0;
 }

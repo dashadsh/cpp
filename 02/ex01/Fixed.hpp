@@ -30,6 +30,8 @@ public:
     int toInt(void) const; // convert the fixed point number to int
 };
 
+// ------------------------------------------------------------------------------------------------------
+// https://www.geeksforgeeks.org/overloading-stream-insertion-operators-c/
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed); // overload of the '<<' operator
 
 #endif

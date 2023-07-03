@@ -1,14 +1,15 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-// constructor
+// ------------------------------ CONSTRUCTOR ---------------------------------------
 Zombie::Zombie() {}
 
-// destructor
+// ------------------------------ DESTRUCTOR ---------------------------------------
 Zombie::~Zombie() {
     std::cout << "Zombie " << name << " destroyed" << std::endl;
 }
 
+// ------------------------------ MEMBER FUNC. ---------------------------------------
 // member function takes a std::string parameter name and sets the name of the Zombie object to the provided value
 void Zombie::setName(std::string name) {
     this->name = name;

@@ -1,21 +1,24 @@
 #include "Zombie.hpp"
 
-// SIC! cpp file that contains only the implementation of the class function, not the class
+// SIC! .cppfile contains only implementation of class function, not the class
 
 Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+void 	randomChump(std::string name);
 
 int main() {
 	// zombie1 is created on the STACK
     Zombie zombie1("Foo");
     zombie1.announce();
 
+	// check newZombie.cpp:
 	// zombie2 is allocated on the HEAP.
+	// memory is allocated with 'new' keyword
     Zombie* zombie2 = newZombie("Bar");
     zombie2->announce();
-	// delete keyword  - deallocate memory
-    delete zombie2;
+    delete zombie2; // delete keyword  - deallocate memory
 
+
+	// check randomChump.cpp:
 	// func. to create a Zombie obj. on a STACK
 	randomChump("XXX");
 

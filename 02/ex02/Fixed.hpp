@@ -5,7 +5,7 @@
 
 class Fixed {
 private:
-    int                 _value;
+    int                 _value; // An integer to store the fixed-point number value.
     static const int    _fractionalBits = 8;
 
 public:
@@ -18,40 +18,51 @@ public:
 	// Destructor
     ~Fixed();
 
-    Fixed& operator=(const Fixed &rhs);	// Overload operator
+    Fixed&	operator=(const Fixed &rhs);	// Overload operator
 
+    Fixed&	operator++();    // Prefix increment
+    Fixed	operator++(int);  // Postfix increment
+    Fixed&	operator--();    // Prefix decrement
+    Fixed	operator--(int);  // Postfix decrement
 
-    Fixed& operator++();    // Prefix increment
-    Fixed operator++(int);  // Postfix increment
-    Fixed& operator--();    // Prefix decrement
-    Fixed operator--(int);  // Postfix decrement
-
-    int getRawBits(void) const; // getter
-    void setRawBits(int const raw); // setter
+    int		getRawBits(void) const; // getter
+    void	setRawBits(int const raw); // setter
 
     // conversion functions
-    float toFloat(void) const;
-    int toInt(void) const;
+    float	toFloat(void) const;
+    int		toInt(void) const;
 
     // comparison operators
-    bool operator>(const Fixed &rhs) const;
-    bool operator<(const Fixed &rhs) const;
-    bool operator>=(const Fixed &rhs) const;
-    bool operator<=(const Fixed &rhs) const;
-    bool operator==(const Fixed &rhs) const;
-    bool operator!=(const Fixed &rhs) const;
+    bool	operator>(const Fixed &rhs) const;
+    bool	operator<(const Fixed &rhs) const;
+    bool	operator>=(const Fixed &rhs) const;
+    bool	operator<=(const Fixed &rhs) const;
+    bool	operator==(const Fixed &rhs) const;
+    bool	operator!=(const Fixed &rhs) const;
+				// ALTERNATIVE: 
+	            // bool operator>(Fixed rhs)const;
+                // bool operator<(Fixed rhs)const;
+                // bool operator>=(Fixed rhs)const;
+                // bool operator<=(Fixed rhs)const;
+                // bool operator==(Fixed rhs)const;
+                // bool operator!=(Fixed rhs)const;
 
     // arithmetic operators
-    Fixed operator+(const Fixed &rhs) const;
-    Fixed operator-(const Fixed &rhs) const;
-    Fixed operator*(const Fixed &rhs) const;
-    Fixed operator/(const Fixed &rhs) const;
+    Fixed	operator+(const Fixed &rhs) const;
+    Fixed	operator-(const Fixed &rhs) const;
+    Fixed	operator*(const Fixed &rhs) const;
+    Fixed	operator/(const Fixed &rhs) const;
+				// ALTERNATIVE: 
+	            // float operator+(Fixed rhs)const;
+                // float operator-(Fixed rhs)const;
+                // float operator*(Fixed rhs)const;
+                // float operator/(Fixed rhs)const;
 
     // min/max func.
-    static Fixed& min(Fixed &a, Fixed &b);
-    static const Fixed& min(const Fixed &a, const Fixed &b);
-    static Fixed& max(Fixed &a, Fixed &b);
-    static const Fixed& max(const Fixed &a, const Fixed &b);
+    static			Fixed& min(Fixed &a, Fixed &b);
+    static const 	Fixed& min(const Fixed &a, const Fixed &b);
+    static 			Fixed& max(Fixed &a, Fixed &b);
+    static const 	Fixed& max(const Fixed &a, const Fixed &b);
 };
 
 // an overload of the "insertion operator" (<<) for output streams (represented by std::ostream)

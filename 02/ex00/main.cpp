@@ -1,31 +1,19 @@
 
-/*
-The Orthodox Canonical Class Form in C++ is a best practice that was popularized 
-by the book "Advanced C++ Programming Styles and Idioms" by James O. Coplien. 
+// --------------------------------- ORTHODOX CLASS -------------------------------------------
+// The Orthodox Canonical Class Form in C++ is a best practice that was popularized 
+// by the book "Advanced C++ Programming Styles and Idioms" by James O. Coplien. 
 
-It includes the following member functions:
+// It includes the following member functions:
 
-Default constructor: 
-This is a constructor that can be called with no arguments. 
-It is used to create an object with default values.
-To provide a way to create an object of the class with default values.
+// Default constructor
+// Copy constructor
+// Assignment operator
 
-Copy constructor: 
-This constructor is used when an object is initialized with another object of the same class.
-To provide a way to create a new object as a copy of an existing object. 
-This is especially important for classes that manage resources such as memory, file handles, network connections, etc., 
-where copying the resource requires specific actions.
-
-Assignment operator:
-This operator is used when an already initialized object is assigned the values of another object of the same class.
-To allow one object to be assigned the values of another. Like the copy constructor, 
-this is important for classes that manage resources.
-
-Destructor: 
-This is called when an object is destroyed, and it's used to free any resources that the object may have 
-acquired during its lifetime. To clean up any resources the object has acquired. 
-This is critical for avoiding resource leaks (e.g., memory leaks).
-*/
+// Destructor: 
+// This is called when an object is destroyed, and it's used to free any resources that the object may have 
+// acquired during its lifetime. To clean up any resources the object has acquired. 
+// This is critical for avoiding resource leaks (e.g., memory leaks).
+// -------------------------------------------------------------------------------------------------
 
 #include <iostream>
 #include "Fixed.hpp"
@@ -45,6 +33,7 @@ int main(void) {
     return 0;
 }
 
+// --------------------------------- EXPECTED OUTPUT -------------------------------------------
 // dasha_dsh@Darias-MBP ex00 % ./orthodox_class 
 // Default constructor called
 // Copy constructor called
@@ -63,6 +52,7 @@ int main(void) {
 // Destructor called
 // Destructor called
 
+// ------------------------------- OUTPUT BREAKDOWN -------------------------------------------
 // Default constructor called - 
 // result of Fixed a -  Fixed object a is being constructed using the default constructor
 
@@ -106,17 +96,17 @@ int main(void) {
 // Destructor called - 
 // called when c goes out of scope and is being destructed.
 
-// ----------------------------------------------------------------------------------------------------------
-
-// FIXED-POINT NUMBERS
+// ------------------------------------------ FIXED-POINT NUMBERS --------------------------------------------------------
 // Fixed-point number representation is a way of encoding real numbers within a computer. 
-// It is an alternative to floating-point numbers, and the reason you might use one over the other depends on the specific needs of your application.
+// It is an alternative to floating-point numbers, and the reason you might use one over the other depends on the 
+// specific needs of your application.
 
 // Here's why you might use fixed-point numbers:
 
 // Accuracy: 
 // Fixed-point arithmetic is exact. There are no rounding errors (as long as you don't overflow). 
-// This can be particularly important in certain types of numerical algorithms where rounding errors can accumulate and cause significant inaccuracies in the results.
+// This can be particularly important in certain types of numerical algorithms where rounding errors can accumulate 
+// and cause significant inaccuracies in the results.
 
 // Performance: 
 // In some systems (especially older or simpler processors), fixed-point arithmetic can be faster than floating-point arithmetic. 
@@ -132,3 +122,25 @@ int main(void) {
 // The trade-off is that fixed-point numbers have a smaller range than floating-point numbers for the same bit-width,
 // and handling the fixed-point fractional numbers might be a bit tricky, especially for division and multiplication.
 
+// Fixed-point numbers are a way of representing real numbers in computer systems using a fixed number of digits after the decimal point. 
+// They are a simple and efficient way to represent fractional numbers, and they are commonly used in systems that need to 
+// perform a lot of mathematical operations quickly and accurately.
+
+// A fixed-point number is essentially an integer that is scaled by a certain factor, usually a power of 2. 
+// For example, you might represent the number 1.23 as the integer 123 with a scaling factor of 100.
+
+// Here's where the concept of fractional bits comes in. Fractional bits are a method of representing fractions in binary, 
+// using a fixed-point number system.
+
+// To understand this, you need to know that, in binary, each bit represents a power of 2. 
+// For example, in an 8-bit integer, the bits represent 2^7, 2^6, ..., down to 2^0.
+
+// Now, let's say you have a fixed-point number with 4 fractional bits. Those 4 bits represent fractions of 1, not whole numbers. 
+// They represent 2^-1, 2^-2, 2^-3, and 2^-4, or 0.5, 0.25, 0.125, and 0.0625 in decimal, respectively.
+
+// So if you have a binary fixed-point number 1101.0101, it means 12^3 + 12^2 + 02^1 + 12^0 (for the integer part) + 
+// 02^-1 + 12^-2 + 02^-3 + 12^-4 (for the fractional part). This equals to 13.3125 in decimal.
+
+// Using fixed-point and fractional bits gives us a way to perform arithmetic with real numbers in a way that's faster and uses 
+// less memory than floating-point arithmetic, which is why they're commonly used in certain types of computer systems, 
+// especially embedded systems and digital signal processing.

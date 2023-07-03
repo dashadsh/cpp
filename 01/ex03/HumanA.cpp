@@ -14,28 +14,19 @@
 #include <iostream>
 #include "HumanA.hpp"
 
-// constructor 
-HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) {
+// ------------------------------ CONSTRUCTOR ---------------------------------------
+HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) { 
+// HumanA::HumanA(const std::string& name, Weapon& weapon) : name(name), weapon(weapon) { // BETTER PRACTICE
 	// name parameter will be copied into the name member variable of the HumanA class
 	// weapon parameter will be stored as a reference to the original Weapon object passed in
 }
 
+// ------------------------------ DESTRUCTOR ---------------------------------------
 HumanA::~HumanA() {}
 
+// ------------------------------ MEMBER FUNC. ---------------------------------------
 // display the human's name and the weapon type they are attacking with
 void HumanA::attack() {
+// void HumanA::attack() const // BETTER PRACTICE
     std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }
-
-//---------------------------------------------------------------------------------------------
-// HumanA::HumanA(const std::string& name, Weapon& weapon) : name(name), weapon(weapon) {
-//     // constructor
-// }
-
-// HumanA::~HumanA() {
-// }
-
-// void HumanA::attack() const {
-//     std::cout << name << " attacks with their " << weapon.getType() << std::endl;
-//     // Display the human's name and the weapon type they are attacking with
-// }

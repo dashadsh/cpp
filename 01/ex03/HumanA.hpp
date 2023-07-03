@@ -23,25 +23,14 @@ private:
     Weapon& weapon; // Reference to the weapon held by the human
 
 public:
-    HumanA(std::string name, Weapon& weapon); // Constructor to initialize the human's name and weapon
+    HumanA(std::string name, Weapon& weapon); // Constructor to init. the human's name & weapon
+//	HumanA(const std::string& name, Weapon& weapon); // BETTER PRACTICE
+
 	~HumanA();
 	
     void attack(); // Member function for the human to attack
+//	void attack() const; // BETTER PRACTICE
 };
-
-
-//---------------------------------------------------------------------------------------------
-// class HumanA {
-// private:
-//     std::string name; // Name of the human
-//     Weapon& weapon; // Reference to the weapon held by the human
-
-// public:
-//     HumanA(const std::string& name, Weapon& weapon); // Constructor to initialize the human's name and weapon
-// 	~HumanA();
-
-//     void attack() const; // Member function for the human to attack
-// };
 
 #endif
 
