@@ -26,6 +26,8 @@ int main(void) {
 	// Copy assignment operator called: again, corresponds to a = Fixed(1234.4321f) - when temp. obj. is assigned to a.
 	// getRawBits member function called: again, this is called inside the operator= when copying the raw bits of the temporary object to a.
 	// Destructor called: temp. Fixed obj. created in a = Fixed(1234.4321f) - is destroyed after the assignment.
+	
+	// a = Fixed( 1000000000 );
 
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;

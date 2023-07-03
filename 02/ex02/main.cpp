@@ -39,6 +39,48 @@ int	main() {
 	return 0; 
 }
 
+// --------------------------------- ALTERNATIVE MAIN -------------------------------------------
+// int main( void ) {
+
+// 	Fixed a (1);
+// 	Fixed b (6.05f);
+
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << "b: " << b << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "TEST basic calulations" << std::endl;
+// 	std::cout << "result addition: " << (a + b) << std::endl;
+// 	std::cout << "result subtraction: " << (a - b) << std::endl;
+// 	std::cout << "result multiplication: " << (a * b) << std::endl;
+// 	std::cout << "result division: " << (a / b) << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "TEST ++/--" << std::endl;
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << "result a++: " << (a++) << std::endl;
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << "result ++a: " << (++a) << std::endl;
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << "result a--: " << (a--) << std::endl;
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << "result --a: " << (--a) << std::endl;
+// 	std::cout << "a: " << a << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "TEST comparison" << std::endl;
+// 	std::cout << "a > b: " << (a > b) << std::endl;
+// 	std::cout << "a < b: " << (a < b) << std::endl;
+// 	std::cout << "a >= b: " << (a >= b) << std::endl;
+// 	std::cout << "a <= b: " << (a <= b) << std::endl;
+// 	std::cout << "a == b: " << (a == b) << std::endl;
+// 	std::cout << "a != b: " << (a != b) << std::endl;
+// 	std::cout << std::endl;
+// 	std::cout << "TEST min/max" << std::endl;
+// 	std::cout << "min(a,b): " << (Fixed::min(a,b)) << std::endl;
+// 	std::cout << "max(a,b): " << (Fixed::max(a,b)) << std::endl;
+// 	std::cout << std::endl;
+
+// 	return 0;
+// }
+
 // --------------------------------- EXPECTED OUTPUT -------------------------------------------
 // dasha_dsh@Darias-MBP ex02 % ./fixed02 
 // Default constructor called

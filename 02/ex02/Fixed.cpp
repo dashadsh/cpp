@@ -96,30 +96,6 @@ bool Fixed::operator==(const Fixed &rhs) const {
 bool Fixed::operator!=(const Fixed &rhs) const {
     return _value != rhs._value;
 }
-// ALTERNATIVE:
-// bool Fixed::operator>(Fixed fixed) const {
-//     return (this->toFloat() > fixed.toFloat());
-// }
-
-// bool Fixed::operator<(Fixed fixed) const {
-//     return (this->toFloat() < fixed.toFloat());
-// }
-
-// bool Fixed::operator>=(Fixed fixed) const {
-//     return (this->toFloat() >= fixed.toFloat());
-// }
-
-// bool Fixed::operator<=(Fixed fixed) const {
-//     return (this->toFloat() <= fixed.toFloat());
-// }
-
-// bool Fixed::operator==(Fixed fixed) const {
-//     return (this->toFloat() == fixed.toFloat());
-// }
-
-// bool Fixed::operator!=(Fixed fixed) const {
-//     return (this->toFloat() != fixed.toFloat());
-// }
 
 // ------------------------------ comparison operators -----------------------------------------------------------------
 Fixed Fixed::operator+(const Fixed &rhs) const {
@@ -141,27 +117,6 @@ Fixed Fixed::operator/(const Fixed &rhs) const {
     }
     return Fixed(toFloat() / rhs.toFloat());
 }
-
-// ALTERNATIVE: 
-// float Fixed::operator+(Fixed fixed) const {
-//     return (this->toFloat() + fixed.toFloat());
-// }
-
-// float Fixed::operator-(Fixed fixed) const {
-//     return (this->toFloat() - fixed.toFloat());
-// }
-
-// float Fixed::operator*(Fixed fixed) const {
-//     return (this->toFloat() * fixed.toFloat());
-// }
-
-// float Fixed::operator/(Fixed fixed) const {
-//     if (fixed.toFloat() == 0) {
-//         std::cerr << "Division by zero is not allowed!" << std::endl;
-//         return 0;
-//     }
-//     return (this->toFloat() / fixed.toFloat());
-// }
 
 // ------------------------------ min/max. functions -----------------------------------------------------------------
 Fixed& Fixed::min(Fixed &a, Fixed &b) {

@@ -39,24 +39,12 @@ public:
     bool	operator<=(const Fixed &rhs) const;
     bool	operator==(const Fixed &rhs) const;
     bool	operator!=(const Fixed &rhs) const;
-				// ALTERNATIVE: 
-	            // bool operator>(Fixed rhs)const;
-                // bool operator<(Fixed rhs)const;
-                // bool operator>=(Fixed rhs)const;
-                // bool operator<=(Fixed rhs)const;
-                // bool operator==(Fixed rhs)const;
-                // bool operator!=(Fixed rhs)const;
 
     // arithmetic operators
     Fixed	operator+(const Fixed &rhs) const;
     Fixed	operator-(const Fixed &rhs) const;
     Fixed	operator*(const Fixed &rhs) const;
     Fixed	operator/(const Fixed &rhs) const;
-				// ALTERNATIVE: 
-	            // float operator+(Fixed rhs)const;
-                // float operator-(Fixed rhs)const;
-                // float operator*(Fixed rhs)const;
-                // float operator/(Fixed rhs)const;
 
     // min/max func.
     static			Fixed& min(Fixed &a, Fixed &b);

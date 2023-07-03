@@ -1,15 +1,16 @@
-#ifndef CLAP_TRAP_HPP
-# define CLAP_TRAP_HPP
+
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 
 class ClapTrap {
 public:
-	ClapTrap(); // Default constructor
+	ClapTrap(void); // Default constructor
 	ClapTrap(std::string name); // Parameterized constructor
 	ClapTrap(ClapTrap const &src); // Copy constructor
-	
-	~ClapTrap(void); // Destructor
+
+	~ClapTrap(); // Destructor
 
 	ClapTrap & operator=(ClapTrap const &rhs); // Assignment operator
 
@@ -22,7 +23,7 @@ public:
 	int	getEnergyPoints(void) const;
 	int	getAttackDamage(void) const;
 	
-private:
+protected:
 	std::string _name;
 	int	_hitPoints;
 	int	_energyPoints;
