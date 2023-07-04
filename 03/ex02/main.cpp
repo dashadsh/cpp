@@ -17,8 +17,8 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-int main(void)
-{
+int main() {
+
 	ClapTrap a("A");
     ScavTrap b("B");
 	FragTrap c("C");
@@ -29,14 +29,15 @@ int main(void)
     b.guardGate();
 	c.highFivesGuys();
 	std::cout << std::endl;
-	
+
 	std::cout << a.getName() << ": " << a.getAttackDamage() << " damage points, " << a.getEnergyPoints() << " energy points, " << a.getHitPoints() << " hit points." << std::endl;
 	std::cout << b.getName() << ": " << b.getAttackDamage() << " damage points, " << b.getEnergyPoints() << " energy points, " << b.getHitPoints() << " hit points." << std::endl;
 	std::cout << c.getName() << ": " << c.getAttackDamage() << " damage points, " << c.getEnergyPoints() << " energy points, " << c.getHitPoints() << " hit points." << std::endl;
 
-
 	std::cout << std::endl;
+
     return 0;
+	
 }
 
 // int main(void) {
