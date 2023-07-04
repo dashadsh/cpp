@@ -1,8 +1,17 @@
+
 #include "ScavTrap.hpp"
 
-// --------------------- CONSTRUCT / DESTRUCT -----------------------------
 
-ScavTrap::ScavTrap(void) : ClapTrap() {
+// --------------------- CONSTRUCT. -----------------------------
+
+// ClapTrap default constructor is called, which initializes _hitPoints, _energyPoints, and _attackDamage 
+// with the values provided in ClapTrap's constructor (10, 10, 0 respectively).
+// After ClapTrap constructor finishes, the ScavTrap constructor body executes, reassigning _hitPoints, _energyPoints, and _attackDamage 
+// to the values you specified (100, 50, 20).
+// This is inefficient BUT WORKS
+
+// Default constructor
+ScavTrap::ScavTrap() : ClapTrap() {
 
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -10,6 +19,7 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
+// Parameterized constructor
 ScavTrap::ScavTrap(std::string name) : ClapTrap() {
 
 	this->_name = name;
@@ -19,6 +29,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap() {
 	std::cout << "ScavTrap constructor called with name: " << name << std::endl;
 }
 
+// Copy constructor
 ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 	
 	this->_name = src.getName();
@@ -28,7 +39,8 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap::~ScavTrap(void) {
+// --------------------- DESTRUCT. -----------------------------
+ScavTrap::~ScavTrap() {
 
 	std::cout << "ScavTrap destructor called with name: " << _name << std::endl;
 }
@@ -58,7 +70,7 @@ void ScavTrap::attack(const std::string& target) {
 	}
 }
 
-void ScavTrap::guardGate(void) {
+void ScavTrap::guardGate() {
 
 	std::cout << "ScavTrap " << this->_name << " is in gatekeeper mode" << std::endl;
 }

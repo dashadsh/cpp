@@ -1,23 +1,29 @@
 #include "ClapTrap.hpp"
 
-// --------------------- CONSTRUCT / DESTRUCT -----------------------------
+// --------------------- CONSTRUCT -----------------------------
 
+// Default
 ClapTrap::ClapTrap(void) : _name("Claptrap default robot"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
+// Parametrized
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap constructor called with name: " << _name << std::endl;
 }
 
+// Copy
 ClapTrap::ClapTrap(ClapTrap const &src) : _name(src._name), _hitPoints(src._hitPoints), _energyPoints(src._energyPoints), _attackDamage(src._attackDamage) {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
+// ------------------------ DESTRUCT -----------------------------
 ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor called with name: " << _name << std::endl;
 }
 
+
+// ------------- COPY ASSIGNMENT OPERATOR ---------------------------
 ClapTrap & ClapTrap::operator=(ClapTrap const &rhs) {
 	this->_attackDamage = rhs.getAttackDamage();
 	this->_energyPoints = rhs.getEnergyPoints();
