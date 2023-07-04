@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/04 14:25:21 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/04 14:25:22 by dgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
@@ -37,7 +49,7 @@ int main() {
 	std::cout << std::endl;
 
     return 0;
-	
+
 }
 
 // int main(void) {
@@ -68,3 +80,20 @@ int main() {
 // 	return 0;
 
 // }
+
+// ------------------- new compiler flags - for ex03 ----------------------------------
+// -Wshadow: 
+// enables a compiler warning when one variable shadows another. 
+// Shadowing occurs when a variable declared within a certain scope has the same name as a variable declared in an outer scope. 
+// When the variable with the same name is used, it refers to the innermost scoped variable, "shadowing" the variable in the outer scope. 
+// The warning helps to catch situations where this might be occurring unintentionally, which could lead to bugs that are difficult to find.
+// Example where -Wshadow would give a warning:
+// int x = 5;
+// if (true) {
+//     int x = 10; // this declaration shadows the outer 'x'
+//     std::cout << x; // prints '10', not '5'
+// }
+//
+// -Wno-shadow: 
+// disables the shadowing warning. 
+// Useful if you're deliberately using shadowing and don't want the compiler to warn you about it.

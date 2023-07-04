@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:21:22 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:21:23 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:40:53 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/04 14:41:21 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-void randomChump(std::string name) {
-    // create a Zombie object on a STACK
-	Zombie zombie(name);
-    zombie.announce();
-}
+#include "Animal.hpp"
+
+// Dog class  - derived from Animal class
+class Dog : public Animal {
+public:
+    // default constructor
+    Dog();
+
+    // copy constructor
+    Dog(const Dog& src);
+
+    // destructor
+    ~Dog();
+
+    // assignment operator
+    Dog& operator=(const Dog& src);
+
+    // function to make a dog sound
+    void makeSound() const;
+};
+
+#endif

@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:21:22 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:21:23 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:42:49 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/04 14:43:16 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-void randomChump(std::string name) {
-    // create a Zombie object on a STACK
-	Zombie zombie(name);
-    zombie.announce();
-}
+#include "Animal.hpp"
+
+// Cat class - derived from the Animal class
+class Cat : public Animal {
+public:
+    // default constructor
+    Cat();
+
+    // copy constructor
+    Cat(const Cat& src);
+
+    // destructor
+    ~Cat();
+
+    // assignment operator
+    Cat& operator=(const Cat& src);
+
+    // func. to make cat sound
+    void makeSound() const;
+};
+
+#endif

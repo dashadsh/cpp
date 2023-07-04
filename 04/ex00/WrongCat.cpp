@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/04 14:47:12 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/04 14:47:48 by dgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "WrongCat.hpp"
+#include <iostream>
+
+// def. constructor - sets type to "WrongCat"
+WrongCat::WrongCat(): WrongAnimal() {
+    this->_type = "WrongCat";
+    std::cout << "WrongCat created" << std::endl;
+}
+
+// copy constructor
+WrongCat::WrongCat(const WrongCat& src): WrongAnimal(src) {
+    std::cout << "WrongCat copied" << std::endl;
+}
+
+// destructor
+WrongCat::~WrongCat() {
+    std::cout << "WrongCat destroyed" << std::endl;
+}
+
+// assignment operator
+WrongCat& WrongCat::operator=(const WrongCat& src) {
+    if (this != &src) {
+        WrongAnimal::operator=(src);
+    }
+    return *this;
+}
+
+// func. to make WrongCat sound
+void WrongCat::makeSound() const {
+    std::cout << "The WrongCat makes a wrong sound" << std::endl;
+}
