@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:43:25 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:59:39 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:44:24 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Cat& Cat::operator=(const Cat& src) {
     if (this != &src) {
         Animal::operator=(src);
     }
+	std::cout << "Cat's assignment operator called" << std::endl;
     return *this;
 }
 

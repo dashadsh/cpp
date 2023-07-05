@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:42:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 01:41:53 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:48:51 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
-#include "Brain.hpp" // new
+#include "Brain.hpp" // NEW
 
 // We need to add the Brain attribute to the Dog and Cat classes.
 // And also override the copy constructor and assignment operator 
@@ -39,17 +39,15 @@ public:
     // func. to make cat sound
     void makeSound() const;
 	
-	// void think(int idx, const std::string& thought);  // new
-	
-	// This function sets the thought of the cat at the given index
+	// This function sets the thought of the cat at the given index - NEW
     void setThought(int idx, const std::string& thought);
 
-    // This function retrieves the thought of the cat at the given index
+    // This function retrieves the thought of the cat at the given index - NEW
     std::string getThought(int idx) const;
 
-private:  // new
+private:  // NEW
 
-    Brain* _brain;  // new
+    Brain* _brain;  // NEW
 
 };
 

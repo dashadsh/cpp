@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:41:32 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 01:43:14 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:54:30 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ Dog& Dog::operator=(const Dog& src) {
         delete this->_brain;
         this->_brain = new Brain(*src._brain);
     }
+	std::cout << "Dog's assignment operator called" << std::endl;
     return *this;
 }
 // OLD VERSION

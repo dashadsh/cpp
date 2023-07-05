@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:32:43 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:37:37 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:47:27 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,21 @@ class Animal {
 public:
     // default constructor
     Animal();
+	
     // copy constructor
+	// This constructor performs a deep copy of the object.
     Animal(const Animal& src);
 
     // destructor
     virtual ~Animal();
 
     // assignment operator
+	// This operator performs a deep copy of the object.
     Animal& operator=(const Animal& src);
 
     // virtual function to make a sound
     virtual void makeSound() const;
+	
     // getter for the type of the animal
     std::string getType() const;
 

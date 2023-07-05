@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:45:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:45:56 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:45:32 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& src) {
     if (this != &src) {
         this->_type = src._type;
     }
+	std::cout << "WrongAnimal's assignment operator called" << std::endl;
     return *this;
 }
 

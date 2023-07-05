@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:43:25 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 01:43:22 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:49:14 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ Cat& Cat::operator=(const Cat& src) {
         delete this->_brain;
         this->_brain = new Brain(*src._brain);
     }
+	std::cout << "Cat's assignment operator called" << std::endl;
     return *this;
 }
 // // OLD VRESION

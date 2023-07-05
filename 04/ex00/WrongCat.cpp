@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:47:12 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:47:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:45:48 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ WrongCat& WrongCat::operator=(const WrongCat& src) {
     if (this != &src) {
         WrongAnimal::operator=(src);
     }
+	std::cout << "WrongCat's assignment operator called" << std::endl;
     return *this;
 }
 

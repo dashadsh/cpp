@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:37:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:40:07 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:47:56 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Animal::Animal(): _type("Animal") {
 }
 
 // cppy constructor
+// This constructor performs a deep copy of the object.
 Animal::Animal(const Animal& src) {
     *this = src;
     std::cout << "Animal copied" << std::endl;
@@ -32,11 +33,12 @@ Animal::~Animal() {
 
 // ------------ assignment operator ----------------------
 // assignment operator
+// This operator performs a deep copy of the object.
 Animal& Animal::operator=(const Animal& src) {
     if (this != &src) {
         this->_type = src._type;
     }
-	
+	std::cout << "Animal assignment operator called" << std::endl;
     return *this;
 }
 

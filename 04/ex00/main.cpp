@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:48:48 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 16:13:34 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:44:16 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,3 +108,36 @@ int main() {
 
     return 0;
 }
+
+// -------------------------------- DEEP COPY ----------------------------------------
+// deep copy involves duplicating not only the obj but also the obj's or values it references or contains. 
+// This is in contrast to a shallow copy where the copied object still references the same locations as the original.
+
+// Here, the assignment operator (operator=) and copy constructor for EACH class take care of creating a deep copy.
+
+// In the operator= function, if the source obj is not the same as the destination obj (determined by if (this != &src)), 
+// the assignment operator copies the member variable _type from the source obj to the destination obj. 
+// The this->_type = src._type; code line does this.
+
+// For copy constructor, it makes use of the assignment operator to ensure that deep copy is made. 
+// Animal::Animal(const Animal& src) calls *this = src; to use the assignment operator to make the copy.
+
+// In the Cat and Dog derived classes, the base class's assignment operator and copy constructor are 
+// called in their respective assignment operator and copy constructor implementations, 
+// which ensures that the _type member var from the Animal class is correctly copied.
+
+// These steps ensure that each obj copy gets its own version of the _type variable, which is a deep copy. 
+// If we were only making a shallow copy, then changing _type in one object would affect the other object 
+// bc they would both be referring to the same underlying data, but that's not the case here.
+
+//  Here, each object has its own copy of _type, so they can be modified independently!!!
+
+// SIC! in C++, when dealing with raw pointers, the concept of deep and shallow copy becomes critical. 
+// If our class contains a ptr and your copy constructor and assignment operator are not properly taking care 
+// of copying the pointed-to value, then you could end up with multiple objects thinking they own the same 
+// dynamically-allocated object, which is usually not what you want. 
+// But here the Animal (and derived classes) do not contain any pointers or complex resources, 
+// so the default behavior (memberwise copy) is sufficient.
+
+
+
