@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:48:48 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 15:07:14 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:13:34 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int main() {
 	
 	// SECOND TEST
 	
-	std::cout << std::endl;
+	std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
     const Animal *meta = new Animal();
 	// SIC! CONST KEYWORD - way to ensure an obj. isn't changed after it's created (can be useful, but limits what you can do).
 	// const keyword before Animal *meta  - used to indicate that the obj. that meta points to cannot be changed. 
@@ -51,8 +52,8 @@ int main() {
 	// For example, if Animal had a member function void setName(std::string name);  - 
 	// we could not call meta->setName("New name"); if meta is a const Animal*, 
 	// bc setName is not a const member function.
-    std::cout << std::endl;
-
+	std::cout << std::endl;
+	
     std::cout << "Animal _type: " << meta->getType() << std::endl;
     meta->makeSound();
     std::cout << std::endl;
@@ -61,25 +62,25 @@ int main() {
 
     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
 
-    const Animal *catto = new Cat();
+    const Animal *cat = new Cat();
     std::cout << std::endl;
 
-    std::cout << "Cat _type: " << catto->getType() << std::endl;
-    catto->makeSound();
+    std::cout << "Cat _type: " << cat->getType() << std::endl;
+    cat->makeSound();
     std::cout << std::endl;
 
-    delete catto;
+    delete cat;
 
     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
 
-    const Animal *doggo = new Dog();
+    const Animal *dog = new Dog();
     std::cout << std::endl;
 	
-    std::cout << "Dog _type: " << doggo->getType() <<std::endl;
-    doggo->makeSound();
+    std::cout << "Dog _type: " << dog->getType() <<std::endl;
+    dog->makeSound();
     std::cout << std::endl;
 	
-    delete doggo;
+    delete dog;
 
     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
 
@@ -94,14 +95,14 @@ int main() {
 
     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
     
-    const WrongAnimal *wrong_catto = new WrongCat();
+    const WrongAnimal *wrong_cat = new WrongCat();
     std::cout << std::endl;
 
-    std::cout << "WrongCat _type: " << wrong_catto->getType() <<std::endl;
-    wrong_catto->makeSound();
+    std::cout << "WrongCat _type: " << wrong_cat->getType() <<std::endl;
+    wrong_cat->makeSound();
     std::cout << std::endl;
 
-    delete wrong_catto;
+    delete wrong_cat;
 
     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
 
