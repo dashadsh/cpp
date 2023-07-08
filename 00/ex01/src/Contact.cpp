@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:24 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:20:26 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:16:43 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "../inc/Contact.hpp"
 
 // ------------------------ constructor + destructor ------------------------------------
 // The part after the colon : is called the initializer list. 

@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 14:59:39 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:23:54 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:52:14 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "aAnimal.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 
 /*

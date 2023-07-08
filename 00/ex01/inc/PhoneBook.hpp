@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:21:03 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:21:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:06:05 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include "contact.hpp"
-#include <string>
+#include "Contact.hpp"
 #include <iostream>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -22,6 +21,7 @@
 // It uses an array of Contact objects internally to store the contacts, 
 // and exposes member functions to interact with and manipulate the contacts.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class PhoneBook {
 public:
     PhoneBook();

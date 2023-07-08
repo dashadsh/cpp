@@ -6,11 +6,12 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:20:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:22:04 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "../inc/PhoneBook.hpp"
+
 #include <sstream> // std::istringstream
 #include <iostream>
 #include <iomanip>  // std::setw(10) and std::right,
@@ -35,7 +36,7 @@ void handle_search(const PhoneBook& phonebook) {
 
     std::getline(std::cin, command); // reads the entire line of input, incl. non-numeric chars
 
-    std::istringstream iss(command); // extract the idx from the command str, if the extract.fails, error is displayed
+    std::istringstream iss(command); // extract the idx from the command str, if the extract. fails, error is displayed
     int index;
 	//  If you enter a non-numeric value, the extraction from std::istringstream will fail
       if (!(iss >> index)) {
@@ -51,13 +52,15 @@ void handle_search(const PhoneBook& phonebook) {
 	
 	if (index < 0 || index > 7) {
         std::cout << "Invalid index! Only 0-7 can contain some data." << std::endl;
-	} else {
+	} 
+	else {
     Contact found_contact = phonebook.get_contact(index);
 	//  The empty() function is a member function of the std::string class. 
 	// It returns a boolean value indicating whether the string is empty or not.
     if (found_contact.get_first_name().empty()) {
         std::cout << "Invalid index! Nothing is stored there." << std::endl;
-    } else {        
+    } 
+	else {        
         std::cout << "First Name: " << found_contact.get_first_name() << std::endl;
         std::cout << "Last Name: " << found_contact.get_last_name() << std::endl;
         std::cout << "Nickname: "  << found_contact.get_nickname() << std::endl;
@@ -105,10 +108,19 @@ void handle_add(PhoneBook& phonebook) {
     while (true) {
         std::cout << "Enter phone number: ";
         std::getline(std::cin, phone_nbr);
-        if (!phone_nbr.empty()) {
-            break;
-        }
-        std::cout << "Phone number cannot be empty. Please try again." << std::endl;
+        // if (!phone_nbr.empty()) {
+        //     break;
+        // }
+        // std::cout << "Phone number cannot be empty. Please try again." << std::endl;
+		if (phone_nbr.empty()) {
+    		std::cout << "Phone number cannot be empty. Please try again." << std::endl;
+    	} 
+		else if (!std::all_of(phone_nbr.begin(), phone_nbr.end(), ::isdigit)) {
+        	std::cout << "Invalid input. Phone number should contain only digits.\n";
+    	} 
+		else {
+        break;
+    	}
     }
 
     while (true) {
@@ -127,7 +139,14 @@ void handle_add(PhoneBook& phonebook) {
 // the input, evaluating it, then loop until an EXIT command appears in input.
 // ------------------------------------------------------------------------------------------------------------
 
-int main() {
+int main(int ac, char** av) {
+	(void) av;
+	
+	if(ac > 1) {
+        std::cerr << "This program takes no arguments. Please just enter ./Phonebook to launch the program." << std::endl;
+        return 1; // return an error code
+    }
+	
     PhoneBook phonebook;
     std::string command;
 
@@ -142,6 +161,9 @@ int main() {
         }
 		else if (command == "EXIT") {
             break;
+        }
+		else {
+            std::cout << "Invalid command. Please enter ADD, SEARCH, or EXIT." << std::endl;
         }
     }
     return 0;

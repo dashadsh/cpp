@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:36 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 12:55:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,15 @@
 #include <fstream>  // file input/output
 #include <iostream> // input/output on the console, std::cerr
 #include <string>   // for string data type, std::getline()
+
+// I'm using:
+// std::string::find, 
+// std::string::erase,
+// std::string::insert methods to perform the replace operation, 
+// not reading the string character by character. 
+
+// Function std::getline(inFile, line) is used to read an entire line into a string, 
+// all subsequent processing is done on this string using std::string methods.
 
 int main(int ac, char *av[]) {
 

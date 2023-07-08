@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:15 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:16 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 12:39:59 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ class HumanB {
 private:
     std::string name; // Name of the human
     Weapon* weapon; // Pointer to the weapon held by the human
+	//  This pointer is initialized as nullptr in the constructor for HumanB:
+	// HumanB::HumanB(std::string name) : name(name), weapon(nullptr)
+	//
+	// Later in setWeapon method for the HumanB class:
+	// void HumanB::setWeapon(Weapon& weapon) {this->weapon = &weapon;}
+	// This method takes a reference to a Weapon object and sets the weapon pointer 
+	// in the HumanB object to point to this Weapon. 
+	// After this method is called, the weapon pointer will no longer be nullptr, 
+	// it will be pointing to the passed Weapon object.
 
 public:
     HumanB(std::string name); // Constructor to initialize the human's name

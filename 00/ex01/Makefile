@@ -6,27 +6,36 @@
 #    By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 14:20:52 by dgoremyk          #+#    #+#              #
-#    Updated: 2023/07/04 14:20:53 by dgoremyk         ###   ########.fr        #
+#    Updated: 2023/07/08 15:30:53 by dgoremyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-SRCS = contact.cpp phoneBook.cpp main.cpp
+SRC_DIR = src
+INC_DIR = inc
+OBJ_DIR = obj
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
+
+SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 # conform to c++98
-# SIC! - not all function are caught,  please refer to 
-# https://learn.microsoft.com/en-us/cpp/standard-library/cpp-standard-library-header-files?view=msvc-170
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@$(RM) $(NAME)
+	@$(RM) $(OBJ)
 
 fclean: clean
+	@$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean re
+.PHONY: all clean fclean re

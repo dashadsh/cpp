@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:26 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:27 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 12:34:02 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ Weapon::~Weapon() {}
 
 // ------------------------------ MEMBER FUNC. ---------------------------------------
 // return weapon type
-std::string Weapon::getType() {
-// const std::string& Weapon::getType() const { // BETTER PRACTICE
+//std::string Weapon::getType() {
+	const std::string& Weapon::getType() const { // BETTER PRACTICE
     return type;
 }
 

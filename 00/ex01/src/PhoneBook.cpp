@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:58 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:20:59 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 14:54:40 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "../inc/PhoneBook.hpp"
 #include <iomanip>
+#include <sstream>
 
 PhoneBook::PhoneBook() {}
-PhoneBook::~PhoneBook() {}
+PhoneBook::~PhoneBook() {}  
 
 // set_contact function enables adding new contacts to the phone book by finding an empty slot 
 // in the array and setting the contact information for that slot.
@@ -36,7 +37,11 @@ void PhoneBook::print_contacts() const {
     for (int i = 0; i < 8; ++i) {
 		// current index i is converted to a string using std::to_string(i). 
 		// to display the index in the formatted output
-        std::string index = std::to_string(i);
+        // std::string index = std::to_string(i); CPP11 !!!
+        std::stringstream ss;
+        ss << i;
+        std::string index = ss.str();
+		
 
 		// truncate() is called for each field (first_name, last_name, and nickname) of the current contact, 
 		// if a field is longer than 10 characters, it will be truncated and the last character will be replaced with a dot,

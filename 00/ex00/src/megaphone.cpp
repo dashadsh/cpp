@@ -6,14 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:31:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/06/27 08:24:13 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:32:06 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> //  I/O in C++
-#include <cctype> // toupper, strlen - 
-// library that contains functions for strings, such as
-// isalnum(), isalpha(), tolower(), toupper()
+#include <iostream>
 
 // SIC! - read about static_cast / dynamic_cast (type conversion based on inheritance relationship)
 

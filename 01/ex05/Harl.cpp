@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 13:08:14 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,6 @@ void Harl::complain(std::string level)
 
     return;
 }
-
-// alternative solution could be:
-
-// void Harl::complain(std::string level)
-// {
-//     Harl harl;
-//
-//     void (Harl::*fPtrDebug) () = &Harl::_debug;
-//		void (Harl::*fPtrInfo) () = &Harl::_info;
-//     void (Harl::*fPtrWarning) () = &Harl::_warning;
-//     void (Harl::*fPtrError) () = &Harl::_error;
-//
-//     if(level.compare("DEBUG") == 0)
-//         (harl.*fPtrDebug) ();
-//     else if(level.compare("INFO") == 0)
-//         (harl.*fPtrInfo) ();
-// 	else if(level.compare("WARNING") == 0)
-//         (harl.*fPtrWarning) ();
-//     else if(level.compare("ERROR") == 0)
-//         (harl.*fPtrError) ();
-//     else
-// 	{
-// 		std::cout << "\n[ EXCEPTION ]" << std::endl;
-//     	std::cout << "Harl left the chat." << std::endl; 
-// 	}
-// }
 
 // ------------------------------ PRIVATE FUNC. ------------------------------------------
 void Harl::_debug() {

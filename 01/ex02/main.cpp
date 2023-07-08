@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:21:55 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:21:56 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 13:15:29 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int main() {
     std::cout << "Value of the string variable: " << str << std::endl;
     std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl; // dereferenced PTR
     std::cout << "Value pointed to by stringREF: " << stringREF << std::endl; // REF is like a dereferenced PTR => don't need to add any symbol to access it
-
+	// --------------------- print ptr address ----------------------
+	// std::cout << "Memory address of stringPTR: " << &stringPTR << std::endl;
     return 0;
 }

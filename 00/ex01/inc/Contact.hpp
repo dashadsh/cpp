@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:39 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:20:41 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:03:42 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+#include <string> // std::string data type
 
-#include <string>
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // the code must include a Contact class, 
 // or whatever name the student used.
