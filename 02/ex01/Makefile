@@ -6,25 +6,38 @@
 #    By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 14:23:34 by dgoremyk          #+#    #+#              #
-#    Updated: 2023/07/04 14:23:35 by dgoremyk         ###   ########.fr        #
+#    Updated: 2023/07/08 17:23:46 by dgoremyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixed01
+
+SRC_DIR = src
+INC_DIR = inc
+OBJ_DIR = obj
+
 SRCS = main.cpp Fixed.cpp
+
+SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@$(RM) $(NAME)
+	@$(RM) $(OBJ)
 
 fclean: clean
+	@$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean re
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:10 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 17:17:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:19:28 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 // -------------------------------------------------------------------------------------------------
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "../inc/Fixed.hpp"
 
 int main(void) {
     Fixed a; // create a fixed-point number 'a' using the default constructor

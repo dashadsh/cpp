@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:42 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:23:43 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:44:03 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ private:
 
 public:
 	// Constructors
-    Fixed();
-    Fixed(const int val);
-    Fixed(const float val);
-    Fixed(const Fixed &src);
+    Fixed(); // Default constructor
+    Fixed(const int val); // Copy constructor. 
+    Fixed(const float val); // Integer constructor.
+    Fixed(const Fixed &src); //  Float constructor. 
 
 	// Destructor
     ~Fixed();

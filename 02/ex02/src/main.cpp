@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:23:55 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 18:08:09 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "../inc/Fixed.hpp"
 #include <iostream>
 
 int	main() { 
@@ -30,6 +30,16 @@ int	main() {
 	// "Copy constructor called" - operation creates a temporary copy of a
 	// "Copy assignment operator called" - result of the increment operation is assigned back to a.
 	std::cout << ++a << std::endl;
+	// the value of _value is a fixed-point representation. 
+	// That is, it's an integer that represents a floating-point value through a predetermined nbr of fractional bits. 
+	// I've set _fractionalBits to 8, meaning that the number is divided by 2^8 (or 256) to get the actual floating-point val it represents.
+	// When we increment a, which initially has a _value of 0, its _value becomes 1. 
+	// However, this is not a pure int, it's a fixed-point representation. 
+	// When this is converted to a floating-point number, we get 1 / 2^8 = 1 / 256 = 0.00390625. 
+	// This is why we see "0.00390625" printed after the increment.
+	// This behaviour comes from the way fixed-point arithmetic is used. 
+	// The incr. and decrem. operators (++ and --) incr or decr the underlying int val, not the actual represented floating-point val. 
+	// If we want to increment the floating-point value by a full integer, we'd need to increase _value by 1 << _fractionalBits, not by 1.
 
 	// "0.00390625" - prints the original value of a before the increment operation
 	// The post-increment operator is used here. 
@@ -43,6 +53,16 @@ int	main() {
 
 	// "10.1016" - prints value of b, which was initialized with a result of multiplication operation
 	std::cout << b << std::endl;
+	// GOOD EXAMPLE OF OVERLOAD:
+	// std::ostream& operator<<(std::ostream &out, const Fixed &f) {
+    // out << f.toFloat();
+    // return out;
+	// That function takes a reference to an std::ostream object (out) 
+	// and a constant reference to a Fixed object (f). 
+	// The function calls the toFloat() member function of the Fixed class to convert the fixed-point value to a float. 
+	// The converted value is then inserted into the output stream.
+	// When we run the main function you've provided, we'll see the float represent. of Fixed object printed to the console when  std::cout << b are called, 
+	// which verifies that the << operator overload is working correctly.
 
 	// "10.1016" - prints larger of a and b, which is b
 	std::cout << Fixed::max(a, b) << std::endl;

@@ -6,12 +6,12 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:02 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:23:03 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:19:23 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "../inc/Fixed.hpp"
 
 // ------------------------------ CONSTRUCTORS -------------------------------------------------------
 // DEFAULT CONSTRUCTOR

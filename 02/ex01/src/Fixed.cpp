@@ -6,13 +6,13 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:19 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:23:21 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:22:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath> // for roundf function
-#include "Fixed.hpp"
+#include "../inc/Fixed.hpp"
 // ------------------------------------ CONSTRUCTORS --------------------------------------------------------------
 Fixed::Fixed() : _value(0) {
     std::cout << "Default constructor called" << std::endl;
