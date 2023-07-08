@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:21:50 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/07 20:31:08 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:47:32 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../inc/Zombie.hpp"
 #include <iostream>
 
 // dynamically allocates an array of N Zombie objects 

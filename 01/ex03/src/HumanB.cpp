@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:11 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:12 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:50:46 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // during the lifetime of the object, a PTR/smart PTR should be used instead.
 /////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include "HumanB.hpp"
+#include "../inc/HumanB.hpp"
 
 // ------------------------------ CONSTRUCTOR ---------------------------------------
 // weapon PTR is initialized to nullptr, so

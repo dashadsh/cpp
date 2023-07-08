@@ -6,12 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:22:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:45:10 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.hpp"
-
 #include <sstream> // std::istringstream
 #include <iostream>
 #include <iomanip>  // std::setw(10) and std::right,

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:22:26 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 12:34:02 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:21:41 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/08 15:47:23 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include "../inc/Zombie.hpp"
 
 // ------------------------------ CONSTRUCTOR ---------------------------------------
-Weapon::Weapon(std::string someType) : type(someType) {
-// Weapon::Weapon(const std::string& type) : type(type) { // BETTER PRACTICE
-	// will copy passed parameter to the 'type' variable
-}
+Zombie::Zombie() {}
 
 // ------------------------------ DESTRUCTOR ---------------------------------------
-Weapon::~Weapon() {}
-
-
-// ------------------------------ MEMBER FUNC. ---------------------------------------
-// return weapon type
-//std::string Weapon::getType() {
-	const std::string& Weapon::getType() const { // BETTER PRACTICE
-    return type;
+Zombie::~Zombie() {
+    std::cout << "Zombie " << name << " destroyed" << std::endl;
 }
 
-// set weapon type using new type passed as a param.
-void Weapon::setType(std::string newType) {
-// void Weapon::setType(const std::string& newType) { // BETTER PRACTICE
-    this->type = newType;
+// ------------------------------ MEMBER FUNC. ---------------------------------------
+// member function takes a std::string parameter name and sets the name of the Zombie object to the provided value
+void Zombie::setName(std::string name) {
+    this->name = name;
+}
+
+void Zombie::announce() {
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

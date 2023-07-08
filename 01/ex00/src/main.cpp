@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:21:09 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:21:10 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:42:53 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../inc/Zombie.hpp"
 
 // SIC! .cppfile contains only implementation of class function, not the class
 

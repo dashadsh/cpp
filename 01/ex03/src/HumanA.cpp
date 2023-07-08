@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:03 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:50:37 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // during the lifetime of the object, a PTR/smart PTR should be used instead.
 /////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include "HumanA.hpp"
+#include "../inc/HumanA.hpp"
 
 // ------------------------------ CONSTRUCTOR ---------------------------------------
 HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) { 

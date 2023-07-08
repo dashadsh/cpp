@@ -6,13 +6,13 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:18 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:19 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:51:26 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "../inc/HumanA.hpp"
+#include "../inc/HumanB.hpp"
+#include "../inc/Weapon.hpp"
 
 
 // QUESTION - if i comment out jim.setWeapon(club); - 
