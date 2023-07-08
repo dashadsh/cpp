@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:58 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 14:54:40 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 17:34:45 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void PhoneBook::print_contacts() const {
 
 // responsible for retrieving a specific contact from the phone book based on the given idx
 Contact PhoneBook::get_contact(int index) const {
-    if (index < 0 || index > 7) {
-        return Contact(); // return a default-constructed Contact object,
-		// which can be used to indicate an error or non-existent contact
-    }
+    // if (index < 0 || index > 7) {
+    //     return Contact(); // return a default-constructed Contact object,
+	// 	// which can be used to indicate an error or non-existent contact
+    // } // THIS WAS ALREADY CHECKED
     return contacts[index];
 }
 

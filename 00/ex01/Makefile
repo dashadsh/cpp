@@ -6,7 +6,7 @@
 #    By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 14:20:52 by dgoremyk          #+#    #+#              #
-#    Updated: 2023/07/08 15:45:00 by dgoremyk         ###   ########.fr        #
+#    Updated: 2023/07/08 17:23:10 by dgoremyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = Contact.cpp PhoneBook.cpp main.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -I $(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
