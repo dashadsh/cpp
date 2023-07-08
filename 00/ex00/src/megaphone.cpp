@@ -6,11 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:31:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:32:06 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:36:50 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include <iostream> //  I/O in C++
+#include <cctype> //
+// The <cctype> header provides various functions for character classification 
+// and case conversion, including std::toupper for converting characters to uppercase.
 
 // SIC! - read about static_cast / dynamic_cast (type conversion based on inheritance relationship)
 
