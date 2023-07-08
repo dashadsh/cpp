@@ -6,12 +6,12 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:41 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:24:42 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:27:23 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "../inc/ClapTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // create a derived robot. 
@@ -39,7 +39,7 @@
 // When an obj. of a derived class is destroyed, destructor of the derived class gets executed first bc it may have to clean up
 // resources that depend on the base class.
 // Only after that can the base class destructor safely run, as it may clean up resources that the derived class destructor may depend on. 
-//This is why destruction happens in the reverse order of construction.
+// This is why destruction happens in the reverse order of construction.
 
 int main(void)
 {

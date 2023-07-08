@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:11 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:50:46 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:30:44 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 // ------------------------------ CONSTRUCTOR ---------------------------------------
 // weapon PTR is initialized to nullptr, so
 // it doesn't currently point to any valid memory address.
-HumanB::HumanB(std::string name) : name(name), weapon(nullptr) {
-// HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) // BETTER PRACTICE
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {
+// HumanB::HumanB(const std::string& name) : name(name), weapon(NULL) // BETTER PRACTICE
 // name parameter will be copied into the name member variable of the HumanB class
 }
 
@@ -48,7 +48,7 @@ void HumanB::attack() {
 // void HumanB::attack() const // BETTER PRACTICE
 // checking if the weapon pointer is nullptr =>
 // we can determine if the HumanB object has a valid weapon assigned/is unarmed. 
-    if (weapon != nullptr) {
+    if (weapon != NULL) {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
         // display human's name + weapon type they are attacking with
     } else {

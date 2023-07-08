@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 00:31:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:36:50 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:41:30 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ int main(int ac, char **av)
 	// << >> redirects the flow to or from a stream (like std::cout or std::cin)
 	for (int i = 1 ; i < ac ; i++)
 	{
-		// strlen returns unsigned long (site_t)
-		for (size_t j = 0 ; j < strlen(av[i]) ; j++)
+		for (size_t j = 0 ; av[i][j] != '\0' ; j++)
 		{
 			char uppercaseChar = std::toupper(av[i][j]);
 			std::cout << uppercaseChar;
 		}
 	}
-	// std::cout: stdout
-	// std::endl == \n: newline
 	std::cout << std::endl;
 	return 0;
 }

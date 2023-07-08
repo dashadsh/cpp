@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:24:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:24:52 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:25:26 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/08 19:25:29 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
 // --------------------- CONSTRUCT. -----------------------------
 
@@ -37,6 +37,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap() {
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 	std::cout << "ScavTrap constructor called with name: " << name << std::endl;
+
 }
 
 // Copy constructor
@@ -47,6 +48,7 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 	this->_energyPoints = src.getEnergyPoints();
 	this->_attackDamage = src.getAttackDamage();
 	std::cout << "ScavTrap copy constructor called" << std::endl;
+
 }
 
 // --------------------- DESTRUCT. -----------------------------
@@ -63,6 +65,7 @@ ScavTrap & ScavTrap::operator=(ScavTrap const &rhs) {
 	this->_name = rhs.getName();
 	
 	return (*this);
+
 }
 
 // --------------------- FUNC. ---------------------------
@@ -73,8 +76,7 @@ void ScavTrap::attack(const std::string& target) {
 		std::cout << "ScavTrap " << this->_name << " is dead and cannot attack." << std::endl;
 	else if (this->_energyPoints == 0)
 		std::cout << "ScavTrap " << this->_name << " does not have energy points and cannot attack." << std::endl;
-	else
-	{
+	else	{
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 		this->_energyPoints--;	
 	}

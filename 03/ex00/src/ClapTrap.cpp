@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:06 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:24:07 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:23:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../inc/ClapTrap.hpp"
 
 // --------------------- CONSTRUCTOR -----------------------------
 ClapTrap::ClapTrap() : _name("Claptrap default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {

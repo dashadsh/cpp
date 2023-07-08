@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:00 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:25:01 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:25:10 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../inc/ClapTrap.hpp"
 
 // --------------------- CONSTRUCT -----------------------------
 

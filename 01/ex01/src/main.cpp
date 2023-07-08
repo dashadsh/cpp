@@ -6,22 +6,20 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:21:33 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:47:29 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:27:07 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "../inc/Zombie.hpp"
-
 // create N zombies at once through a function called zombieHorde(int N, std::string name)
 
 int main() {
     int N = 5;
     Zombie* horde = zombieHorde(N, "Zombie");
 
-    if (horde != nullptr) {
+    if (horde != NULL) {
         for (int i = 0; i < N; i++) {
-            std::string name = "Zombie" + std::to_string(i);
             horde[i].announce();
         }
         delete[] horde;
@@ -39,11 +37,11 @@ int main() {
 
     // TEST NEGATIVE & ZERO - 2nd ver
     // Zombie* emptyHorde = zombieHorde(0, "EmptyZombie");
-    // if (emptyHorde != nullptr) {
+    // if (emptyHorde != NULL) {
     //     delete[] emptyHorde;
     // }
     // Zombie* negativeHorde = zombieHorde(-5, "NegativeZombie");
-    // if (negativeHorde != nullptr) {
+    // if (negativeHorde != NULL) {
     //     delete[] negativeHorde;
     // }
 

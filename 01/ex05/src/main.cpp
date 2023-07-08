@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:55 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:22:56 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 20:48:01 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 //
 // This is the main reason they're used in the Harl exercise: 
 // to choose the appropriate complaint function based on the level string.
-#include "Harl.hpp"
+#include "../inc/Harl.hpp"
 
 int main() {
     Harl harl;

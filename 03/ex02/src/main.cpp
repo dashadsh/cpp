@@ -6,13 +6,13 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:21 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:25:22 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:25:54 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "../inc/ClapTrap.hpp"
+#include "../inc/FragTrap.hpp"
+#include "../inc/ScavTrap.hpp"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // implement a FragTrap class that inherits from ClapTrap. 

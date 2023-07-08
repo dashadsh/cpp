@@ -1,18 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/08 19:24:31 by dgoremyk          #+#    #+#              #
+#    Updated: 2023/07/08 19:25:02 by dgoremyk         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = FragTrap
+
+SRC_DIR = src
+INC_DIR = inc
+OBJ_DIR = obj
+
 SRCS = main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp
+
+SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@$(RM) $(NAME)
+	@$(RM) $(OBJ)
 
 fclean: clean
+	@$(RM) $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean re
+.PHONY: all clean fclean re

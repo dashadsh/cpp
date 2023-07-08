@@ -6,13 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:20:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:45:10 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/08 19:57:49 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.hpp"
 #include <sstream> // std::istringstream
 #include <iostream>
+#include <locale> // for std::isdigit
 #include <iomanip>  // std::setw(10) and std::right,
 // each field will be displayed with a width of 10 characters and 
 // will be right-aligned within that width.
@@ -114,11 +115,21 @@ void handle_add(PhoneBook& phonebook) {
 		if (phone_nbr.empty()) {
     		std::cout << "Phone number cannot be empty. Please try again." << std::endl;
     	} 
-		else if (!std::all_of(phone_nbr.begin(), phone_nbr.end(), ::isdigit)) {
-        	std::cout << "Invalid input. Phone number should contain only digits.\n";
-    	} 
 		else {
-        break;
+        std::string::const_iterator it;
+        bool onlyDigits = true;
+
+        for (it = phone_nbr.begin(); it != phone_nbr.end(); ++it) {
+            if (!std::isdigit(*it)) {
+                onlyDigits = false;
+                break;
+            }
+        }
+        if (!onlyDigits) {
+            std::cout << "Invalid input. Phone number should contain only digits.\n";
+        	} else {
+            	break;
+        	}
     	}
     }
 
