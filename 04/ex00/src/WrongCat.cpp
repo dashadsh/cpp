@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:47:12 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:45:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:44:41 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../inc/WrongCat.hpp"
 #include <iostream>
 
 // def. constructor - sets type to "WrongCat"

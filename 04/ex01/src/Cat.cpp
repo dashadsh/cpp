@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:43:25 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:49:14 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:46:49 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../inc/Cat.hpp"
 #include <iostream>
 
 // default constructor - sets type to "Cat"

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 20:38:57 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:37:45 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,59 +100,59 @@
 // all subsequent processing is done on this string using std::string methods.
 */
 
-// int main(int ac, char *av[]) {
+int main(int ac, char *av[]) {
 
-//     if (ac != 4) {
-//         std::cerr << "usage: ./program <filename> <string1> <string2>\n";
-//         return 1;
-//     }
+    if (ac != 4) {
+        std::cerr << "usage: ./program <filename> <string1> <string2>\n";
+        return 1;
+    }
 
-//     // try to open the input file. std::ifstream is an input file stream which can read from files
-//     std::ifstream inFile(av[1]);
-//     // try to open the output file. std::ofstream is an output file stream which can write to files
-//     std::ofstream outFile(std::string(av[1]) + ".replace");
+    // try to open the input file. std::ifstream is an input file stream which can read from files
+    std::ifstream inFile(av[1]);
+    // try to open the output file. std::ofstream is an output file stream which can write to files
+    std::ofstream outFile(std::string(av[1]) + ".replace");
 
-//     if (!inFile) {
-//         std::cerr << "Error opening input file\n";
-//         return 1;
-//     }
+    if (!inFile) {
+        std::cerr << "Error opening input file\n";
+        return 1;
+    }
 
-//     if (!outFile) {
-//         std::cerr << "Error opening output file\n";
-//         return 1;
-//     }
+    if (!outFile) {
+        std::cerr << "Error opening output file\n";
+        return 1;
+    }
 
-//     // create string obj's to store lines from file, and 2 strings to find and replace
-//     std::string line;
-//     std::string s1 = av[2];
-//     std::string s2 = av[3];
+    // create string obj's to store lines from file, and 2 strings to find and replace
+    std::string line;
+    std::string s1 = av[2];
+    std::string s2 = av[3];
 
-//     // while there are lines to read from input file:
-//     while (std::getline(inFile, line)) {
-//         // keep replacing s1 with s2 in current line
-//      	std::size_t pos;
+    // while there are lines to read from input file:
+    while (std::getline(inFile, line)) {
+        // keep replacing s1 with s2 in current line
+     	std::size_t pos;
 
-// 		// this loop will find and process each occurrence of s1 in line, 
-// 		// stopping when there are no more occurrences of s1 left:
-//         while ((pos = line.find(s1)) != std::string::npos) {
-// 		// loop continues as long as s1 is found within line. 
-// 		// It stops when s1 is no longer found, i.e., when line.find(s1) returns std::string::npos.
-//             line.erase(pos, s1.length());  // erase s1 from the line
-//             line.insert(pos, s2);  // insert s2 in its place
-//         }
+		// this loop will find and process each occurrence of s1 in line, 
+		// stopping when there are no more occurrences of s1 left:
+        while ((pos = line.find(s1)) != std::string::npos) {
+		// loop continues as long as s1 is found within line. 
+		// It stops when s1 is no longer found, i.e., when line.find(s1) returns std::string::npos.
+            line.erase(pos, s1.length());  // erase s1 from the line
+            line.insert(pos, s2);  // insert s2 in its place
+        }
 
-//         outFile << line << '\n';	// write modified line to the output file
-//     }
+        outFile << line << '\n';	// write modified line to the output file
+    }
 
-// 	// std::ifstream and std::ofstream objects automatically close the file they're 
-// 	// associated with when they are destructed,
-// 	// calls to close are not technically necessary but can be considered good practice 
-// 	// because they make the code's intention clear
-//     inFile.close();
-//     outFile.close();
+	// std::ifstream and std::ofstream objects automatically close the file they're 
+	// associated with when they are destructed,
+	// calls to close are not technically necessary but can be considered good practice 
+	// because they make the code's intention clear
+    inFile.close();
+    outFile.close();
 
-//     return 0;
-// }
+    return 0;
+}
 
 // For the dot (.) in line.insert(pos, s2) etc -  it's used to call the insert member function 
 // on the std::string object line.
@@ -172,72 +172,70 @@
 
 // ------------------------------------------------------------------------------------------------------------
 
-#include <iostream>  // std::cerr, std::endl
-#include <fstream>  // std::ifstream, std::ofstream
-#include <sstream>  // std::istringstream
+// #include <iostream>  // std::cerr, std::endl
+// #include <fstream>  // std::ifstream, std::ofstream
+// #include <sstream>  // std::istringstream
 
 /* Open FD's: 
-// The std::ifstream and std::ofstream objects (input_file and output_file) will automatically close 
-// their associated files when they are destroyed. 
-// They are local variables in the replace function, so they are destroyed when the function returns,
-// which means the files they are associated with are closed*/
+The std::ifstream and std::ofstream objects (input_file and output_file) will automatically close 
+their associated files when they are destroyed. 
+They are local variables in the replace function, so they are destroyed when the function returns,
+which means the files they are associated with are closed
+*/
 
-void replace(std::string filename, std::string s1, std::string s2) {
-//	void replace(const std::string &filename, const std::string &s1, const std::string &s2) { - BETTER, SEE BELOW-1
-//	std::ifstream input_file(filename); // read from a file
-	std::ifstream input_file(filename.c_str()); // works with C++98
-//  In older versions of C++ the std::ifstream and std::ofstream constructors only accept const char*
-
-
-    if (!input_file) { // check if the inputfile was successfully opened
-        std::cerr << "error opening input file: " << filename << std::endl;
-        return;
-    }
-
-//	std::ofstream output_file(filename + ".replace"); // write to a file
-	std::ofstream output_file((filename + ".replace").c_str());
-//	In older versions of C++ the std::ifstream and std::ofstream constructors only accept const char*
+// void replace(std::string filename, std::string s1, std::string s2) {
+// /*	void replace(const std::string &filename, const std::string &s1, const std::string &s2) { - BETTER, SEE BELOW-1 */
+// /*	std::ifstream input_file(filename); // read from a file */
+// 	std::ifstream input_file(filename.c_str()); // works with C++98
+// /*  In older versions of C++ the std::ifstream and std::ofstream constructors only accept const char* */
 
 
-    if (!output_file) { // check if outfile was successfully opened
-        std::cerr << "error opening output file: " << filename << ".replace" << std::endl;
-        return;
-    }
+//     if (!input_file) { // check if the inputfile was successfully opened
+//         std::cerr << "error opening input file: " << filename << std::endl;
+//         return;
+//     }
 
-    std::string line; // holds one line from the file which we will read
+// //	std::ofstream output_file(filename + ".replace"); // write to a file
+// 	std::ofstream output_file((filename + ".replace").c_str());
+// //	In older versions of C++ the std::ifstream and std::ofstream constructors only accept const char*
 
-    while (std::getline(input_file, line)) {  // read the file line by line using std::getline
-        std::istringstream iss(line);  // std::istringstream - split the line into words
-        std::string word; // placeholder for a single word
-        bool isFirstWord = true;
 
-        while (iss >> word) { // read the words from the line 'iss'
-            if (!isFirstWord) {
-                output_file << ' '; // print a space after 1st word/between words, SEE BELOW-2
-            }
+//     if (!output_file) { // check if outfile was successfully opened
+//         std::cerr << "error opening output file: " << filename << ".replace" << std::endl;
+//         return;
+//     }
 
-            if (word == s1) { // if current word is equal to the 1st input string, replace it
-                output_file << s2;
-            } else { // if not, print word as it is
-                output_file << word;
-            }
+//     std::string line; // holds one line from the file which we will read
 
-            isFirstWord = false;
-        }
+//     while (std::getline(input_file, line)) {  // read the file line by line using std::getline
+//         std::istringstream iss(line);  // std::istringstream - split the line into words
+//         std::string word; // placeholder for a single word
+//         bool isFirstWord = true;
 
-        output_file << '\n'; //prints newline after each line
-    }
-}
+//         while (iss >> word) { // read the words from the line 'iss'
+//             if (!isFirstWord) {
+//                 output_file << ' '; // print a space after 1st word/between words, SEE BELOW-2
+//             }
+//             if (word == s1) { // if current word is equal to the 1st input string, replace it
+//                 output_file << s2;
+//             } else { // if not, print word as it is
+//                 output_file << word;
+//             }
+//             isFirstWord = false;
+//         }
+//         output_file << '\n'; //prints newline after each line
+//     }
+// }
 
-int main(int ac, char **av) {
-    if (ac != 4) {
-        std::cerr << "usage: " << av[0] << " filename s1 s2" << std::endl;
-        return 1;
-    }
-    replace(av[1], av[2], av[3]);
+// int main(int ac, char **av) {
+//     if (ac != 4) {
+//         std::cerr << "usage: " << av[0] << " filename s1 s2" << std::endl;
+//         return 1;
+//     }
+//     replace(av[1], av[2], av[3]);
 
-    return 0;
-}
+//     return 0;
+// }
 
 // -----------------------------------------------------------------------------------
 // Efficiency: 

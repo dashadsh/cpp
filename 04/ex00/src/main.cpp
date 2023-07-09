@@ -6,15 +6,15 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:48:48 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 14:44:16 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:44:36 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "../inc/Animal.hpp"
+#include "../inc/Dog.hpp"
+#include "../inc/Cat.hpp"
+#include "../inc/WrongAnimal.hpp"
+#include "../inc/WrongCat.hpp"
 #include <iostream>
 
 int main() {

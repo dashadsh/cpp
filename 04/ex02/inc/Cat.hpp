@@ -6,14 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:00:51 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:24:35 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:50:17 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "aAnimal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 /*

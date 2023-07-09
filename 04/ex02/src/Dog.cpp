@@ -6,11 +6,11 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:03:43 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:14:50 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:48:35 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../inc/Dog.hpp"
 
 #include <iostream>
 

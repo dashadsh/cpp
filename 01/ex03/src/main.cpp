@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:18 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 15:51:26 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:11:28 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "../inc/HumanB.hpp"
 #include "../inc/Weapon.hpp"
 
-
-// QUESTION - if i comment out jim.setWeapon(club); - 
-// should club.setType("some other type of club"); still work??
+// Q: if i comment out jim.setWeapon(club); - 
+// should club.setType("some other type of club"); still work?? 
+// NO: bc HumanB PTR = NULL in that case
 
 int main() {
-	{
+	{	// HumanA has RFR to Weapon
     	Weapon club = Weapon("crude spiked club");
     	HumanA bob("Bob", club);
     	bob.attack();
@@ -27,7 +27,7 @@ int main() {
     	bob.attack(); 
 	} 
 
-	{
+	{ 	// HumanB has PTR to Weapon
 		Weapon  club = Weapon("crude spiked club");
 		HumanB jim("Jim");
 	// setWeapon() func. takes a REF to a Weapon obj & assigns it to the weapon PTR,

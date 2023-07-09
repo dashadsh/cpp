@@ -6,13 +6,13 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:04:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:33:45 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 21:48:45 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "../inc/Cat.hpp"
+#include "../inc/Dog.hpp"
+#include "../inc/Brain.hpp"
 
 #include <iostream>
 
