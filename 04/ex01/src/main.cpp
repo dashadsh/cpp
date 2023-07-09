@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:48:48 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:46:58 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:25:50 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,13 @@ int main (void)
         doggo.setThought(0, "Is it dinner time yet?");
         std::cout << "Original Dog's thought #1: " << doggo.getThought(0) << std::endl;
         std::cout << "Copied Dog's thought #1: " << copyDoggo.getThought(0) << std::endl;
+		std::cout << "----------------------------- 2nd test ---------------------------------" << std::endl << std::endl;
+		Dog basic;
+		basic.setThought(0, "BASIC THOUGHT");
+		{
+			Dog tmp = basic;
+		}
+		std::cout << "Basic Dog's thought #1: " << basic.getThought(0) << std::endl;
     }
 
     {

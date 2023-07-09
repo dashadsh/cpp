@@ -6,108 +6,228 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:48:48 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:44:36 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:00:52 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Animal.hpp"
-#include "../inc/Dog.hpp"
 #include "../inc/Cat.hpp"
+#include "../inc/Dog.hpp"
 #include "../inc/WrongAnimal.hpp"
 #include "../inc/WrongCat.hpp"
 #include <iostream>
 
-int main() {
+int main (void) 
+{
+    /* -------------------------------------
+    Testing Block: Basic Animal Class 
+    ------------------------------------- */
+    std::cout << "\n---------- Testing basic implementation of Animal ----------\n";
 
-	// // FIRST TEST
-    // const Animal *meta = new Animal();
-    // const Animal *j = new Dog();
-    // const Animal *i = new Cat();
+    {
+        const Animal *meta = new Animal();
+        const Animal *j = new Dog();
+        const Animal *i = new Cat();
 
-    // std::cout << j->getType() << " " << std::endl;
-    // std::cout << i->getType() << " " << std::endl;
-    // i->makeSound(); //will output the cat sound!
-    // j->makeSound();
-    // meta->makeSound();
-    
-    // delete meta;
-    // delete j;
-    // delete i;
-	
-	// SECOND TEST
-	
-	std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+        std::cout << "Dog's Type: " << j->getType() << std::endl;
+        std::cout << "Dog makes sound: "; 
+        j->makeSound(); //will output the cat sound!
+        
+        std::cout << "Cat's Type: " << i->getType() << std::endl;
+        std::cout << "Cat makes sound: "; 
+        i->makeSound();
+        
+        std::cout << "Animal makes sound: ";
+        meta->makeSound();
 
-    const Animal *meta = new Animal();
-	// SIC! CONST KEYWORD - way to ensure an obj. isn't changed after it's created (can be useful, but limits what you can do).
-	// const keyword before Animal *meta  - used to indicate that the obj. that meta points to cannot be changed. 
-	// 
-	// We cannot use meta to modify the Animal object after it's created.
-	// Way of telling the compiler and other programmers "this object should not change after it's created".
-	//
-	// However, it means that we can only call const member funct's on meta. 
-	// Non-const member functions might modify the object, 
-	// so calling them on a const object is not allowed.
-	//
-	// For example, if Animal had a member function void setName(std::string name);  - 
-	// we could not call meta->setName("New name"); if meta is a const Animal*, 
-	// bc setName is not a const member function.
-	std::cout << std::endl;
-	
-    std::cout << "Animal _type: " << meta->getType() << std::endl;
-    meta->makeSound();
-    std::cout << std::endl;
+        delete meta;
+        delete i;
+        delete j;
+    }
 
-    delete meta;
+    /* -------------------------------------
+    Testing Block: Wrong Animal Class 
+    ------------------------------------- */
+    std::cout << "\n---------- Testing basic implementation of WrongAnimal ----------\n";
 
-    std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+    {
+        const WrongAnimal *wrongMeta = new WrongAnimal();
+        const WrongCat     *wrongGatto = new WrongCat();
 
-    const Animal *cat = new Cat();
-    std::cout << std::endl;
+        std::cout << "WrongAnimal makes sound: ";
+        wrongMeta->makeSound();
+        
+        std::cout << "WrongCat makes sound: ";
+        wrongGatto->makeSound();
 
-    std::cout << "Cat _type: " << cat->getType() << std::endl;
-    cat->makeSound();
-    std::cout << std::endl;
+        delete wrongMeta;
+        delete wrongGatto;
+    }
 
-    delete cat;
+    /* -------------------------------------
+    Testing Block: Assignment operator 
+    ------------------------------------- */
+    std::cout << "\n---------- Testing assignment operator ----------\n";
 
-    std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+    {
+        Cat     gatto;
+        Animal  animal_one;
 
-    const Animal *dog = new Dog();
-    std::cout << std::endl;
-	
-    std::cout << "Dog _type: " << dog->getType() <<std::endl;
-    dog->makeSound();
-    std::cout << std::endl;
-	
-    delete dog;
+        animal_one = gatto;
+        std::cout << "Animal assigned from Cat makes sound: ";
+        animal_one.makeSound(); //output: animal sound, not cat sound.
+		//this is not possible: gatto = animal_one;
+    }
 
-    std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+    /* -------------------------------------
+    Testing Block: Polymorphism 
+    ------------------------------------- */
+    std::cout << "\n---------- Testing Polymorphism ----------\n";
 
-    const WrongAnimal *wrong_meta = new WrongAnimal();
-    std::cout << std::endl;
+    {
+        Animal *gatto = new Cat();
 
-    std::cout << "WrongAnimal _type: " << wrong_meta->getType() << std::endl;
-    wrong_meta->makeSound();
-    std::cout << std::endl;
+        std::cout << "Dynamic type Cat assigned to base type Animal makes sound: ";
+        gatto->makeSound();// meaow --> although it is animal, the sound is cat sound bcz it is dynamic polymorphism.
 
-    delete wrong_meta;
+        delete gatto;
+    }
 
-    std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
-    
-    const WrongAnimal *wrong_cat = new WrongCat();
-    std::cout << std::endl;
+    /* -------------------------------------
+    Testing Block: Basic Cat and Dog Class 
+    ------------------------------------- */
+    std::cout << "\n---------- Testing basic implementation of Cat and Dog ----------\n";
 
-    std::cout << "WrongCat _type: " << wrong_cat->getType() <<std::endl;
-    wrong_cat->makeSound();
-    std::cout << std::endl;
+    {
+        Cat cat;
+        Dog dog;
+        
+        std::cout << "Cat makes sound: ";
+        cat.makeSound();
+        
+        std::cout << "Dog makes sound: ";
+        dog.makeSound();
+    }
 
-    delete wrong_cat;
+    /* -------------------------------------
+    Testing Block: WrongCat Class and Non-polymorphism
+ test to see what happens when the makeSound function is not virtual in wrongAnimal  
+    ------------------------------------- */
+    std::cout << "\n---------- Testing WrongCat and non-polymorphism ----------\n";
 
-    std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+    {
+        WrongAnimal *animal_two = new WrongCat();
+        std::cout << "Dynamic type WrongCat assigned to base type WrongAnimal makes sound: ";
+        animal_two->makeSound();
+		// WRONG ANIMAL'S NOISES --> although it is allocated dynamically, since it is not a virtual function, it is not polymorphic.
+        // so we wont see meaw.
 
-    return 0;
+        WrongCat    gatto;
+        WrongAnimal animal_three;
+        
+        animal_three = gatto;
+        std::cout << "WrongAnimal assigned from WrongCat makes sound: ";
+        animal_three.makeSound(); //  WRONG ANIMAL'S NOISES as we expected, animal sound, not cat sound.
+
+        std::cout << "WrongCat makes sound: ";
+        gatto.makeSound(); // WrongCat' sound is only outputed when using the WrongCat. because we have no polymorphism here
+
+        delete animal_two;
+    }
 }
+
+
+// int main() {
+
+// 	// // FIRST TEST
+//     // const Animal *meta = new Animal();
+//     // const Animal *j = new Dog();
+//     // const Animal *i = new Cat();
+
+//     // std::cout << j->getType() << " " << std::endl;
+//     // std::cout << i->getType() << " " << std::endl;
+//     // i->makeSound(); //will output the cat sound!
+//     // j->makeSound();
+//     // meta->makeSound();
+    
+//     // delete meta;
+//     // delete j;
+//     // delete i;
+	
+// 	// SECOND TEST
+	
+// 	std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
+//     const Animal *meta = new Animal();
+// 	// SIC! CONST KEYWORD - way to ensure an obj. isn't changed after it's created (can be useful, but limits what you can do).
+// 	// const keyword before Animal *meta  - used to indicate that the obj. that meta points to cannot be changed. 
+// 	// 
+// 	// We cannot use meta to modify the Animal object after it's created.
+// 	// Way of telling the compiler and other programmers "this object should not change after it's created".
+// 	//
+// 	// However, it means that we can only call const member funct's on meta. 
+// 	// Non-const member functions might modify the object, 
+// 	// so calling them on a const object is not allowed.
+// 	//
+// 	// For example, if Animal had a member function void setName(std::string name);  - 
+// 	// we could not call meta->setName("New name"); if meta is a const Animal*, 
+// 	// bc setName is not a const member function.
+// 	std::cout << std::endl;
+	
+//     std::cout << "Animal _type: " << meta->getType() << std::endl;
+//     meta->makeSound();
+//     std::cout << std::endl;
+
+//     delete meta;
+
+//     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
+//     const Animal *cat = new Cat();
+//     std::cout << std::endl;
+
+//     std::cout << "Cat _type: " << cat->getType() << std::endl;
+//     cat->makeSound();
+//     std::cout << std::endl;
+
+//     delete cat;
+
+//     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
+//     const Animal *dog = new Dog();
+//     std::cout << std::endl;
+	
+//     std::cout << "Dog _type: " << dog->getType() <<std::endl;
+//     dog->makeSound();
+//     std::cout << std::endl;
+	
+//     delete dog;
+
+//     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
+//     const WrongAnimal *wrong_meta = new WrongAnimal();
+//     std::cout << std::endl;
+
+//     std::cout << "WrongAnimal _type: " << wrong_meta->getType() << std::endl;
+//     wrong_meta->makeSound();
+//     std::cout << std::endl;
+
+//     delete wrong_meta;
+
+//     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+    
+//     const WrongAnimal *wrong_cat = new WrongCat();
+//     std::cout << std::endl;
+
+//     std::cout << "WrongCat _type: " << wrong_cat->getType() <<std::endl;
+//     wrong_cat->makeSound();
+//     std::cout << std::endl;
+
+//     delete wrong_cat;
+
+//     std::cout << std::endl << "-------------------------------------------------------" << std::endl << std::endl;
+
+//     return 0;
+// }
 
 // -------------------------------- DEEP COPY ----------------------------------------
 // deep copy involves duplicating not only the obj but also the obj's or values it references or contains. 

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:24:56 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 23:20:27 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "ClapTrap.hpp"
 
+// scavtrap publicity inherits from claptrap class
 class ScavTrap : public ClapTrap {
 
 public:
@@ -33,6 +34,7 @@ public:
 	void guardGate();
 
 	private:
+	// doesnt redeclare any attributes
 
 };
 

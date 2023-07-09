@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:42:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:48:51 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:32:02 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
     Cat(const Cat& src);
 
     // destructor
-    ~Cat();
+    virtual ~Cat();
 
     // assignment operator
     Cat& operator=(const Cat& src);

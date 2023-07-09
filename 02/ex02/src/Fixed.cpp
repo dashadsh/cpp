@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:38 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 17:49:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:50:39 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Fixed::Fixed(const Fixed &src) {
 }
 
 // Integer constructor. 
+// takes a constant integer as a parameter.
 // It initializes the _value by shifting the integer input val 
 // left by _fractionalBits (8 in this case).
 Fixed::Fixed(const int val) : _value(val << _fractionalBits) {
@@ -40,6 +41,8 @@ Fixed::Fixed(const int val) : _value(val << _fractionalBits) {
 // }
 
 // Float constructor. 
+// takes a constant floating-point number as a parameter;
+// converts it to the corresponding fixed-point value. 
 // It initializes the _value by rounding the float input val 
 // and then shifting left by _fractionalBits.
 Fixed::Fixed(const float val) : _value(roundf(val * (1 << _fractionalBits))) {

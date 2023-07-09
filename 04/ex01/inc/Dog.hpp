@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:40:53 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:54:09 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:32:08 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     Dog(const Dog& src);
 
     // destructor
-    ~Dog();
+    virtual ~Dog();
 
     // assignment operator
     Dog& operator=(const Dog& src);

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:19 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 17:22:00 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/09 22:51:33 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,33 @@
 #include <cmath> // for roundf function
 #include "../inc/Fixed.hpp"
 // ------------------------------------ CONSTRUCTORS --------------------------------------------------------------
+// Default constructor. 
+// It initializes the _value to 0.
 Fixed::Fixed() : _value(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
+// Copy constructor.
+// It creates a new object as a copy of the existing src object.
 Fixed::Fixed(const Fixed &src) {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
+// Integer constructor. 
 // takes a constant integer as a parameter.
-// It converts it to the corresponding fixed-point value. 
-// The fractional bits value is initialized to 8 like in exercise 00.
+// It initializes the _value by shifting the integer input val 
+// left by _fractionalBits (8 in this case).
 Fixed::Fixed(const int value) {
     std::cout << "Int constructor called" << std::endl;
     _value = value << _fractionalBits;
 }
 
+// Float constructor. 
 // takes a constant floating-point number as a parameter;
 // converts it to the corresponding fixed-point value. 
-// The fractional bits value is initialized to 8 like in exercise 00
+// It initializes the _value by rounding the float input val 
+// and then shifting left by _fractionalBits.
 Fixed::Fixed(const float value) {
     std::cout << "Float constructor called" << std::endl;
     _value = roundf(value * (1 << _fractionalBits));
@@ -44,7 +51,9 @@ Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
 }
 
-// --------------------------------- COPY ASSIGNMENT OPERATOR OVERLOAD -----------------------------------------------------
+// --------------------------------- COPY ASSIGNMENT OPERATOR OVERLOAD ----------------------------------------------------
+// Overloaded copy assignment operator. 
+// It assigns the value of rhs to the current object if they are not the same.
 Fixed& Fixed::operator=(const Fixed &rhs) {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs)

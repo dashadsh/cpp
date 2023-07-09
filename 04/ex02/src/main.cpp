@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:04:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:48:45 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:41:16 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,38 @@
 // AAnimal animal will lead to compilation error: AAnimal is an abstract class
 
 int main(void) {
+	std::cout << std::endl;
     // Create Cat and Dog objects
     Cat cat("Mittens");
-	// std::cout << std::endl;
     Dog dog("Fido");
-    
-    // Make the Cat and Dog make a sound
+	// AAnimal animal("Cyborg"); - WILL GIVE AN ERROR
+    std::cout << std::endl;
+	
+	std::cout << "-------------Make the Cat and Dog make a sound-------------------" << std::endl << std::endl;
     cat.makeSound();
     dog.makeSound();
-    
-    // Set some thoughts for the Cat and Dog
+    std::cout << std::endl;
+	
+	std::cout << "-------------Set some thoughts for the Cat and Dog-----------------" << std::endl << std::endl;
     cat.setThought(0, "I love summer.");
     dog.setThought(0, "I love playing fetch.");
-    
-    // Make a deep copy of the Cat and Dog
+    std::cout << std::endl;
+	
+	std::cout << "-------------Make a deep copy of the Cat and Dog-----------------" << std::endl << std::endl;
     Cat other_cat(cat);
     Dog other_dog(dog);
-
-    // Output the first thought of the copied Cat and Dog
+	std::cout << std::endl;
+	std::cout << "------Output the first thought of the copied Cat and Dog----------------" << std::endl << std::endl;
     std::cout << "Copied Cat's first thought: " << other_cat.getThought(0) << std::endl;
     std::cout << "Copied Dog's first thought: " << other_dog.getThought(0) << std::endl;
-    
-    // Change the first thought of the original Cat and Dog
+    std::cout << std::endl;
+	
+	std::cout << "------------Change the first thought of the original Cat and Dog---------------" << std::endl << std::endl;
     cat.setThought(0, "I hate winter.");
     dog.setThought(0, "I hate baths.");
-
-    // Output the first thought of the original and copied Cat and Dog
+	std::cout << std::endl;
+	
+	std::cout << "-----------Output the first thought of the original and copied Cat and Dog----------" << std::endl << std::endl;
     std::cout << "Original Cat's first thought: " << cat.getThought(0) << std::endl;
     std::cout << "Original Dog's first thought: " << dog.getThought(0) << std::endl;
     std::cout << "Copied Cat's first thought: " << other_cat.getThought(0) << std::endl;
