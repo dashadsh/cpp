@@ -6,7 +6,7 @@
 #    By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/04 14:22:42 by dgoremyk          #+#    #+#              #
-#    Updated: 2023/07/08 15:52:59 by dgoremyk         ###   ########.fr        #
+#    Updated: 2023/07/10 09:31:08 by dgoremyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = main.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 # -pedantic
 
 CPP = c++
 RM = rm -f

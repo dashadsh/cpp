@@ -6,9 +6,97 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 22:37:45 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:24:25 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
+#include <fstream>
+
+int	main(int argc, char *argv[])
+{
+	std::ifstream inputFileStream;
+	std::ofstream outputFileStream;
+	std::string outputFile;
+	std::string lineContents;
+	std::string searchString;
+	std::string replaceString;
+	int searchStringLength;
+	int replaceStringLength;
+
+	if (argc != 4)
+	{
+		std::cout << "Error: The number of args != 4" << std::endl; 
+		return (1);
+	}
+	// init. searchString and replaceString
+	searchString = argv[2];
+	replaceString = argv[3];
+	
+	// get lengths of searchString and replaceString
+	searchStringLength = searchString.length();
+	replaceStringLength = replaceString.length();
+	
+	// check if lengths of any of the arguments == zero
+	if (std::strlen(argv[1]) == 0 || searchStringLength == 0 || replaceStringLength == 0)
+	{
+		std::cout << "Error: Length of one or more input arguments is 0." << std::endl; 
+		return (1);
+	}
+
+	// open the infile
+	inputFileStream.open(argv[1]);
+	if (inputFileStream.fail())
+	{
+		std::cout << "Error: Unable to open the file " << argv[1] << std::endl;
+		return (1); 
+	}
+
+	// create outfile name and open the file
+	outputFile = argv[1];
+	outputFile.append(".replace"); 
+	outputFileStream.open(outputFile);
+	if (outputFileStream.fail())
+	{
+		std::cout << "Error: Unable to create the file " << outputFile << std::endl;
+		return (1); 
+	}
+
+	// Reading the input file line by line
+	while (true)
+	{
+		std::getline(inputFileStream, lineContents);
+		
+		size_t pos = 0;
+		while (true)
+		{
+			// search for searchString in the line
+			pos = lineContents.find(searchString, pos);
+			if (pos == std::string::npos) {
+				break ;
+			}
+			
+			// replace searchString with replaceString in the line
+			lineContents.erase(pos, searchStringLength);
+			lineContents.insert(pos, replaceString);
+
+			// update position for next search
+			pos += replaceStringLength;
+		}
+
+		// write updated line to the output file
+		outputFileStream << lineContents;
+
+		// checking for end of file
+		if (inputFileStream.eof())
+			break ;
+
+		// add new line in the output file
+		outputFileStream << std::endl;	
+	}
+
+	return 0;
+}
 
 // ------------------------------------------------------------------------------------------------------------
 // takes filename and two strings as input
@@ -86,9 +174,9 @@
 
 // ------------------------------------------------------------------------------------------------------------
 
-#include <fstream>  // file input/output
-#include <iostream> // input/output on the console, std::cerr
-#include <string>   // for string data type, std::getline()
+// #include <fstream>  // file input/output
+// #include <iostream> // input/output on the console, std::cerr
+// #include <string>   // for string data type, std::getline()
 
 /*I'm using:
 // std::string::find, 
@@ -100,59 +188,59 @@
 // all subsequent processing is done on this string using std::string methods.
 */
 
-int main(int ac, char *av[]) {
+// int main(int ac, char *av[]) {
 
-    if (ac != 4) {
-        std::cerr << "usage: ./program <filename> <string1> <string2>\n";
-        return 1;
-    }
+//     if (ac != 4) {
+//         std::cerr << "usage: ./program <filename> <string1> <string2>\n";
+//         return 1;
+//     }
 
-    // try to open the input file. std::ifstream is an input file stream which can read from files
-    std::ifstream inFile(av[1]);
-    // try to open the output file. std::ofstream is an output file stream which can write to files
-    std::ofstream outFile(std::string(av[1]) + ".replace");
+//     // try to open the input file. std::ifstream is an input file stream which can read from files
+//     std::ifstream inFile(av[1]);
+//     // try to open the output file. std::ofstream is an output file stream which can write to files
+//     std::ofstream outFile(std::string(av[1]) + ".replace");
 
-    if (!inFile) {
-        std::cerr << "Error opening input file\n";
-        return 1;
-    }
+//     if (!inFile) {
+//         std::cerr << "Error opening input file\n";
+//         return 1;
+//     }
 
-    if (!outFile) {
-        std::cerr << "Error opening output file\n";
-        return 1;
-    }
+//     if (!outFile) {
+//         std::cerr << "Error opening output file\n";
+//         return 1;
+//     }
 
-    // create string obj's to store lines from file, and 2 strings to find and replace
-    std::string line;
-    std::string s1 = av[2];
-    std::string s2 = av[3];
+//     // create string obj's to store lines from file, and 2 strings to find and replace
+//     std::string line;
+//     std::string s1 = av[2];
+//     std::string s2 = av[3];
 
-    // while there are lines to read from input file:
-    while (std::getline(inFile, line)) {
-        // keep replacing s1 with s2 in current line
-     	std::size_t pos;
+//     // while there are lines to read from input file:
+//     while (std::getline(inFile, line)) {
+//         // keep replacing s1 with s2 in current line
+//      	std::size_t pos;
 
-		// this loop will find and process each occurrence of s1 in line, 
-		// stopping when there are no more occurrences of s1 left:
-        while ((pos = line.find(s1)) != std::string::npos) {
-		// loop continues as long as s1 is found within line. 
-		// It stops when s1 is no longer found, i.e., when line.find(s1) returns std::string::npos.
-            line.erase(pos, s1.length());  // erase s1 from the line
-            line.insert(pos, s2);  // insert s2 in its place
-        }
+// 		// this loop will find and process each occurrence of s1 in line, 
+// 		// stopping when there are no more occurrences of s1 left:
+//         while ((pos = line.find(s1)) != std::string::npos) {
+// 		// loop continues as long as s1 is found within line. 
+// 		// It stops when s1 is no longer found, i.e., when line.find(s1) returns std::string::npos.
+//             line.erase(pos, s1.length());  // erase s1 from the line
+//             line.insert(pos, s2);  // insert s2 in its place
+//         }
 
-        outFile << line << '\n';	// write modified line to the output file
-    }
+//         outFile << line << '\n';	// write modified line to the output file
+//     }
 
-	// std::ifstream and std::ofstream objects automatically close the file they're 
-	// associated with when they are destructed,
-	// calls to close are not technically necessary but can be considered good practice 
-	// because they make the code's intention clear
-    inFile.close();
-    outFile.close();
+// 	// std::ifstream and std::ofstream objects automatically close the file they're 
+// 	// associated with when they are destructed,
+// 	// calls to close are not technically necessary but can be considered good practice 
+// 	// because they make the code's intention clear
+//     inFile.close();
+//     outFile.close();
 
-    return 0;
-}
+//     return 0;
+// }
 
 // For the dot (.) in line.insert(pos, s2) etc -  it's used to call the insert member function 
 // on the std::string object line.
