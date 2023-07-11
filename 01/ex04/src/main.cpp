@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:22:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/10 11:24:25 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:33:19 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 	replaceStringLength = replaceString.length();
 	
 	// check if lengths of any of the arguments == zero
-	if (std::strlen(argv[1]) == 0 || searchStringLength == 0 || replaceStringLength == 0)
+	if (std::string(argv[1]).length() == 0 || searchStringLength == 0 || replaceStringLength == 0)
 	{
 		std::cout << "Error: Length of one or more input arguments is 0." << std::endl; 
 		return (1);
@@ -55,7 +55,8 @@ int	main(int argc, char *argv[])
 	// create outfile name and open the file
 	outputFile = argv[1];
 	outputFile.append(".replace"); 
-	outputFileStream.open(outputFile);
+	// outputFileStream.open(outputFile);
+	outputFileStream.open(outputFile.c_str()); // use .c_str() if your C++ version is < C++11
 	if (outputFileStream.fail())
 	{
 		std::cout << "Error: Unable to create the file " << outputFile << std::endl;
@@ -96,6 +97,7 @@ int	main(int argc, char *argv[])
 	}
 
 	return 0;
+	
 }
 
 // ------------------------------------------------------------------------------------------------------------
