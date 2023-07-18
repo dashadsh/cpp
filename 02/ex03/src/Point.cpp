@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:53:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 15:13:55 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:11:18 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Point::Point(void) : _x(0), _y(0) {
     // std::cout << "Point default constructor called." << std::endl;
 }
 
-Point::Point(const  float x, const float y) : _x(x), _y(y) {
+Point::Point(const float x, const float y) : _x(x), _y(y) {
     // std::cout << "Point fixed constructor called." << std::endl;
 }
 

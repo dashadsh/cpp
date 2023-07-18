@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 14:47:05 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:29:04 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	main(void)
 	Point a(0.0, 0.0);
 	Point b(5.0, 0.0);
 	Point c(0.0, 5.0);
-	Point p(6.0, 2.0);
+	Point point(6.0, 2.0);
 
-	if (bsp(a, b, c, p))
+	if (bsp(a, b, c, point))
 		std::cout << "Point is part of the triangle." << std::endl;
 	else
 		std::cout << "Point is not part of the triangle." << std::endl;
@@ -72,28 +72,74 @@ int	main(void)
 	std::cout << std::endl << "------------------------------------------" << std::endl;
 	std::cout << "------------- test BSP 2 -------------" << std::endl;
 	std::cout << "------------------------------------------" << std::endl;
-    Point triangle[3] = {
-        Point(0.0, 0.0),
-        Point(5.0, 0.0),
-        Point(0.0, 5.0)
-    };
-
-    Point testPoints[4] = {
+    // Define some triangles
+    Point triangles[3][3] = {
+        {
+            Point(0.0, 0.0),
+            Point(5.0, 0.0),
+            Point(0.0, 5.0)
+        },
+        {
+            Point(2.0, 2.0),
+            Point(6.0, 2.0),
+            Point(2.0, 6.0)
+        },
+        {
+            Point(-1.0, -1.0),
+            Point(-1.0, 4.0),
+            Point(4.0, -1.0)
+        }
+    	};
+	
+    // Define some test points
+    Point testPoints[5] = {
         Point(2.5, 2.5),
         Point(6.0, 2.0),
         Point(-1.0, -1.0),
-        Point(3.0, 0.0)
-    };
+        Point(3.0, 0.0),
+        Point(3.5, 3.5)
+    	};
 
-    for (int i = 0; i < 4; ++i) {
-        if (bsp(triangle[0], triangle[1], triangle[2], testPoints[i]))
-            std::cout << "Point " << i+1 << " is part of the triangle." << std::endl;
-        else
-            std::cout << "Point " << i+1 << " is not part of the triangle." << std::endl;
-    }
+// For Triangle 1:
 
+// Point 1 (2.5, 2.5) is correctly identified as inside the triangle.
+// Point 2 (6.0, 2.0) is correctly identified as outside the triangle.
+// Point 3 (-1.0, -1.0) is correctly identified as outside the triangle.
+// Point 4 (3.0, 0.0) is correctly identified as inside the triangle.
+// Point 5 (3.5, 3.5) is correctly identified as outside the triangle.
+// For Triangle 2:
+
+// Point 1 (2.5, 2.5) is correctly identified as inside the triangle.
+// Point 2 (6.0, 2.0) is correctly identified as inside the triangle.
+// Point 3 (-1.0, -1.0) is correctly identified as outside the triangle.
+// Point 4 (3.0, 0.0) is correctly identified as outside the triangle.
+// Point 5 (3.5, 3.5) is correctly identified as inside the triangle.
+// For Triangle 3:
+
+// Point 1 (2.5, 2.5) is correctly identified as outside the triangle.
+// Point 2 (6.0, 2.0) is correctly identified as outside the triangle.
+// Point 3 (-1.0, -1.0) is correctly identified as inside the triangle.
+// Point 4 (3.0, 0.0) is correctly identified as inside the triangle.
+// Point 5 (3.5, 3.5) is correctly identified as outside the triangle.
+
+    // Loop over each triangle
+    for(int i = 0; i < 3; ++i) {
+        std::cout << "Testing triangle " << i + 1 << std::endl;
+
+        // Loop over each test point
+        for(int j = 0; j < 5; ++j) {
+            bool isInside = bsp(triangles[i][0], triangles[i][1], triangles[i][2], testPoints[j]);
+            
+            // Print whether the point is inside the triangle or not
+            std::cout << "Point " << j + 1 << " is " << (isInside ? "inside" : "outside") << " the triangle" << std::endl;
+        	}
+		}
 	}
 }
+
+
+
+
 
 // bool	bsp( Point const a, Point const b, Point const c, Point const point);
 
