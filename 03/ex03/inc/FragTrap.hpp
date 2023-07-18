@@ -6,17 +6,18 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:15 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 12:40:31 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:09:01 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAG_TRAP_HPP
 #define FRAG_TRAP_HPP
 
+
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
-
+// class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
 public:
 
 	FragTrap(void); // Default constructor
@@ -29,7 +30,7 @@ public:
 
     // Overridden attack function
     void attack(const std::string& target);
-    // New function
+
     void highFivesGuys();
 
 };

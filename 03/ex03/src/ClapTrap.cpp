@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:24:31 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 12:45:45 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:25:00 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/18 13:08:34 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ClapTrap.hpp"
 
-// --------------------- CONSTRUCT / DESTRUCT -----------------------------
+// --------------------- CONSTRUCT -----------------------------
 
 // Default
 ClapTrap::ClapTrap(void) : _name("Claptrap default robot"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
@@ -29,10 +29,13 @@ ClapTrap::ClapTrap(ClapTrap const &src) : _name(src._name), _hitPoints(src._hitP
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
+// ------------------------ DESTRUCT -----------------------------
 ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor called with name: " << _name << std::endl;
 }
 
+
+// ------------- COPY ASSIGNMENT OPERATOR ---------------------------
 ClapTrap& ClapTrap::operator=(ClapTrap const &rhs) {
 	this->_attackDamage = rhs.getAttackDamage();
 	this->_energyPoints = rhs.getEnergyPoints();
@@ -101,6 +104,18 @@ int ClapTrap::getAttackDamage(void) const {
 
 // -------------------------- SETTERS -----------------------------
 
-void    ClapTrap::setAttackDamage(int damage) {
-    _attackDamage = damage;
+void	ClapTrap::setHitPoints(int hitpoints) {
+	this->_hitPoints = hitpoints;
+}
+
+void	ClapTrap::setEnergyPoints(int energypoints) {
+	this->_energyPoints = energypoints;
+}
+
+void	ClapTrap::setAttackDamage(int damage) {
+	this->_attackDamage = damage;
+}
+
+void	ClapTrap::setName(std::string name) {
+	this->_name = name;
 }

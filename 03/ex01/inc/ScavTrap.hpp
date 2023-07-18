@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 23:20:27 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:58:39 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	
 	~ScavTrap();
 
-	ScavTrap & operator=(ScavTrap const &rhs);
+	ScavTrap& operator=(ScavTrap const &rhs);
 
 	// Overridden attack function
 	void attack(const std::string& target);

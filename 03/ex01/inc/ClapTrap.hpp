@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 23:20:46 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:58:31 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	virtual ~ClapTrap(); // Destructor - RECOMMEMDED FOR CORRECT CLEAN-UP
 	// base class destructorshould be virtual to correctly handle the deletion of a derived class object via a pointer to base
 
-	ClapTrap & operator=(ClapTrap const &rhs); // Assignment operator
+	ClapTrap& operator=(ClapTrap const &rhs); // Assignment operator
 
 	// void attack(const std::string& target);
 	virtual void attack(const std::string& target); // then we can overwrite it!
@@ -38,7 +38,9 @@ public:
 	int	getHitPoints(void) const;
 	int	getEnergyPoints(void) const;
 	int	getAttackDamage(void) const;
-	
+
+	void setAttackDamage(int damage);
+
 protected:
 
 	std::string _name;

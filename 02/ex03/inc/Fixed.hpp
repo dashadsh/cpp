@@ -6,12 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:42 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 14:37:09 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:37:42 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
+# include <math.h>
+
 
 #include <iostream>
 
@@ -25,7 +27,7 @@ public:
     Fixed();
     Fixed(const int val);
     Fixed(const float val);
-    Fixed(const Fixed &src);
+    Fixed(const Fixed &src); // copy c.
 
 	// Destructor
     ~Fixed();

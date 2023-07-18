@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:26 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 19:25:29 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:41:33 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called with name: " << _name << std::endl;
 }
 
-ScavTrap & ScavTrap::operator=(ScavTrap const &rhs) {
+ScavTrap& ScavTrap::operator=(ScavTrap const &rhs) {
 	
 	this->_attackDamage = rhs.getAttackDamage();
 	this->_energyPoints = rhs.getEnergyPoints();

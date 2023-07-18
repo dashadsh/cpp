@@ -5,27 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:24:10 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 11:54:02 by dgoremyk         ###   ########.fr       */
+/*   Created: 2023/07/04 14:25:03 by dgoremyk          #+#    #+#             */
+/*   Updated: 2023/07/18 13:08:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_HPP
-# define CLAP_TRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 
 class ClapTrap {
+
 public:
-	ClapTrap(); // Default constructor
+
+	ClapTrap(void); // Default constructor
 	ClapTrap(std::string name); // Parameterized constructor
 	ClapTrap(ClapTrap const &src); // Copy constructor
-	
-	~ClapTrap(void); // Destructor
+
+	//~ClapTrap(); // Destructor //	
+	virtual ~ClapTrap(); // Destructor - RECOMMEMDED FOR CORRECT CLEAN-UP
+	// base class destructorshould be virtual to correctly handle the deletion of a derived class object via a pointer to base
 
 	ClapTrap& operator=(ClapTrap const &rhs); // Assignment operator
 
-	void attack(const std::string& target);
+	// void attack(const std::string& target);
+	virtual void attack(const std::string& target); // then we can overwrite it!
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
@@ -34,13 +39,21 @@ public:
 	int	getEnergyPoints(void) const;
 	int	getAttackDamage(void) const;
 
+	void setName(std::string name);
+	void setHitPoints(int hitpoints);
+	void setEnergyPoints(int energypoints);
 	void setAttackDamage(int damage);
 	
-private:
+protected:
+
 	std::string _name;
 	int	_hitPoints;
 	int	_energyPoints;
 	int	_attackDamage;	
+	// class ScavTrap inherits from class ClapTrap - 
+	// use 'protected' keyword in the parent class to allow the derived class access 
+	// parent's members directly.
+
 };
 
 #endif

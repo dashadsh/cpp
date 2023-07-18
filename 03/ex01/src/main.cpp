@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:41 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 19:27:23 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:56:58 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@
 //    void guardGate();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int main (void) 
+{
+    ScavTrap    a("AAA");
+    ScavTrap    b("BBB");
+	
+    a.attack("BBB");
+    b.takeDamage(a.getAttackDamage());
+    b.beRepaired(2);
+    b.setAttackDamage(5);
+    b.attack(a.getName());
+    a.takeDamage(b.getAttackDamage());
+}
+
 // ---------------------- reversed destruction order -------------------------------------------------------------------------------
 // When a derived object (ScavTrap) is created, the base object (ClapTrap) must first be constructed bc the derived object can 
 // rely on the base obj. being properly initialized. 
@@ -41,33 +54,33 @@
 // Only after that can the base class destructor safely run, as it may clean up resources that the derived class destructor may depend on. 
 // This is why destruction happens in the reverse order of construction.
 
-int main(void)
-{
-	ClapTrap a("A");
-	ScavTrap b("B");
-	std::cout << std::endl;
+// int main(void)
+// {
+// 	ClapTrap a("A");
+// 	ScavTrap b("B");
+// 	std::cout << std::endl;
 
-    a.attack("C");
-    a.takeDamage(6);
-	std::cout << std::endl;
+//     a.attack("C");
+//     a.takeDamage(6);
+// 	std::cout << std::endl;
 
-	b.attack("A");
-	b.beRepaired(3);
-	std::cout << std::endl;
+// 	b.attack("A");
+// 	b.beRepaired(3);
+// 	std::cout << std::endl;
 
-    a.attack("B");
-	b.takeDamage(6);
-	std::cout << std::endl;
+//     a.attack("B");
+// 	b.takeDamage(6);
+// 	std::cout << std::endl;
 
-    b.guardGate();
-	std::cout << std::endl;
+//     b.guardGate();
+// 	std::cout << std::endl;
 
-	std::cout << a.getName() << ": " << a.getAttackDamage() << " damage points, " << a.getEnergyPoints() << " energy points, " << a.getHitPoints() << " hit points." << std::endl;
-	std::cout << b.getName() << ": " << b.getAttackDamage() << " damage points, " << b.getEnergyPoints() << " energy points, " << b.getHitPoints() << " hit points." << std::endl;
-    std::cout << std::endl;
+// 	std::cout << a.getName() << ": " << a.getAttackDamage() << " damage points, " << a.getEnergyPoints() << " energy points, " << a.getHitPoints() << " hit points." << std::endl;
+// 	std::cout << b.getName() << ": " << b.getAttackDamage() << " damage points, " << b.getEnergyPoints() << " energy points, " << b.getHitPoints() << " hit points." << std::endl;
+//     std::cout << std::endl;
 
-	return(0);
-}
+// 	return(0);
+// }
 
 // int main(void) {
 //     ScavTrap robot1("ROBOT1");

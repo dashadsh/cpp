@@ -6,13 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:21 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 12:42:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:37:13 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ClapTrap.hpp"
 #include "../inc/FragTrap.hpp"
 #include "../inc/ScavTrap.hpp"
+#include "../inc/DiamondTrap.hpp"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // implement a FragTrap class that inherits from ClapTrap. 
@@ -28,30 +29,65 @@
 //    void highFivesGuys(void);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-int main () 
+int	main(void)
 {
-    FragTrap    a("AAA");
-    FragTrap    b("BBB");
-    a.attack("Bixbi");
-    b.takeDamage(a.getAttackDamage());
-    b.beRepaired(2);
-    b.setAttackDamage(5);
-    b.attack(a.getName());
-    a.takeDamage(b.getAttackDamage());
-    b.highFivesGuys();
+	std::string partition(50, '-');
+
+	std::cout << partition << std::endl;
+	std::cout << "SCAVTRAP\n";
+	std::cout << partition << std::endl;
+	{
+		ScavTrap	scav("SCAVVY");
+		scav.attack("SOMEONE");
+		scav.takeDamage(1);
+		scav.guardGate();
+		scav.beRepaired(23);
+		std::cout << "SCAVVY energy points: " << scav.getEnergyPoints() << std::endl;
+	}
+	std::cout << partition << std::endl;
+	std::cout << "FRAGTRAP\n";
+	std::cout << partition << std::endl;
+	{
+		FragTrap frog;
+		frog.highFivesGuys();
+		std::cout << "name: " << frog.getName() << std::endl;
+		std::cout << "Frag attack damage: " << frog.getAttackDamage() << std::endl;
+		frog.attack("FROG");
+		frog.getAttackDamage();
+		FragTrap fraggy("FRAGGY");
+		fraggy.highFivesGuys();
+		fraggy.beRepaired(12);
+	}
+	std::cout << partition << std::endl;
+	std::cout << "DIAMONDTRAP\n";
+	std::cout << partition << std::endl;
+	{
+		DiamondTrap diamond("DIAMONDY");
+		diamond.attack("SOMEONE");
+		diamond.whoAmI();
+		std::cout << "Attack:" << diamond.getAttackDamage() << std::endl;
+		std::cout << "Hit: " << diamond.getHitPoints() << std::endl;
+		std::cout << "Energy: " << diamond.getEnergyPoints() << std::endl;
+		std::cout << "Clap name: " << diamond.getName() << std::endl;
+	}
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // int main() {
 
 // 	ClapTrap a("A");
 //     ScavTrap b("B");
 // 	FragTrap c("C");
+// 	DiamondTrap d("D");
 // 	std::cout << std::endl;
 
 // 	a.attack("D");
 // 	b.attack("A");
 //     b.guardGate();
 // 	c.highFivesGuys();
+// 	d.attack("A");
+//     d.whoAmI();
 // 	std::cout << std::endl;
 
 // 	std::cout << a.getName() << ": " << a.getAttackDamage() << " damage points, " << a.getEnergyPoints() << " energy points, " << a.getHitPoints() << " hit points." << std::endl;
@@ -63,6 +99,8 @@ int main ()
 //     return 0;
 
 // }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // int main(void) {
 

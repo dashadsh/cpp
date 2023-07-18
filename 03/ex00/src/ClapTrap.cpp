@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:06 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 19:23:00 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:45:50 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ ClapTrap::~ClapTrap(void) {
 }
 
 // --------------------- COPY ASSIGNMENT OPERATOR -----------------------------
-ClapTrap & ClapTrap::operator=(ClapTrap const &rhs) {
+// a reference to a ClapTrap object will be returned.
+ClapTrap& ClapTrap::operator=(ClapTrap const &rhs) {
 	this->_attackDamage = rhs.getAttackDamage();
 	this->_energyPoints = rhs.getEnergyPoints();
 	this->_hitPoints = rhs.getHitPoints();
@@ -93,4 +94,10 @@ int ClapTrap::getEnergyPoints(void) const {
 
 int ClapTrap::getAttackDamage(void) const {
 	return (this->_attackDamage);
+}
+
+// -------------------------- SETTERS -----------------------------
+
+void    ClapTrap::setAttackDamage(int damage) {
+    _attackDamage = damage;
 }
