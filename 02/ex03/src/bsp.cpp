@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:55:11 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 16:29:21 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/18 23:24:15 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,41 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 
 // It doesn't account for edge cases where the point is on the edge of the triangle.
 //  To handle this -  add additional checks to see if the point lies on any of the triangle's edges.
+
+// -------------------------------------------------------------------------------------------------
+/*
+In the Barycentric coordinate system, 
+any point inside a triangle can be uniquely represented as a weighted sum of the triangle's vertices. 
+
+Given a triangle ABC, any point P inside this triangle can be represented as:
+	P = w1A + w2B + w3*C
+where A, B, C are the vertices of the triangle, and w1, w2, and w3 are the weights or Barycentric coordinates. 
+
+These weights satisfy the following conditions:
+1. 0 <= w1, w2, w3 <= 1. This means each weight is between 0 and 1, inclusive.
+2. w1 + w2 + w3 = 1. The sum of the weights is 1.
+
+The idea here is that the weights w1, w2, and w3 give us information about the relative "closeness" 
+of the point P to the vertices A, B, and C. 
+If P is very close to A, then w1 will be close to 1, while w2 and w3 will be close to 0, and so on.
+
+To calculate the Barycentric coordinates, we can use the following formulas:
+
+w1 = ((B.y - C.y)*(P.x - C.x) + (C.x - B.x)*(P.y - C.y)) / ((B.y - C.y)*(A.x - C.x) + (C.x - B.x)*(A.y - C.y))
+
+w2 = ((C.y - A.y)*(P.x - C.x) + (A.x - C.x)*(P.y - C.y)) / ((B.y - C.y)*(A.x - C.x) + (C.x - B.x)*(A.y - C.y))
+
+w3 = 1 - w1 - w2
+
+The denominator in both w1 and w2 is the same and is the area of the ABC triangle, multiplied by 2.
+The numerators represent twice the area of the BCP triangle for w1, and twice the area of the ACP triangle for w2.
+
+This gives us a nice geometric interpretation: w1 is the ratio of the area of triangle BCP to ABC, 
+and similarly for w2.
+
+Once we've calculated the Barycentric coordinates, we can use them to determine whether a point is:
+ - inside the triangle (all weights are between 0 and 1),
+ - on an edge of the triangle (one weight is 0, the others are between 0 and 1), 
+ - on a vertex (one weight is 1, the others are 0), 
+ - or outside the triangle (at least one weight is negative or greater than 1).
+ */
