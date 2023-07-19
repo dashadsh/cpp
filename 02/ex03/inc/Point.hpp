@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:51:50 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 16:11:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:48:46 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 
 public:
     // Constructors
-    Point(); 
+    Point();
     Point(const float x, const float y); 
     Point(const Point &src); 
 
@@ -43,7 +43,7 @@ public:
     const Fixed& getY(void) const; 
 };
 
-bool	bsp(Point const a, Point const b, Point const c, Point const point);
+bool	bsp(const Point a, const Point b, const Point c, const Point point);
 
 
 #endif

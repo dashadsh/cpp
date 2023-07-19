@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:53:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 16:11:18 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:01:14 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Point::Point(void) : _x(0), _y(0) {
 }
 
 Point::Point(const float x, const float y) : _x(x), _y(y) {
-    // std::cout << "Point fixed constructor called." << std::endl;
+    // std::cout << "Point constructor called." << std::endl;
 }
 
-Point::Point(Point const &src) : _x(src.getX()), _y(src.getY()) {
+Point::Point(Point const &point) : _x(point._x) , _y(point._y) {
     // std::cout << "Point copy constructor called." << std::endl;
 }
 
@@ -29,19 +29,26 @@ Point::~Point(void) {
     // std::cout << "Point destructor called." << std::endl;
 }
 
-Point& Point::operator=(Point const &rhs) {
-    // std::cout << "Point assignment operator called." << std::endl;
-    // std::cout << "Warning: cannot assign to Point const attributes. "
-    //              "Use a Point copy constructor instead."
-    //           << std::endl;
-    // (void)rhs;
-	if (this != &rhs) {
-		(Fixed)this->_x = rhs.getX();
-		(Fixed)this->_y = rhs.getY();
-	}
-	
+// Assignment operator
+// Point class has the members _x and _y as const. 
+// As a result, we cannot assign to them in your copy assignment operator 
+Point& Point::operator=(const Point &rhs) {
+    std::cout << "Point assignment operator called." << std::endl;
+    std::cout << "Warning: cannot assign to Point const attributes. "
+                 "Use a Point copy constructor instead."
+              << std::endl;
+    (void)rhs;
     return (*this);
 }
+
+// Point& Point::operator=(const Point &rhs)
+// {
+// 	if (this == &rhs)
+// 		return *this;
+// 	(Fixed)this->_x = rhs.getX();
+// 	(Fixed)this->_y = rhs.getY();
+// 	return *this;
+// }
 
 Fixed const &Point::getX(void) const {
     return (this->_x);
