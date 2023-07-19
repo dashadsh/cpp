@@ -6,20 +6,32 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:53:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/19 10:01:14 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:09:10 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
 #include "../inc/Point.hpp"
 
-Point::Point(void) : _x(0), _y(0) {
+/*
+using the Fixed class constructor that takes a float as input to create Fixed objects 
+from the float values:
+*/
+
+// Point::Point(void) : _x(0), _y(0) {
+//     // std::cout << "Point default constructor called." << std::endl;
+// }
+Point::Point(void) : _x(Fixed(0)), _y(Fixed(0)) {
     // std::cout << "Point default constructor called." << std::endl;
 }
 
-Point::Point(const float x, const float y) : _x(x), _y(y) {
+// Point::Point(const float x, const float y) : _x(x), _y(y) {
+//     // std::cout << "Point constructor called." << std::endl;
+// }
+Point::Point(const float x, const float y) : _x(Fixed(x)), _y(Fixed(y)) {
     // std::cout << "Point constructor called." << std::endl;
 }
+
 
 Point::Point(Point const &point) : _x(point._x) , _y(point._y) {
     // std::cout << "Point copy constructor called." << std::endl;
