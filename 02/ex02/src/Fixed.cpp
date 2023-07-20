@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:38 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 22:50:39 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:53:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ Fixed& Fixed::operator++() {
 }
 
 // Overloaded postfix increment operator.
+// increment the value of an object and then return its original (pre-incremented) value.
 Fixed Fixed::operator++(int) {
     Fixed temp(*this);
     ++(*this);
@@ -90,6 +91,7 @@ Fixed& Fixed::operator--() {
 }
 
 // Overloaded postfix decrement operator.
+// after Fixed b = a--;, b will hold the original value of a, and a will have been decremented.
 Fixed Fixed::operator--(int) {
     Fixed temp(*this);
     --(*this);

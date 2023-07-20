@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:02 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 17:19:23 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/20 22:14:18 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,25 @@
 
 // ------------------------------ CONSTRUCTORS -------------------------------------------------------
 // DEFAULT CONSTRUCTOR
-// this is a constructor that can be called with no arguments. 
-// It is used to create an object with default values.
-// To provide a way to create an object of the class with default values.
+// can be called with no arguments,
+// used to create an object with default values.
 Fixed::Fixed() : _value(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
 // COPY CONSTRUCTOR
-// this constructor is used when an object is initialized with another object of the same class.
-// To provide a way to create a new object as a copy of an existing object. 
-// This is especially important for classes that manage resources such as memory, file handles, network connections, etc., 
+// used when an object is initialized with another object of the same class - 
+// provides a way to create a new object as a copy of an existing object. 
+// Especially important for classes that manage resources such as memory, file handles, network connections...
 // where copying the resource requires specific actions.
+//
 // SIC! This generally means that any resources that the original object owns (e.g., memory that it has dynamically allocated) 
-// should be separately allocated for the new object, and the values copied over. This is called deep copying.
-// In contrast, shallow copying, which might look like sharing resources, involves copying the resource pointers of the original object. 
-// This can lead to issues such as double deletion: when the original object and its copy are destroyed (go out of scope), 
+// should be separately allocated for the new object, and the values copied over. 
+// This is called DEEP COPY.
+// Shallow copying, which might look like sharing resources, copies the resource pointers of the original object. 
+// This can lead to issues such as double deletion: when the original object and its copy are destroyed, 
 // both will try to free the same memory.
+//
 // Orthodox canonical form prescribes deep copying.
 // used here: Fixed b(a);
 Fixed::Fixed(const Fixed& src) {
@@ -45,7 +47,7 @@ Fixed::~Fixed() {
 }
 
 // ------------------- COPY ASSIGNMENT OPERATOR OVERLOAD -------------------------------------------
-// this operator is used when an already initialized object is assigned the values of another object of the same class.
+// used when an already initialized object is assigned the values of another object of the same class.
 // To allow one object to be assigned the values of another.
 // By default, for classes, the assignment operator performs shallow copy, also known as copy assignment. 
 // It's used like this:

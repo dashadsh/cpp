@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:10 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 17:19:28 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:46:22 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,19 @@
 // It includes the following member functions:
 
 // Default constructor
-// Copy constructor
-// Assignment operator
+
+// Copy constructor:
+// used to initialize a new object as a copy of an existing object.
+// It is invoked whenever a new object is initialized to the value of an existing object upon creation. 
+// This includes situations like:
+//  - passing an object by value to a function, 
+//  - returning an object by value from a function, 
+//  - explicitly initializing a new object to the value of an existing object.
+
+// Assignment operator:
+// used to copy the value of an existing object to another already existing object. 
+// This happens when you use the assignment operator (=) to give an existing object 
+// the value of another existing object.
 
 // Destructor: 
 // This is called when an object is destroyed, and it's used to free any resources that the object may have 

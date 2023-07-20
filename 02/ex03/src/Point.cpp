@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:53:36 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/19 10:09:10 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:56:21 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ Point::Point(void) : _x(Fixed(0)), _y(Fixed(0)) {
 Point::Point(const float x, const float y) : _x(Fixed(x)), _y(Fixed(y)) {
     // std::cout << "Point constructor called." << std::endl;
 }
-
 
 Point::Point(Point const &point) : _x(point._x) , _y(point._y) {
     // std::cout << "Point copy constructor called." << std::endl;
