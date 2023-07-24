@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:55:11 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/19 10:03:14 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:27:34 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 #include "../inc/Fixed.hpp"
 
 /* 
-Barycentric coordinate system. 
-a point is represented as a linear combination of the vertices of a triangle
+Binary Space Partitioning :
+1. compute barycentric coordinates of the point with respect to the triangle. 
+Barycentric coordinates represent the point as a linear combination of the triangle's vertices.
+
+2.check if all three barycentric coordinates are within the range [0, 1]. 
+If they are, the point lies inside the triangle. 
+If any of the coordinates are negative or greater than 1, 
+the point lies outside the triangle.
+
+If any coordinate is exactly 0 or 1, the point lies on the boundary of the triangle.
 */
 
 bool	bsp(const Point a, const Point b, const Point c, const Point point) {

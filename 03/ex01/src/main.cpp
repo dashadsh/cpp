@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:41 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 11:56:58 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 13:09:59 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ int main (void)
     b.takeDamage(a.getAttackDamage());
     b.beRepaired(2);
     b.setAttackDamage(5);
+	b.guardGate();
     b.attack(a.getName());
     a.takeDamage(b.getAttackDamage());
+	b.guardGate();
 }
 
 // ---------------------- reversed destruction order -------------------------------------------------------------------------------

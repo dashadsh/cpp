@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/19 10:04:37 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:28:22 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(void)
             Point(-1.0, 4.0),
             Point(4.0, -1.0)
         }
-    	};
+    };
 	
     // Define some test points
     Point testPoints[5] = {
@@ -102,7 +102,7 @@ int	main(void)
         Point(-1.0, -1.0),
         Point(3.0, 0.0),
         Point(3.5, 3.5)
-    	};
+    };
 
 /* For Triangle 1:
 

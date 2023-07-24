@@ -6,12 +6,14 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:19 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 22:51:33 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 14:45:12 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath> // for roundf function
+//  takes a single argument of type float and returns a float value 
+// representing the rounded result.
 #include "../inc/Fixed.hpp"
 // ------------------------------------ CONSTRUCTORS --------------------------------------------------------------
 // Default constructor. 

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:51:50 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/19 09:48:46 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 12:22:40 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 class Point {
 private:
-    const Fixed _x;
+    const Fixed _x; // no matter how to declare - const Fixed or Foxed const - same effect
     const Fixed _y;
 
 public:
@@ -39,7 +39,7 @@ public:
     Point& operator=(const Point &rhs);	
 
     // Getters
-    const Fixed& getX(void) const; 
+    const Fixed& getX(void) const; // returns const + promises not to modify
     const Fixed& getY(void) const; 
 };
 

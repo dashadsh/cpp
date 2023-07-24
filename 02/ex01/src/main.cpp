@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:28 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/08 17:22:04 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:01:57 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,42 +21,50 @@
 #include "../inc/Fixed.hpp"
 
 int main(void) {
-    Fixed a; // Default constructor called
-    Fixed const b(10); // Int constructor called
-    Fixed const c(42.42f); // Float constructor called
-    Fixed const d(b); // Copy constructor called
-	// const keyword means that the value of the variable cannot be changed after it is initialized.
-	// Fixed a - not const, so you can change it later, which is what happens in the line a = Fixed(1234.4321f);
-	// Fixed const b(10) etc - create const variables b, c, and d. 
-	// Once they are initialized, their values cannot be changed.
 
-    a = Fixed(1234.4321f); 
-	// Copy assignment operator called
-	// getRawBits member function called: called inside operator= when copying the raw bits of the temporary object to a.
-	// Float constructor called: corresponds to a = Fixed(1234.4321f) - when new temp. Fixed obj. is created from the float 1234.4321f.
-	// Copy assignment operator called: again, corresponds to a = Fixed(1234.4321f) - when temp. obj. is assigned to a.
-	// getRawBits member function called: again, this is called inside the operator= when copying the raw bits of the temporary object to a.
-	// Destructor called: temp. Fixed obj. created in a = Fixed(1234.4321f) - is destroyed after the assignment.
-	
-	// a = Fixed( 1000000000 );
+	// {
+	// Fixed a; // Default constructor called
+    // Fixed const b(10); // Int constructor called
+    // Fixed const c(43.42f); // Float constructor called
+    // Fixed const d(b); // Copy constructor called
 
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-	// 'a is 1234.43' is the output of std::cout << "a is " << a << std::endl - a is converted to a float for output.
-	// 'b is 10' is the output of std::cout << "b is " << b << std::endl -  b is converted to a float for output.
-	// 'c is 42.4219' is the output of std::cout << "c is " << c << std::endl - c is converted to a float for output.
-	// 'd is 10' is the output of std::cout << "d is " << d << std::endl - d is converted to a float for output.
-    
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	// 'a is 1234 as integer' to 'd is 10' as integer  - outputs of converting a to d to integers and outputting them.
+    // a = Fixed(1234.4321f);
+
+    // std::cout << "a is " << a << std::endl;
+    // std::cout << "b is " << b << std::endl;
+    // std::cout << "c is " << c << std::endl;
+    // std::cout << "d is " << d << std::endl;
+
+    // std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    // std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    // std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    // std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	// }
+
+	{
+    Fixed a(2.75f); // Float constructor called
+    Fixed b(1.5f);  // Float constructor called
+
+    // Perform arithmetic operations using toFloat() function
+    float result_addition = a.toFloat() + b.toFloat();
+    float result_subtraction = a.toFloat() - b.toFloat();
+    float result_multiplication = a.toFloat() * b.toFloat();
+    float result_division = a.toFloat() / b.toFloat();
+
+    std::cout << "a: " << a.toFloat() << std::endl; // Output: a: 2.75
+    std::cout << "b: " << b.toFloat() << std::endl; // Output: b: 1.5
+    std::cout << std::endl;
+    std::cout << "TEST basic calculations" << std::endl;
+    std::cout << "result addition: " << result_addition << std::endl;
+    std::cout << "result subtraction: " << result_subtraction << std::endl;
+    std::cout << "result multiplication: " << result_multiplication << std::endl;
+    std::cout << "result division: " << result_division << std::endl;
+    std::cout << std::endl;
+	}
+
 
     return 0;
-	// Destructor called is printed four times because at the end of main() - four Fixed objects a, b, c, d are destroyed.
+	
 }
 
 // SIC! 1 << _fractionalBits is used for bit shifting which is equivalent to 2^_fractionalBits.
