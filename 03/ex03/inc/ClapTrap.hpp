@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:03 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 13:08:00 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:17:45 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 
 	ClapTrap& operator=(ClapTrap const &rhs); // Assignment operator
 
-	// void attack(const std::string& target);
 	virtual void attack(const std::string& target); // then we can overwrite it!
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
@@ -39,13 +38,12 @@ public:
 	int	getEnergyPoints(void) const;
 	int	getAttackDamage(void) const;
 
-	void setName(std::string name);
-	void setHitPoints(int hitpoints);
-	void setEnergyPoints(int energypoints);
-	void setAttackDamage(int damage);
+	// void setName(std::string name);
+	// void setHitPoints(int hitpoints);
+	// void setEnergyPoints(int energypoints);
+	// void setAttackDamage(int damage);
 	
 protected:
-
 	std::string _name;
 	int	_hitPoints;
 	int	_energyPoints;

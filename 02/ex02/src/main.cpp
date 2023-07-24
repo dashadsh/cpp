@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/24 15:06:19 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:58:35 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,5 +231,10 @@ int main() {
     std::cout << "Min value between b and c: " << minVal << std::endl;
     std::cout << "Max value between b and c: " << maxVal << std::endl;
 
+	// Test comparison using static member functions
+    Fixed x = 3.14f;
+    Fixed y = 1.5f;
+    std::cout << "Min value between x and y: " << Fixed::min(x, y) << std::endl;
+    std::cout << "Max value between x and y: " << Fixed::max(x, y) << std::endl;
     return 0;
 }

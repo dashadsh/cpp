@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:21 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 11:37:13 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:20:17 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,135 +15,179 @@
 #include "../inc/ScavTrap.hpp"
 #include "../inc/DiamondTrap.hpp"
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// implement a FragTrap class that inherits from ClapTrap. 
-// It is very similar to ScavTrap. However, its construction and destruction messages must be different. 
-// Proper construction/destruction chaining must be shown in your tests. 
-// When a FragTrap is created, the program starts by building a ClapTrap. Destruction is in reverse order.
-// Same things for the attributes, but with different values this time:
-// • Name, which is passed as parameter to a constructor 
-// • Hit points (100), represent the health of the ClapTrap 
-// • Energy points (100)
-// • Attack damage (30)
-// FragTrap has a special capacity too:
-//    void highFivesGuys(void);
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+implement a FragTrap class that inherits from ClapTrap. 
+It is very similar to ScavTrap. However, its construction and destruction messages must be different. 
+Proper construction/destruction chaining must be shown in your tests. 
+When a FragTrap is created, the program starts by building a ClapTrap. Destruction is in reverse order.
+Same things for the attributes, but with different values this time:
+• Name, which is passed as parameter to a constructor 
+• Hit points (100), represent the health of the ClapTrap 
+• Energy points (100)
+• Attack damage (30)
+FragTrap has a special capacity too:
+   void highFivesGuys(void);
+
+diamond problem arises when a class inherits from two or more classes that share a common base class. 
+this can lead to ambiguous member access, conflicting function implementations, and unexpected behavior.
+
+we need to use virtual inheritance in the appropriate base classes. 
+Virtual inheritance ensures there is only one shared instance of the common base class among the derived classes.
+
+steps to avoid the diamond problem:
+
+1. identify the classes that participate in the diamond problem 
+(usually intermediate classes with shared base classes).
+
+2. apply virtual inheritance to the common base class by using the virtual keyword when inheriting.
+
+3. ensure that all intermediate classes inherit virtually from the common base class.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+// int	main(void)
+// {
+//     DiamondTrap    a("AAA");
+//     DiamondTrap    b("BBB");
+//     a.attack("BBB");
+//     b.takeDamage(a.getAttackDamage());
+//     b.beRepaired(2);
+//     b.setAttackDamage(5);
+//     b.attack(a.getName());
+//     a.takeDamage(b.getAttackDamage());
+//     b.highFivesGuys();
+// 	   b.whoAmI();
+// }
 
 int	main(void)
 {
 	std::string partition(50, '-');
 
-	std::cout << partition << std::endl;
-	std::cout << "SCAVTRAP\n";
-	std::cout << partition << std::endl;
-	{
-		ScavTrap	scav("SCAVVY");
-		scav.attack("SOMEONE");
-		scav.takeDamage(1);
-		scav.guardGate();
-		scav.beRepaired(23);
-		std::cout << "SCAVVY energy points: " << scav.getEnergyPoints() << std::endl;
-	}
-	std::cout << partition << std::endl;
-	std::cout << "FRAGTRAP\n";
-	std::cout << partition << std::endl;
-	{
-		FragTrap frog;
-		frog.highFivesGuys();
-		std::cout << "name: " << frog.getName() << std::endl;
-		std::cout << "Frag attack damage: " << frog.getAttackDamage() << std::endl;
-		frog.attack("FROG");
-		frog.getAttackDamage();
-		FragTrap fraggy("FRAGGY");
-		fraggy.highFivesGuys();
-		fraggy.beRepaired(12);
-	}
+	// std::cout << partition << std::endl;
+	// std::cout << "SCAVTRAP\n";
+	// std::cout << partition << std::endl;
+	// {
+	// 	ScavTrap	scav("SCAVVY");
+	// 	scav.attack("SOMEONE");
+	// 	scav.takeDamage(1);
+	// 	scav.guardGate();
+	// 	scav.beRepaired(23);
+	// 	std::cout << "SCAVVY energy points: " << scav.getEnergyPoints() << std::endl;
+	// }
+	// std::cout << partition << std::endl;
+	// std::cout << "FRAGTRAP\n";
+	// std::cout << partition << std::endl;
+	// {
+	// 	FragTrap frog;
+	// 	frog.highFivesGuys();
+	// 	std::cout << "name: " << frog.getName() << std::endl;
+	// 	std::cout << "Frag attack damage: " << frog.getAttackDamage() << std::endl;
+	// 	frog.attack("FROG");
+	// 	frog.getAttackDamage();
+	// 	FragTrap fraggy("FRAGGY");
+	// 	fraggy.highFivesGuys();
+	// 	fraggy.beRepaired(12);
+	// }
 	std::cout << partition << std::endl;
 	std::cout << "DIAMONDTRAP\n";
 	std::cout << partition << std::endl;
 	{
 		DiamondTrap diamond("DIAMONDY");
-		diamond.attack("SOMEONE");
-		diamond.whoAmI();
-		std::cout << "Attack:" << diamond.getAttackDamage() << std::endl;
 		std::cout << "Hit: " << diamond.getHitPoints() << std::endl;
 		std::cout << "Energy: " << diamond.getEnergyPoints() << std::endl;
+		std::cout << "Attack: " << diamond.getAttackDamage() << std::endl;
 		std::cout << "Clap name: " << diamond.getName() << std::endl;
+		diamond.attack("SOMEONE");
+		diamond.whoAmI();
+		// std::cout << "Hit: " << diamond.getHitPoints() << std::endl;
+		// std::cout << "Energy: " << diamond.getEnergyPoints() << std::endl;
+		// std::cout << "Attack: " << diamond.getAttackDamage() << std::endl;
+		// std::cout << "Clap name: " << diamond.getName() << std::endl;
 	}
+	// 	std::cout << partition << std::endl;
+	// std::cout << "DIAMONDTRAP 2\n";
+	// std::cout << partition << std::endl;
+	// {
+	// 	DiamondTrap diamond;
+	// 	diamond.attack("SOMEONE");
+	// 	diamond.whoAmI();
+	// 	std::cout << "Attack:" << diamond.getAttackDamage() << std::endl;
+	// 	std::cout << "Hit: " << diamond.getHitPoints() << std::endl;
+	// 	std::cout << "Energy: " << diamond.getEnergyPoints() << std::endl;
+	// 	std::cout << "Clap name: " << diamond.getName() << std::endl;
+	// }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/* // DIAMOD PROBLEM
+// common issue in C++ when a class inherits from two or more classes 
+// that share a common base class, can lead to ambiguity in how certain members 
+// and functions are accessed
+
+ // Base class
+class Animal {
+public:
+    void speak() { std::cout << "Animal speaks!" << std::endl; }
+};
+
+// Intermediate classes
+class Mammal : public Animal {
+public:
+    void breathe() { std::cout << "Mammal breathes!" << std::endl; }
+};
+
+class Bird : public Animal {
+public:
+    void fly() { std::cout << "Bird flies!" << std::endl; }
+};
+
+// Diamond problem occurs here
+class Bat : public Mammal, public Bird {
+};
+
+int main() {
+    Bat bat;
+    bat.speak(); // Ambiguity - which 'speak' to call?
+    // bat.breathe(); // Error - ambiguous function call
+    // bat.fly(); // Error - ambiguous function call
+
+    return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// int main() {
+// Base class
+class Animal {
+public:
+    void speak() { std::cout << "Animal speaks!" << std::endl; }
+};
 
-// 	ClapTrap a("A");
-//     ScavTrap b("B");
-// 	FragTrap c("C");
-// 	DiamondTrap d("D");
-// 	std::cout << std::endl;
+// Intermediate classes with virtual inheritance
+class Mammal : virtual public Animal {
+public:
+    void breathe() { std::cout << "Mammal breathes!" << std::endl; }
+};
 
-// 	a.attack("D");
-// 	b.attack("A");
-//     b.guardGate();
-// 	c.highFivesGuys();
-// 	d.attack("A");
-//     d.whoAmI();
-// 	std::cout << std::endl;
+class Bird : virtual public Animal {
+public:
+    void fly() { std::cout << "Bird flies!" << std::endl; }
+};
 
-// 	std::cout << a.getName() << ": " << a.getAttackDamage() << " damage points, " << a.getEnergyPoints() << " energy points, " << a.getHitPoints() << " hit points." << std::endl;
-// 	std::cout << b.getName() << ": " << b.getAttackDamage() << " damage points, " << b.getEnergyPoints() << " energy points, " << b.getHitPoints() << " hit points." << std::endl;
-// 	std::cout << c.getName() << ": " << c.getAttackDamage() << " damage points, " << c.getEnergyPoints() << " energy points, " << c.getHitPoints() << " hit points." << std::endl;
+// No diamond problem occurs here due to virtual inheritance
+class Bat : public Mammal, public Bird {
+};
 
-// 	std::cout << std::endl;
+int main() {
+    Bat bat;
+    bat.speak(); // No ambiguity - calls Animal's 'speak'
+    bat.breathe(); // No ambiguity - calls Mammal's 'breathe'
+    bat.fly(); // No ambiguity - calls Bird's 'fly'
 
-//     return 0;
+    return 0;
+}
 
-// }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// int main(void) {
-
-// 	FragTrap robot3("ROBOT3");
-
-// 	std::cout << std::endl;
-
-// 	robot3.attack("ROBOT1");
-// 	robot3.takeDamage(20);
-// 	robot3.attack("ROBOT2");
-// 	robot3.highFivesGuys();
-
-// 	std::cout << std::endl;
-// 	std::cout << "STATS" << std::endl;
-// 	std::cout << robot3.getName() << ": " << robot3.getAttackDamage() << " damage points, " << robot3.getEnergyPoints() << " energy points, " << robot3.getHitPoints() << " hit points." << std::endl;
-// 	std::cout << std::endl;
-
-// 	robot3.beRepaired(2);
-
-// 	std::cout << std::endl;
-// 	std::cout << "STATS" << std::endl;
-// 	std::cout << robot3.getName() << ": " << robot3.getAttackDamage() << " damage points, " << robot3.getEnergyPoints() << " energy points, " << robot3.getHitPoints() << " hit points." << std::endl;
-// 	std::cout << std::endl;
-
-// 	robot3.highFivesGuys();
-
-// 	return 0;
-
-// }
-
-// ------------------- new compiler flags - for ex03 ----------------------------------
-// -Wshadow: 
-// enables a compiler warning when one variable shadows another. 
-// Shadowing occurs when a variable declared within a certain scope has the same name as a variable declared in an outer scope. 
-// When the variable with the same name is used, it refers to the innermost scoped variable, "shadowing" the variable in the outer scope. 
-// The warning helps to catch situations where this might be occurring unintentionally, which could lead to bugs that are difficult to find.
-// Example where -Wshadow would give a warning:
-// int x = 5;
-// if (true) {
-//     int x = 10; // this declaration shadows the outer 'x'
-//     std::cout << x; // prints '10', not '5'
-// }
-//
-// -Wno-shadow: 
-// disables the shadowing warning. 
-// Useful if you're deliberately using shadowing and don't want the compiler to warn you about it.
+// In this example, both Mammal and Bird virtually inherit from Animal. 
+// As a result, when Bat inherits from both Mammal and Bird, 
+// there is only one shared instance of the Animal base class. 
+// This resolves the diamond problem, and the code no longer suffers from 
+// ambiguity and compilation errors.
+*/

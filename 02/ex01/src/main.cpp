@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:28 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/24 15:01:57 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:17:05 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,45 +22,45 @@
 
 int main(void) {
 
-	// {
-	// Fixed a; // Default constructor called
-    // Fixed const b(10); // Int constructor called
-    // Fixed const c(43.42f); // Float constructor called
-    // Fixed const d(b); // Copy constructor called
-
-    // a = Fixed(1234.4321f);
-
-    // std::cout << "a is " << a << std::endl;
-    // std::cout << "b is " << b << std::endl;
-    // std::cout << "c is " << c << std::endl;
-    // std::cout << "d is " << d << std::endl;
-
-    // std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    // std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    // std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    // std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	// }
-
 	{
-    Fixed a(2.75f); // Float constructor called
-    Fixed b(1.5f);  // Float constructor called
+	Fixed a; // Default constructor called
+    Fixed const b(10); // Int constructor called
+    Fixed const c(43.42f); // Float constructor called
+    Fixed const d(b); // Copy constructor called
 
-    // Perform arithmetic operations using toFloat() function
-    float result_addition = a.toFloat() + b.toFloat();
-    float result_subtraction = a.toFloat() - b.toFloat();
-    float result_multiplication = a.toFloat() * b.toFloat();
-    float result_division = a.toFloat() / b.toFloat();
+    a = Fixed(1234.4321f);
 
-    std::cout << "a: " << a.toFloat() << std::endl; // Output: a: 2.75
-    std::cout << "b: " << b.toFloat() << std::endl; // Output: b: 1.5
-    std::cout << std::endl;
-    std::cout << "TEST basic calculations" << std::endl;
-    std::cout << "result addition: " << result_addition << std::endl;
-    std::cout << "result subtraction: " << result_subtraction << std::endl;
-    std::cout << "result multiplication: " << result_multiplication << std::endl;
-    std::cout << "result division: " << result_division << std::endl;
-    std::cout << std::endl;
+    std::cout << "a is " << a << std::endl;
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
+
+    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	}
+
+	// {
+    // Fixed a(2.75f); // Float constructor called
+    // Fixed b(1.5f);  // Float constructor called
+
+    // // Perform arithmetic operations using toFloat() function
+    // float result_addition = a.toFloat() + b.toFloat();
+    // float result_subtraction = a.toFloat() - b.toFloat();
+    // float result_multiplication = a.toFloat() * b.toFloat();
+    // float result_division = a.toFloat() / b.toFloat();
+
+    // std::cout << "a: " << a.toFloat() << std::endl; // Output: a: 2.75
+    // std::cout << "b: " << b.toFloat() << std::endl; // Output: b: 1.5
+    // std::cout << std::endl;
+    // std::cout << "TEST basic calculations" << std::endl;
+    // std::cout << "result addition: " << result_addition << std::endl;
+    // std::cout << "result subtraction: " << result_subtraction << std::endl;
+    // std::cout << "result multiplication: " << result_multiplication << std::endl;
+    // std::cout << "result division: " << result_division << std::endl;
+    // std::cout << std::endl;
+	// }
 
 
     return 0;

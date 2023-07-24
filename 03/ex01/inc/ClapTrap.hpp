@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:24:35 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 11:58:31 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:28:16 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	ClapTrap(std::string name); // Parameterized constructor
 	ClapTrap(ClapTrap const &src); // Copy constructor
 
-	//~ClapTrap(); // Destructor //	
+	// ~ClapTrap(); // Destructor //	
 	virtual ~ClapTrap(); // Destructor - RECOMMEMDED FOR CORRECT CLEAN-UP
 	// base class destructorshould be virtual to correctly handle the deletion of a derived class object via a pointer to base
 

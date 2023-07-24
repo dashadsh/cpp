@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:00 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 13:08:34 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 19:39:35 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,18 +104,18 @@ int ClapTrap::getAttackDamage(void) const {
 
 // -------------------------- SETTERS -----------------------------
 
-void	ClapTrap::setHitPoints(int hitpoints) {
-	this->_hitPoints = hitpoints;
-}
+// void	ClapTrap::setHitPoints(int hitpoints) {
+// 	this->_hitPoints = hitpoints;
+// }
 
-void	ClapTrap::setEnergyPoints(int energypoints) {
-	this->_energyPoints = energypoints;
-}
+// void	ClapTrap::setEnergyPoints(int energypoints) {
+// 	this->_energyPoints = energypoints;
+// }
 
-void	ClapTrap::setAttackDamage(int damage) {
-	this->_attackDamage = damage;
-}
+// void	ClapTrap::setAttackDamage(int damage) {
+// 	this->_attackDamage = damage;
+// }
 
-void	ClapTrap::setName(std::string name) {
-	this->_name = name;
-}
+// void	ClapTrap::setName(std::string name) {
+// 	this->_name = name;
+// }

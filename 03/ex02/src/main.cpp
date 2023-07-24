@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:21 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 12:42:48 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 16:39:09 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main ()
 {
     FragTrap    a("AAA");
     FragTrap    b("BBB");
-    a.attack("Bixbi");
+    a.attack("BBB");
     b.takeDamage(a.getAttackDamage());
     b.beRepaired(2);
     b.setAttackDamage(5);

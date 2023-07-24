@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:15 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 13:09:01 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:20:07 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ public:
 	FragTrap& operator=(FragTrap const &rhs); // Assignment operator
 
     // Overridden attack function
-    void attack(const std::string& target);
+	//    void attack(const std::string& target);
 
+	void set_hit_points(void);
+	void set_energy_points(void);
+	void set_attack_damage(void);
     void highFivesGuys();
+	
+
 
 };
 

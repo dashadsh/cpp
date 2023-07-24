@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:44:32 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:45:27 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:12:29 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ public:
     WrongAnimal& operator=(const WrongAnimal& src);
 
     // virtual function to make a sound
-    virtual void makeSound() const;
+  	// virtual void makeSound() const;
+	void makeSound() const;
 
     // getter for type of the WrongAnimal
     std::string getType() const;

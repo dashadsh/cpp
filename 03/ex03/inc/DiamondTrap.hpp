@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:03:38 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 13:40:02 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:23:49 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ whoAmI() function to reveal its name.
 
 It overrides the attack() function, borrowing its implementation from ScavTrap.
 */
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 public:
 
@@ -41,16 +41,17 @@ public:
 
     DiamondTrap& operator=(DiamondTrap const &rhs);
 
-	std::string	getDiamondName();
-	void setDiamondName(std::string name);
+	// std::string	getDiamondName();
+	// void setDiamondName(std::string name);
 	
-    void attack(const std::string& target);
+	using	ScavTrap::attack;
+    // void attack(const std::string& target);
 	
     // new function to reveal the name
     void    whoAmI();
 
-private:
-
+	
+	private:
     std::string _name;
 	// The DiamondTrap class will have a name private attribute. 
 	// Give to this attribute exactly the same variable’s name 
