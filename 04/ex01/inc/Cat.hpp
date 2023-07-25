@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:42:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/10 00:32:02 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:02:43 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,17 @@
 class Cat : public Animal {
 	
 public:
-    // default constructor
     Cat();
-
-    // copy constructor
     Cat(const Cat& src);
 
-    // destructor
     virtual ~Cat();
 
-    // assignment operator
     Cat& operator=(const Cat& src);
 
-    // func. to make cat sound
     void makeSound() const;
 	
 	// This function sets the thought of the cat at the given index - NEW
     void setThought(int idx, const std::string& thought);
-
     // This function retrieves the thought of the cat at the given index - NEW
     std::string getThought(int idx) const;
 

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:18:59 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/16 20:54:33 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:56:08 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,12 +256,9 @@ void	actionTest(void) {
 	delete source;
 }
 
-int	main(void) {
+void standartTest()
+	{
 	std::cout << std::endl;
-	// materiaSourceTest();
-	// characterTest();
-	// actionTest();
-	
 	/* declare src as PTR to an IMateriaSource, which is an interface,
 	BUT
 	actual object that src points to is a MateriaSource, 
@@ -313,6 +310,53 @@ int	main(void) {
 	delete bob; 
 	delete me; 
 	delete src;
+	
+	}
+	
+void concreteMateriaTest()
+{
+	// Create instances of Ice and Cure
+    Ice ice;
+    Cure cure;
+	std::cout << std::endl;
+
+    // Clone the Ice and Cure objects
+    AMateria* clonedIce = ice.clone();
+    AMateria* clonedCure = cure.clone();
+	std::cout << std::endl;
+
+	// Create an instance of the Character class
+    Character target("Target Character");
+	std::cout << std::endl;
+
+    // Test the clone method and use() method
+    if (clonedIce) {
+        std::cout << "Cloned Ice: ";
+        clonedIce->use(target);
+        delete clonedIce;
+    } else {
+        std::cout << "Cloned Ice is NULL.\n";
+    }
+	std::cout << std::endl;
+
+    if (clonedCure) {
+        std::cout << "Cloned Cure: ";
+        clonedCure->use(target);
+        delete clonedCure;
+    } else {
+        std::cout << "Cloned Cure is NULL.\n";
+    }
+	std::cout << std::endl;
+
+}
+
+int	main(void) {
+	// materiaSourceTest();
+	// characterTest();
+	// concreteMateriaTest();
+	// actionTest();
+	standartTest();
+
 	
 	return 0;
 }

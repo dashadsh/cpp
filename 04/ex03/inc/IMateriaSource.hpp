@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:19:59 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:40:05 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:12:47 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include "AMateria.hpp"
 # include <string>
 
-// IMateriaSource is an interface that provides common Materia source operations
+// interface with pure virtual functions that need to be implemented by its derived classes.
+
+// Will be implemented by MateriaSource
 class IMateriaSource {
 	public:
 	

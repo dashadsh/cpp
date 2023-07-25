@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:37:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:46:41 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:51:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Animal& Animal::operator=(const Animal& src) {
 // ------------ member func.-------------------------------
 // func. to make sound (this should be overridden by sub-class!)
 void Animal::makeSound() const {
-    std::cout << "The animal makes a sound" << std::endl;
+    std::cout << "Animal makes no sound" << std::endl;
 }
 
 // getter - get type of animal

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:19:37 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/16 20:39:25 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:37:52 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,23 @@
 // follows before it is actually defined.
 class ICharacter;
 
+// AMateria is an abstract class with:
+// - pure virtual function clone() 
+// - virtual function use().
+// Base class for Ice and Cure
 class AMateria
 {
 	public:
-		// Default constructor.
 		AMateria(void);
-
-		// Copy constructor.
-		// AMateria(AMateria const & src);
 		AMateria(const AMateria& src);
-
-		// Parameterized constructor.
-		// AMateria(std::string const & type);
 		AMateria(const std::string& type);
 
-		// virtual destructor
 		virtual ~AMateria(void);
 
-		// assignment operator overload.
 		AMateria& operator=(const AMateria& src);
 
-		// returns the type of the AMateria object.
-		std::string const & getType(void) const;
+		// returns the type of the AMateria obj
+		std::string const& getType(void) const;
 
 		// pure virtual function for cloning the AMateria object. 
 		// must be overridden in all non-abstract derived classes!

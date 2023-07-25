@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:40:53 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:41:21 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:20:09 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
 // Dog class  - derived from Animal class
 class Dog : public Animal {
 public:
-    // default constructor
     Dog();
-
-    // copy constructor
     Dog(const Dog& src);
 
-    // destructor
-    ~Dog();
+    virtual ~Dog();
 
-    // assignment operator
     Dog& operator=(const Dog& src);
 
-    // function to make a dog sound
     void makeSound() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:00:51 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:50:17 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:55:51 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     Cat(const std::string& name = "Cat"); // Constructor
     Cat(const Cat& other); // Copy constructor
     Cat& operator=(const Cat& other); // Assignment operator
-    ~Cat(); // Destructor
+    virtual ~Cat(); // Destructor
     
     // overrides the pure virtual function makeSound from AAnimal !!!
 	// Implementation of virtual makeSound function

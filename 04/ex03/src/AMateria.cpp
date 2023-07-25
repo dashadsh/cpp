@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:12:53 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:21:25 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:40:51 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ AMateria::AMateria(const std::string& type) : _type(type) {
 
 AMateria::~AMateria() {
 	std::cout << "AMateria destructor called." << std::endl;
+	// std::cout << "AMateria object of type " << _type << " is being destroyed.\n"; 
 }
 
 AMateria& AMateria::operator=(const AMateria& src) {

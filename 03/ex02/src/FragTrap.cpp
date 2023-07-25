@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:25:09 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/18 12:40:53 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:44:03 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,18 @@ FragTrap& FragTrap::operator=(FragTrap const &rhs) {
 }
 
 // --------------------- FUNC. ---------------------------
-void FragTrap::attack(const std::string& target) {
+// void FragTrap::attack(const std::string& target) {
 
-	if (this->_hitPoints == 0)
-		std::cout << "FragTrap " << this->_name << " is dead and cannot attack." << std::endl;
-	else if (this->_energyPoints == 0)
-		std::cout << "FragTrap " << this->_name << " does not have energy points and cannot attack." << std::endl;
-	else
-	{
-		std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-		this->_energyPoints--;	
-	}
-}
+// 	if (this->_hitPoints == 0)
+// 		std::cout << "FragTrap " << this->_name << " is dead and cannot attack." << std::endl;
+// 	else if (this->_energyPoints == 0)
+// 		std::cout << "FragTrap " << this->_name << " does not have energy points and cannot attack." << std::endl;
+// 	else
+// 	{
+// 		std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+// 		this->_energyPoints--;	
+// 	}
+// }
 
 void FragTrap::highFivesGuys(void) {
 	std::cout << "FragTrap " << _name << " is asking for high fives!" << std::endl;

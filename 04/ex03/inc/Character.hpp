@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:19:43 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:19:44 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:38:08 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,29 @@
 # include "ICharacter.hpp"
 # include <string>
 
-// Character class inherits from ICharacter.
-// represents a character in the game with a name and inventory to hold materias.
+// concrete class that implements the ICharacter interface. 
+// It has an inventory of AMateria* to hold the Materias.
 
 class Character : public ICharacter {
 	public:
-		// Default constructor 
 		// initializes the character with the name "Unnamed" and an empty inventory.
 		Character();
 
-		// Copy constructor 
 		// creates a new character by copying an existing one.
 		Character(const Character& src);
 
-		// Name constructor 
 		// initializes a character with a specified name and an empty inventory.
 		Character(const std::string& name);
 
-		// Destructor 
 		// deletes the inventory of materias and outputs a message.
 		~Character();
 
-		// Overloaded assignment operator 
 		// assigns the name and inventory of another character to the current one.
 		Character& operator=(const Character& src);
 
 		// --------------------------------------------------------
-		// returns the name of the character.
 		const std::string& getName() const;
 
-		// sets the name of the character to a new value.
 		void setName(const std::string& newName);
 
 		// adds a materia to the first empty slot in the inventory.
@@ -67,11 +60,11 @@ class Character : public ICharacter {
 		std::string _name;
 		AMateria* _inventory[_inventorySize];
 
-		// initializes all the slots in the inventory to null
-		void _initializeEmptyInventory();
+		// // initializes all the slots in the inventory to null
+		void _initializeEmptyInventory(); // PRIVATE HENCE WO DONT CALL IT FROM MAIN()
 
-		// deletes all the materias in the inventory and sets their slots to null.
-		void _deleteInventory();
+		// // deletes all the materias in the inventory and sets their slots to null.
+		void _deleteInventory();  // PRIVATE HENCE WO DONT CALL IT FROM MAIN()
 };
 
 #endif

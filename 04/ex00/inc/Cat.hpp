@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:42:49 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/04 14:43:16 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:20:03 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
 // Cat class - derived from the Animal class
 class Cat : public Animal {
 public:
-    // default constructor
     Cat();
-
-    // copy constructor
     Cat(const Cat& src);
 
-    // destructor
-    ~Cat();
+    virtual ~Cat();
 
-    // assignment operator
     Cat& operator=(const Cat& src);
 
-    // func. to make cat sound
     void makeSound() const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:32:43 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/05 15:47:27 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/24 23:09:01 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,22 @@
 
 // The Animal class acts as the base class for diff.types of animals
 class Animal {
-public:
-    // default constructor
-    Animal();
 	
-    // copy constructor
-	// This constructor performs a deep copy of the object.
-    Animal(const Animal& src);
+public:
 
-    // destructor
+    Animal();
+    Animal(const Animal& src);
+	
     virtual ~Animal();
 
-    // assignment operator
-	// This operator performs a deep copy of the object.
     Animal& operator=(const Animal& src);
 
-    // virtual function to make a sound
     virtual void makeSound() const;
 	
-    // getter for the type of the animal
     std::string getType() const;
+	// void setType(std::string type);
 
 protected:
-    // protected member variable for the type of the animal
     std::string _type;
 };
 

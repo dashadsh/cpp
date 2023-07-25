@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:19:21 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:23:12 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 14:32:42 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ Ice& Ice::operator=(const Ice& src) {
 }
 
 AMateria* Ice::clone() const {
-	AMateria* iceClone = new Ice();
-	return iceClone;
+	// AMateria* iceClone = new Ice();
+	// return iceClone;
+	return new Ice(*this);
 }
 
 void Ice::use(ICharacter& target) {

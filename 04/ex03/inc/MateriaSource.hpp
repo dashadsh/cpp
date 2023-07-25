@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:20:03 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:27:32 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:14:00 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 // where each Materia has a type and can be created or learned. 
 // The class keeps track of known Materias and allows for creation of a Materia of a specific type. 
 // If a type is not known, it returns a null pointer.
+
+// has an array of AMateria* to store the learned Materias.
 
 // implementation of the IMateriaSource interface.
 class MateriaSource : public IMateriaSource {

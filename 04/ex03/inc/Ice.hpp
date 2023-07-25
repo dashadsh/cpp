@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 22:19:52 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/11 22:22:59 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:09:50 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 # include "AMateria.hpp"
 
-// Ice class, inheriting from AMateria.
-// represents a specific type of materia which is capable of shooting ice bolts.
+// concrete class that inherits from AMateria and implements its 
+// clone() and use() functions.
 
 class Ice : public AMateria {
 	public:

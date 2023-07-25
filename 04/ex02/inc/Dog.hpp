@@ -6,7 +6,7 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:01:41 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/09 21:50:23 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/07/25 01:55:58 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     Dog(const Dog& other); // Copy constructor
     Dog& operator=(const Dog& other); // Assignment operator
 	
-    ~Dog(); // Destructor
+    virtual ~Dog(); // Destructor
 
     void makeSound() const; // Implementation of virtual makeSound function
 	// overrides the pure virtual function makeSound from AAnimal !!!
