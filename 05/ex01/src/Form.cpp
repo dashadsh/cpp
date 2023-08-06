@@ -6,14 +6,16 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 16:14:43 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/08/06 16:42:59 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/08/06 17:32:15 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 
 // constructors & destructor
-Form::Form() : _name("Default Form"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {}
+Form::Form() : _name("Default Form"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150) {
+	std::cout << "Form default constructor called" << std::endl;
+}
 
 Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
     : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
@@ -21,12 +23,17 @@ Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
         throw Form::GradeTooHighException();
     else if (gradeToSign > 150 || gradeToExecute > 150)
         throw Form::GradeTooLowException();
+	std::cout << "Form constructor called with name " << this->_name << " minimum grade to sign: " << this->getToSign() << ", minimum grade to execute: " << this->getToExec() << std::endl;
 }
 
 Form::Form(const Form &src)
-    : _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
+    : _name(src._name), _isSigned(src._isSigned), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {
+	std::cout << "Form copy constructor called" << std::endl;
+}
 
-Form::~Form() {}
+Form::~Form() {
+	std::cout << "Form destructor called" << std::endl;
+}
 
 // assignment Operator
 Form &Form::operator=(const Form &rhs) {
@@ -34,6 +41,7 @@ Form &Form::operator=(const Form &rhs) {
         _isSigned = rhs._isSigned;
     }
     return *this;
+	std::cout << "Form assignment operator called" << std::endl;
 }
 
 // getters
