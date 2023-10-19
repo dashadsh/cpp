@@ -6,12 +6,53 @@
 /*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:23:54 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/07/24 15:58:35 by dgoremyk         ###   ########.fr       */
+/*   Updated: 2023/08/19 23:38:49 by dgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
 #include <iostream>
+
+int main( void ) {
+
+	Fixed a (1);
+	Fixed b (6.05f);
+
+	std::cout << "a: " << a << std::endl;
+	std::cout << "b: " << b << std::endl;
+	std::cout << std::endl;
+	std::cout << "TEST basic calulations" << std::endl;
+	std::cout << "result addition: " << (a + b) << std::endl;
+	std::cout << "result subtraction: " << (a - b) << std::endl;
+	std::cout << "result multiplication: " << (a * b) << std::endl;
+	std::cout << "result division: " << (a / b) << std::endl;
+	std::cout << std::endl;
+	std::cout << "TEST ++/--" << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "result a++: " << (a++) << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "result ++a: " << (++a) << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "result a--: " << (a--) << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << "result --a: " << (--a) << std::endl;
+	std::cout << "a: " << a << std::endl;
+	std::cout << std::endl;
+	std::cout << "TEST comparison" << std::endl;
+	std::cout << "a > b: " << (a > b) << std::endl;
+	std::cout << "a < b: " << (a < b) << std::endl;
+	std::cout << "a >= b: " << (a >= b) << std::endl;
+	std::cout << "a <= b: " << (a <= b) << std::endl;
+	std::cout << "a == b: " << (a == b) << std::endl;
+	std::cout << "a != b: " << (a != b) << std::endl;
+	std::cout << std::endl;
+	std::cout << "TEST min/max" << std::endl;
+	std::cout << "min(a,b): " << (Fixed::min(a,b)) << std::endl;
+	std::cout << "max(a,b): " << (Fixed::max(a,b)) << std::endl;
+	std::cout << std::endl;
+
+	return 0;
+}
 
 // int	main() { 
 
@@ -192,49 +233,49 @@
 
 
 
-// --------------------------------- ALTERNATIVE MAIN - 2 -------------------------------------------
-int main() {
-    // Create Fixed objects using different constructors
-    Fixed a; // Default constructor
-    Fixed b(5); // Integer constructor
-    Fixed c(2.34f); // Float constructor
+// // --------------------------------- ALTERNATIVE MAIN - 2 -------------------------------------------
+// int main() {
+//     // Create Fixed objects using different constructors
+//     Fixed a; // Default constructor
+//     Fixed b(5); // Integer constructor
+//     Fixed c(2.34f); // Float constructor
 
-    // Test arithmetic operators
-    Fixed sum = b + c;
-    Fixed difference = b - c;
-    Fixed product = b * c;
-    Fixed quotient = b / c;
+//     // Test arithmetic operators
+//     Fixed sum = b + c;
+//     Fixed difference = b - c;
+//     Fixed product = b * c;
+//     Fixed quotient = b / c;
 
-    std::cout << "b: " << b << std::endl;
-    std::cout << "c: " << c << std::endl;
-    std::cout << "Sum (b + c): " << sum << std::endl;
-    std::cout << "Difference (b - c): " << difference << std::endl;
-    std::cout << "Product (b * c): " << product << std::endl;
-    std::cout << "Quotient (b / c): " << quotient << std::endl;
+//     std::cout << "b: " << b << std::endl;
+//     std::cout << "c: " << c << std::endl;
+//     std::cout << "Sum (b + c): " << sum << std::endl;
+//     std::cout << "Difference (b - c): " << difference << std::endl;
+//     std::cout << "Product (b * c): " << product << std::endl;
+//     std::cout << "Quotient (b / c): " << quotient << std::endl;
 
-    // Test comparison operators
-    if (b > c) {
-        std::cout << "b is greater than c." << std::endl;
-    } else {
-        std::cout << "b is not greater than c." << std::endl;
-    }
+//     // Test comparison operators
+//     if (b > c) {
+//         std::cout << "b is greater than c." << std::endl;
+//     } else {
+//         std::cout << "b is not greater than c." << std::endl;
+//     }
 
-    // Test prefix and postfix increment and decrement
-    Fixed d = b++; // Postfix increment
-    Fixed e = ++c; // Prefix increment
-    std::cout << "Postfix increment of b: " << d << std::endl;
-    std::cout << "Prefix increment of c: " << e << std::endl;
+//     // Test prefix and postfix increment and decrement
+//     Fixed d = b++; // Postfix increment
+//     Fixed e = ++c; // Prefix increment
+//     std::cout << "Postfix increment of b: " << d << std::endl;
+//     std::cout << "Prefix increment of c: " << e << std::endl;
 
-    // Test min and max static member functions
-    Fixed minVal = Fixed::min(b, c);
-    Fixed maxVal = Fixed::max(b, c);
-    std::cout << "Min value between b and c: " << minVal << std::endl;
-    std::cout << "Max value between b and c: " << maxVal << std::endl;
+//     // Test min and max static member functions
+//     Fixed minVal = Fixed::min(b, c);
+//     Fixed maxVal = Fixed::max(b, c);
+//     std::cout << "Min value between b and c: " << minVal << std::endl;
+//     std::cout << "Max value between b and c: " << maxVal << std::endl;
 
-	// Test comparison using static member functions
-    Fixed x = 3.14f;
-    Fixed y = 1.5f;
-    std::cout << "Min value between x and y: " << Fixed::min(x, y) << std::endl;
-    std::cout << "Max value between x and y: " << Fixed::max(x, y) << std::endl;
-    return 0;
-}
+// 	// Test comparison using static member functions
+//     Fixed x = 3.14f;
+//     Fixed y = 1.5f;
+//     std::cout << "Min value between x and y: " << Fixed::min(x, y) << std::endl;
+//     std::cout << "Max value between x and y: " << Fixed::max(x, y) << std::endl;
+//     return 0;
+// }

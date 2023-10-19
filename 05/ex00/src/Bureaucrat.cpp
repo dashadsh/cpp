@@ -1,76 +1,63 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dgoremyk <dgoremyk@student.42wolfsburg.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 14:18:46 by dgoremyk          #+#    #+#             */
-/*   Updated: 2023/08/06 15:59:05 by dgoremyk         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../inc/Bureaucrat.hpp"
 
-// vonstructors
-Bureaucrat::Bureaucrat() : _name("Default Name"), _grade(150) {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+
+Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(75) {
+	std::cout << "default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
-    if (grade < 1)
-        throw GradeTooHighException();
-    else if (grade > 150)
-        throw GradeTooLowException();
-    else
-        _grade = grade;
-	std::cout << "Bureaucrat constructor called with name: " << this->_name << ", grade: " << this->getGrade() << std::endl;
+Bureaucrat::Bureaucrat(std::string name) : _name(name) {
+	std::cout << "constructor called with name " << this->_name << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) {
-		std::cout << "Bureaucrat copy constructor called" << std::endl;
-// 		*this = src;  - possible solution instead of : _name(src._name), _grade(src._grade)
+Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name) {
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		this->_grade = grade;
+	std::cout << "constructor called with name " << this->_name << " & grade " << this->getGrade() << std::endl;
 }
 
-// destructor
-Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+Bureaucrat::~Bureaucrat(void) {
+	std::cout << "destructor called" << std::endl;
 }
 
-// assignment Operator
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs) {
-    if (this != &rhs) {
-        _grade = rhs._grade;
-    }
-    return *this;
+Bureaucrat::Bureaucrat(Bureaucrat const &src) {
+	*this = src;
+	std::cout << "copy constructor called" << std::endl;
 }
 
-// getters
-const std::string& Bureaucrat::getName() const {
-    return _name;
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
+	this->_grade = rhs.getGrade();
+	return (*this);
 }
 
-int Bureaucrat::getGrade() const {
-    return _grade;
+
+std::ostream &operator << (std::ostream &stream, Bureaucrat const &rhs) {
+
+	stream << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	return (stream);
 }
 
-// member Functions
-void Bureaucrat::incrementGrade() {
-    if (_grade <= 1)
-        throw GradeTooHighException();
-    else
-        _grade--;
+const std::string Bureaucrat::getName(void) const{
+	return (this->_name);
 }
 
-void Bureaucrat::decrementGrade() {
-    if (_grade >= 150)
-        throw GradeTooLowException();
-    else
-        _grade++;
+int Bureaucrat::getGrade(void) const {
+	return(this->_grade);
 }
 
-std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs) {
+void Bureaucrat::incrementGrade(void) {
+	if (this->getGrade() - 1 < 1 )
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->_grade--;
+}
 
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
-	return (o);
+void Bureaucrat::decrementGrade(void) {
+	if (this->getGrade() + 1 > 150 )
+		throw Bureaucrat::GradeTooLowException();
+	else
+		this->_grade++;
 }
