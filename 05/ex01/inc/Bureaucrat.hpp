@@ -2,6 +2,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp" // !!!! NEW !!!!
+
+class Form; // !!! NEW - forward dclaration
 
 class Bureaucrat
 {
@@ -24,6 +27,7 @@ class Bureaucrat
 		// ---- memb. functions -----
         void incrementGrade();
         void decrementGrade();
+		void signForm(Form &form); // NEW !!!!!!!!!!!!
 		// ------ nestes exception classes -----
         class GradeTooHighException : public std::exception
         {

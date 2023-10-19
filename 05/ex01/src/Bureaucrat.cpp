@@ -1,11 +1,11 @@
 #include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(75) {
-	std::cout << "default constructor called" << std::endl;
+	std::cout << "bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name) : _name(name) {
-	std::cout << "constructor called with name " << this->_name << std::endl;
+	std::cout << "bureaucrat constructor called with name " << this->_name << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name) {
@@ -15,16 +15,16 @@ Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name) {
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade = grade;
-	std::cout << "constructor called with name " << this->_name << " & grade " << this->getGrade() << std::endl;
+	std::cout << "bureaucrat constructor called with name " << this->_name << " & grade " << this->getGrade() << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "bureaucrat destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src) {
 	*this = src;
-	std::cout << "copy constructor called" << std::endl;
+	std::cout << "bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
@@ -59,4 +59,15 @@ void Bureaucrat::decrementGrade(void) {
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+}
+
+void Bureaucrat::signForm(Form &form) {
+	try {
+		form.becomeSigned(*this);
+	}
+	catch (const std::exception &e) {
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " bc " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }

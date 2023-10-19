@@ -1,16 +1,22 @@
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 int main() {
-	Bureaucrat a("a", 1);
-	Bureaucrat b("b", 75);
-    Bureaucrat c("c", 150);
+	Bureaucrat b("b", 50);
+	Form form1("FORM1", 50, 50);
+	Form form2("FORM2", 1, 50);
+	Form form3("FORM3", 150, 50);
+
 
 	try {
-		Bureaucrat d("d", 0);
-		// Bureaucrat e("d", 151);
-		// c.decrementGrade();
-		// a.incrementGrade();
+		b.signForm(form1);
+		// form2.becomeSigned(b);
+		// c.signForm(form1);
+		// Form form4("FORM4", 0, 150);
+		// Form form5("FORM5", 151, 150);
 	}
+
+
 	// catches exceptions of type std::exception:
 	// caught exception e is an instance of std::exception or 
 	// one of its derived classes, which includes custom exceptions 
@@ -22,4 +28,10 @@ int main() {
     {
         std::cerr << e.what() << '\n';
     }
+
+	std::cout << "\nPRINT FORM WITH OPERATOR OVERLOAD" << std::endl;
+	std::cout << form1 << std::endl;
+	std::cout << form2 << std::endl;
+	std::cout << form3 << std::endl;
+	std::cout << std::endl;
 }
