@@ -23,8 +23,7 @@ int main() {
 	//
 	// e.what() func is used to get err msg associated with the thrown exception, 
 	// then it's printed to standard error stream (std::cerr)
-	catch(const std::exception &e)
-    {
+	catch(const std::exception &e) {
         std::cerr << e.what() << '\n';
     }
 

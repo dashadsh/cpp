@@ -1,5 +1,6 @@
 #include "../inc/Bureaucrat.hpp"
 
+// exception handling block must be catchable as follows:
 // try
 // {
 // 		/* do some stuff with bureaucrats */
@@ -24,6 +25,7 @@ int main() {
 	Bureaucrat a("a", 1);
 	Bureaucrat b("b", 75);
     Bureaucrat c("c", 150);
+	std::cout << a << std::endl;
 
 	try {
 		Bureaucrat d("d", 0);
@@ -38,14 +40,12 @@ int main() {
 	//
 	// e.what() func is used to get err msg associated with the thrown exception, 
 	// then it's printed to standard error stream (std::cerr)
-	catch(const std::exception &e)
-    {
+	catch(const std::exception &e) {
         std::cerr << e.what() << '\n';
     }
 
-		std::cout << "\nPRINT BUREAUCRAT WITH OPERATOR OVERLOAD" << std::endl;
+	std::cout << "\nPRINT BUREAUCRAT WITH OPERATOR OVERLOAD" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	std::cout << std::endl;
+	std::cout << c << std::endl << std::endl;
 }

@@ -3,8 +3,7 @@
 
 #include <iostream>
 
-class Bureaucrat
-{
+class Bureaucrat {
     private:
         const std::string _name;
         int _grade;
@@ -25,6 +24,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 		// ------ nestes exception classes -----
+		// if the grade is invalid, an exception must thrown
         class GradeTooHighException : public std::exception
         {
             public:

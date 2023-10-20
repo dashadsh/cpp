@@ -2,12 +2,11 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "AForm.hpp" // !!!! NEW !!!!
+#include "AForm.hpp" // !!!! NEW
 
-class AForm; // !!! NEW - forward dclaration
+class AForm; // !!! NEW
 
-class Bureaucrat
-{
+class Bureaucrat {
     private:
         const std::string _name;
         int _grade;
@@ -19,27 +18,29 @@ class Bureaucrat
         Bureaucrat(std::string name);
 		Bureaucrat(std::string name, size_t grade);
         Bureaucrat(Bureaucrat const &src);
+
 		// ---- assignment operator -------
         Bureaucrat & operator=(Bureaucrat const &rhs);
+
         // ----- getters ------
 		const std::string getName() const;
         int getGrade() const;
+
 		// ---- memb. functions -----
         void incrementGrade();
         void decrementGrade();
 		void signForm(AForm &form);
 		void executeForm(AForm const &form);// NEW !!!!!!!!!!!!
+		
 		// ------ nestes exception classes -----
-        class GradeTooHighException : public std::exception
-        {
+        class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw() {
 					return ("exception: grade too high");
 				}
         };
 
-        class GradeTooLowException : public std::exception
-        {
+        class GradeTooLowException : public std::exception {
             public:
                 virtual const char *what() const throw()  {
 					return ("exception: grade too low");
