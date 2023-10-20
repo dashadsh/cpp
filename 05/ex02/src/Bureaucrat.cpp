@@ -1,6 +1,6 @@
 #include "../inc/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(75) {
+Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(150) {
 	std::cout << "bureaucrat default constructor called" << std::endl;
 }
 
@@ -32,11 +32,9 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
 	return (*this);
 }
 
-
-std::ostream &operator << (std::ostream &stream, Bureaucrat const &rhs) {
-
-	stream << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
-	return (stream);
+std::ostream &operator << (std::ostream &o, Bureaucrat const &rhs) {
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	return (o);
 }
 
 const std::string Bureaucrat::getName(void) const{
@@ -59,4 +57,25 @@ void Bureaucrat::decrementGrade(void) {
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+}
+
+void Bureaucrat::signForm(AForm &form) {
+	try {
+		form.becomeSigned(*this);
+	}
+	catch (const std::exception &e) {
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " bc." << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cerr << "execution by " << this->_name << " failed w.msg: "<< e.what() << std::endl;
+	}
 }

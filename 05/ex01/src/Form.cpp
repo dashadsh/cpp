@@ -2,7 +2,7 @@
 
 
 Form::Form(void) : _name("def.form"), _grade_to_sign(150), _grade_to_exec(150), _signed(false) {
-	std::cout << "form default constructor called" << std::endl;
+	std::cout << "form def.constructor called" << std::endl;
 }
 
 Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_sign(to_sign), _grade_to_exec(to_exec), _signed(false) {
@@ -11,7 +11,7 @@ Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_
 		throw Form::GradeTooHighException();
 	else if (to_sign > 150 || to_sign > 150)
 		throw Form::GradeTooLowException();
-	std::cout << "form constructor called w name " << this->_name << " min. grade to sign: " << this->getToSign() << ", minimum grade to execute: " << this->getToExec() << std::endl;
+	std::cout << "form constructor called w.name " << this->_name << ", min.grade to sign: " << this->getToSign() << ", min.grade to exec: " << this->getToExec() << std::endl;
 }
 
 Form::~Form(void) {	
@@ -53,6 +53,6 @@ Form &Form::operator=(Form const &rhs) {
 }
 
 std::ostream & operator<<(std::ostream &stream, Form const &rhs) {
-	stream << rhs.getName() << ", minimum grade to sign: " << rhs.getToSign() << ", min grade to exec: " << rhs.getToExec() << ". Signed? " << (rhs.getIfSigned()?"Yes":"No");
+	stream << rhs.getName() << ", min.grade to sign: " << rhs.getToSign() << ", min.grade to exec: " << rhs.getToExec() << ". signed? " << (rhs.getIfSigned()?"YES":"NO");
 	return (stream);
 }

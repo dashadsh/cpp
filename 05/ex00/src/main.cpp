@@ -1,5 +1,25 @@
 #include "../inc/Bureaucrat.hpp"
 
+// try
+// {
+// 		/* do some stuff with bureaucrats */
+// }
+// catch (std::exception & e) 
+// {
+// 		/* handle exception */
+// }
+
+// try {
+// 	if (ONE THINGHY) {
+// 		throw ANOTHER THINGHY
+// 	};
+// }; =>  the variable of throw is passed to catch
+
+// exception class has virtual member function,
+// it's eturn: ptr to a 0-terminated string with explanatory info
+// virtual const char* what() const throw();  //(until C++11)
+// virtual const char* what() const noexcept; //(since C++11)
+
 int main() {
 	Bureaucrat a("a", 1);
 	Bureaucrat b("b", 75);
@@ -22,4 +42,10 @@ int main() {
     {
         std::cerr << e.what() << '\n';
     }
+
+		std::cout << "\nPRINT BUREAUCRAT WITH OPERATOR OVERLOAD" << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << std::endl;
 }
