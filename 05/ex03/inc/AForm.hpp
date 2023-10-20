@@ -16,7 +16,8 @@ class AForm {
 	public:
 		// -- constructors and destructor ----
 		AForm(void);
-		~AForm(void);
+		// ~AForm(void);
+		virtual ~AForm(void);
 		AForm(std::string name, int to_sign, int to_exec);
 		AForm(AForm const &src);
 		// ---- assignment operator -------

@@ -2,9 +2,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "AForm.hpp" // !!!! NEW !!!!
+#include "AForm.hpp"
 
-class AForm; // !!! NEW - forward dclaration
+class AForm;
 
 class Bureaucrat
 {
@@ -28,7 +28,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
 		void signForm(AForm &form);
-		void executeForm(AForm const &form);// NEW !!!!!!!!!!!!
+		void executeForm(AForm const &form);
 		// ------ nestes exception classes -----
         class GradeTooHighException : public std::exception
         {

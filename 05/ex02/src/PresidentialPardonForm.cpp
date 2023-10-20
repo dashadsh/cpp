@@ -1,6 +1,3 @@
-// #include <iostream> // 
-// #include <fstream> // WHY ???
-// #include <cstdlib> // WHY???
 #include "../inc/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PPF", 25, 5), _target("default target") {

@@ -1,6 +1,3 @@
-// #include <iostream> // 
-// #include <fstream> // WHY ???
-// #include <cstdlib> // WHY???
 #include "../inc/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RRF", 72, 45), _target("default target") {
