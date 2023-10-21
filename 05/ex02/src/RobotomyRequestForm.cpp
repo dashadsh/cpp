@@ -1,6 +1,6 @@
 #include "../inc/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RRF", 72, 45), _target("default target") {
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RRF", 72, 45), _target("def.target") {
 	std::cout << "RRF default constructor called" << std::endl;
 }
 
@@ -27,12 +27,12 @@ RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const &
 	return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &bureaucrat) const {
-	this->checkAbleToExec(bureaucrat);
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+	this->checkAbleToExec(executor);
 	srand((unsigned int)time(NULL));
-	std::cout << "work in progress..." << std::endl;
+	std::cout << "drrrrr...DRRRRR..." << std::endl;
 	if (rand() % 2)
-		std::cout << this->_target << " robotomized with success" << std::endl;
+		std::cout << this->_target << " robotomized" << std::endl;
 	else
-		std::cout << "robotomization failed" << std::endl;
+		std::cout << "robotomy failed" << std::endl;
 };

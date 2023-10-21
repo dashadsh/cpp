@@ -18,7 +18,10 @@ class RobotomyRequestForm : public AForm {
 
 		std::string getTarget() const;
 		// --- memb.func
-		void	execute(Bureaucrat const &bureaucrat) const;
+		void	execute(Bureaucrat const & executor) const;
+		// Makes some drilling noises. 
+		// Then, informs that <target> has been robotomized successfully 50% of the time. 
+		// Otherwise, informs that the robotomy failed.
 };
 
 #endif

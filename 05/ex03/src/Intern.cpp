@@ -20,13 +20,13 @@ Intern & Intern::operator=(Intern const &rhs) {
 }
 
 // ----- getters
-std::string Intern::getName() {
-	return(_name);
-}
+// std::string Intern::getName() {
+// 	return(_name);
+// }
 
-std::string Intern::getTarget() {
-	return(_target);
-}
+// std::string Intern::getTarget() {
+// 	return(_target);
+// }
 
 ///////////////////////////////////////////////////////////////////////////////////
 AForm *returnShrubbery(std::string target) {
@@ -48,11 +48,10 @@ AForm * Intern::makeForm(std::string form_name, std::string target) {
 	
 	for (int i = 0; i < 3; i++) {
 		if (!form_name.compare(arr[i])) {
-			std::cout << "intern's working on [" + form_name + "]" << std::endl;
+			std::cout << "intern creates form [" + form_name + "]" << std::endl;
 			return (fptr[i](target));
 		}
-	}
-	// throw Intern::formNotFound();
+	} // print error mssg  -  not an exceprion, WHY???
 	std::cout << "intern couldn't deliver [" << form_name << "]" << std::endl;
 	return NULL;
 }

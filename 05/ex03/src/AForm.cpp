@@ -39,7 +39,7 @@ bool AForm::getIfSigned(void) const {
 }
 
 // --- memb.func
-void AForm::becomeSigned(Bureaucrat &bureaucrat) {
+void AForm::beSigned(Bureaucrat &bureaucrat) {
 
 	if (bureaucrat.getGrade() > this->getToSign())
 		throw AForm::GradeTooLowException();

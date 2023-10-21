@@ -3,7 +3,7 @@
 #include <fstream> // BELOW
 #include "../inc/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("SCF", 145, 137), _target("default target") {
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("SCF", 145, 137), _target("def.target") {
 	std::cout << "SCF default constructor called" << std::endl;
 }
 
@@ -30,10 +30,10 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const {
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	
-	this->checkAbleToExec(bureaucrat);
-	std::string filename = this->_target + "_ASCII_trees";
+	this->checkAbleToExec(executor);
+	std::string filename = this->_target + "_shrubbery";
 	std::ofstream outfile (filename.c_str()); // fstream
 
 	outfile << std::endl;               

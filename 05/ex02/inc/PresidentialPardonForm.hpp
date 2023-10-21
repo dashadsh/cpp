@@ -10,7 +10,7 @@ class PresidentialPardonForm : public AForm {
 	public:
 		PresidentialPardonForm(void);
 		~PresidentialPardonForm(void);
-		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(std::string target); // All of them take only one parameter in their constructor: the target of the form. For example, "home" if you want to plant shrubbery at home.
 		PresidentialPardonForm(PresidentialPardonForm const &src);
 
 		PresidentialPardonForm & operator=(PresidentialPardonForm const &rhs);
@@ -18,6 +18,7 @@ class PresidentialPardonForm : public AForm {
 		std::string getTarget() const;
 		// --- memb.func
 		void	execute(Bureaucrat const & executor) const;
+		// Informs that <target> has been pardoned by Zaphod Beeblebrox
 };
 
 #endif

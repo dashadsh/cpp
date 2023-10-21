@@ -28,8 +28,9 @@ class Bureaucrat {
 		// ---- memb. functions -----
         void incrementGrade();
         void decrementGrade();
+
 		void signForm(AForm &form);
-		void executeForm(AForm const &form);// NEW !!!!!!!!!!!!
+		void executeForm(AForm const & form); // NEW !!!!!!!!!!!!
 		
 		// ------ nestes exception classes -----
         class GradeTooHighException : public std::exception {

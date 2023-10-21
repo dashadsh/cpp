@@ -17,8 +17,11 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm & operator=(ShrubberyCreationForm const &rhs);
 
 		std::string getTarget() const;
+
 		// --- memb.func
-		void	execute(Bureaucrat const &bureaucrat) const;
+		void	execute(Bureaucrat const & executor) const;
+		// create a file <target>_shrubbery in the working directory, 
+		// and writes ASCII trees inside it.
 };
 
 #endif

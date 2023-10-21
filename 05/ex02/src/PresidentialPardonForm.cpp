@@ -1,6 +1,6 @@
 #include "../inc/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PPF", 25, 5), _target("default target") {
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PPF", 25, 5), _target("def.target") {
 	std::cout << "PPF default constructor called" << std::endl;
 }
 
@@ -27,7 +27,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 	return (*this);
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &bureaucrat) const {
-	this->checkAbleToExec(bureaucrat);
-	std::cout << this->_target << " pardoned by ZAPHOD BEEBLEBROX" << std::endl;	
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
+	this->checkAbleToExec(executor);
+	std::cout << this->_target << " pardoned by Zaphod Beeblebrox" << std::endl;	
 };

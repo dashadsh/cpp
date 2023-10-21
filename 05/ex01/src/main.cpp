@@ -2,11 +2,14 @@
 #include "../inc/Form.hpp"
 
 int main() {
-	Bureaucrat b("b", 50);
+	std::cout << std::endl;
+	Bureaucrat b("B", 50);
+	std::cout << std::endl;
+
 	Form form1("FORM1", 1, 50);
 	Form form2("FORM2", 50, 50);
 	Form form3("FORM3", 150, 50);
-
+	std::cout << std::endl;
 
 	try {
 		b.signForm(form1);
@@ -27,7 +30,7 @@ int main() {
         std::cerr << e.what() << '\n';
     }
 
-	std::cout << "\nPRINT FORM WITH OPERATOR OVERLOAD" << std::endl;
+	std::cout << "\nPRINT FORM W. OPERATOR OVERLOAD:" << std::endl;
 	std::cout << form1 << std::endl;
 	std::cout << form2 << std::endl;
 	std::cout << form3 << std::endl;

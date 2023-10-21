@@ -29,6 +29,7 @@ class Bureaucrat {
 		// ---- memb. functions -----
         void incrementGrade();
         void decrementGrade();
+		
 		void signForm(Form &form); // NEW !!!!!!!!!!!!
 
 		// ------ nestes exception classes -----

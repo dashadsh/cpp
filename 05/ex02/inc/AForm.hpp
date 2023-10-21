@@ -6,6 +6,10 @@
 
 class Bureaucrat;
 
+// BASE CLASS AFORM - is ABSTRACT CLASS
+// contains PURE VIRTUAL function (execute) 
+// =>
+// derived class must provide concrete implementation of execute func.
 class AForm {
 	private:
 		const std::string	_name;
@@ -27,10 +31,11 @@ class AForm {
 		int 				getToExec(void) const;
 		bool 				getIfSigned(void) const;
 		// ---- memb. func ----
-		void				becomeSigned(Bureaucrat &bureaucrat);
+		void				beSigned(Bureaucrat &bureaucrat);
 		void				setSigned(int state);
 		void				checkAbleToExec(Bureaucrat const &bureaucrat) const;
-		virtual void		execute(Bureaucrat const &bureaucrat) const = 0;
+		// IMPLEMENT EXECUTE IN DERIVED CLASSES
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 	
 		// -----exception classes-------------- 
 		class GradeTooHighException : public std::exception {

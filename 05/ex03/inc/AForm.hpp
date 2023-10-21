@@ -28,10 +28,10 @@ class AForm {
 		int 				getToExec(void) const;
 		bool 				getIfSigned(void) const;
 		// ---- memb. func ----
-		void				becomeSigned(Bureaucrat &bureaucrat);
+		void				beSigned(Bureaucrat &bureaucrat);
 		void				setSigned(int state);
 		void				checkAbleToExec(Bureaucrat const &bureaucrat) const;
-		virtual void		execute(Bureaucrat const &bureaucrat) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 	
 		// -----exception classes-------------- 
 		class GradeTooHighException : public std::exception {
