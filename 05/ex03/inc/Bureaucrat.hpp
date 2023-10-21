@@ -15,7 +15,6 @@ class Bureaucrat {
 		// -- constructors and destructor ----
         Bureaucrat(void);
         ~Bureaucrat(void);
-        Bureaucrat(std::string name);
 		Bureaucrat(std::string name, size_t grade);
         Bureaucrat(Bureaucrat const &src);
 

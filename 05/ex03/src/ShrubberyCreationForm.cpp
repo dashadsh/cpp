@@ -35,7 +35,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 void ShrubberyCreationForm::execute(Bureaucrat const &bureaucrat) const {
 	
 	this->checkAbleToExec(bureaucrat);
-	std::string filename = this->_target + "_shrubbery";
+	std::string filename = this->_target + "_ASCII_trees";
 	std::ofstream outfile (filename.c_str()); // fstream
 
 	outfile << std::endl;               

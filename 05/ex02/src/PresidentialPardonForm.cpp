@@ -22,7 +22,6 @@ std::string PresidentialPardonForm::getTarget() const {
 }
 
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs) {
-
 	this->setSigned(this->getIfSigned());
 	this->_target = rhs._target;
 	return (*this);

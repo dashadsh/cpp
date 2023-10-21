@@ -10,12 +10,12 @@ class Bureaucrat {
     private:
         const std::string _name;
         int _grade;
+		// Bureaucrat(void); // should be not possible to init him w/o grade
 
     public:
 		// -- constructors and destructor ----
         Bureaucrat(void);
         ~Bureaucrat(void);
-        Bureaucrat(std::string name);
 		Bureaucrat(std::string name, size_t grade);
         Bureaucrat(Bureaucrat const &src);
 
@@ -47,6 +47,6 @@ class Bureaucrat {
         };
 };
 
-std::ostream &operator << (std::ostream &stream, const Bureaucrat &rhs);
+std::ostream &operator << (std::ostream &o, const Bureaucrat &rhs);
 
 #endif

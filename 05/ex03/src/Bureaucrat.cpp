@@ -4,10 +4,6 @@ Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(150) {
 	std::cout << "bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name) : _name(name) {
-	std::cout << "bureaucrat constructor called with name " << this->_name << std::endl;
-}
-
 Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name) {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();

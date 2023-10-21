@@ -1,12 +1,10 @@
 #include "../inc/Form.hpp"
 
-
 Form::Form(void) : _name("def.form"), _grade_to_sign(150), _grade_to_exec(150), _signed(false) {
 	std::cout << "form def.constructor called" << std::endl;
 }
 
 Form::Form(std::string name, int to_sign, int to_exec) : _name(name), _grade_to_sign(to_sign), _grade_to_exec(to_exec), _signed(false) {
-	
 	if (this->_grade_to_sign < 1 || this->_grade_to_exec < 1)
 		throw Form::GradeTooHighException();
 	else if (to_sign > 150 || to_sign > 150)
@@ -52,7 +50,7 @@ Form &Form::operator=(Form const &rhs) {
 	return (*this);
 }
 
-std::ostream & operator<<(std::ostream &stream, Form const &rhs) {
-	stream << rhs.getName() << ", min.grade to sign: " << rhs.getToSign() << ", min.grade to exec: " << rhs.getToExec() << ". signed? " << (rhs.getIfSigned()?"YES":"NO");
-	return (stream);
+std::ostream & operator<<(std::ostream &o, Form const &rhs) {
+	o << rhs.getName() << ", min.grade to sign: " << rhs.getToSign() << ", min.grade to exec: " << rhs.getToExec() << ". signed? " << (rhs.getIfSigned()?"YES":"NO");
+	return (o);
 }

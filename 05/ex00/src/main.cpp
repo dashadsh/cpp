@@ -22,10 +22,12 @@
 // virtual const char* what() const noexcept; //(since C++11)
 
 int main() {
+	std::cout << std::endl;
+
 	Bureaucrat a("a", 1);
 	Bureaucrat b("b", 75);
     Bureaucrat c("c", 150);
-	std::cout << a << std::endl;
+	std::cout << std::endl;
 
 	try {
 		Bureaucrat d("d", 0);
@@ -33,18 +35,16 @@ int main() {
 		// c.decrementGrade();
 		// a.incrementGrade();
 	}
-	// catches exceptions of type std::exception:
-	// caught exception e is an instance of std::exception or 
-	// one of its derived classes, which includes custom exceptions 
-	// (GradeTooHighException and GradeTooLowException). 
-	//
-	// e.what() func is used to get err msg associated with the thrown exception, 
-	// then it's printed to standard error stream (std::cerr)
+
 	catch(const std::exception &e) {
         std::cerr << e.what() << '\n';
     }
 
-	std::cout << "\nPRINT BUREAUCRAT WITH OPERATOR OVERLOAD" << std::endl;
+	// e.what(): calls WHAT member function of the caught exception object e,
+	// WHAT function is virtual memb func of std::exception + its derived classes,
+	// returns C-style string (const char*) which contains error msg associated with exception
+
+	std::cout << "\nPRINTING BUREAUCRAT WITH OPERATOR OVERLOAD:" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl << std::endl;

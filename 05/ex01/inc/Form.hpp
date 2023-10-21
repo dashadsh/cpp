@@ -8,10 +8,10 @@ class Bureaucrat;
 
 class Form {
 	private:
-		const std::string	_name;
+		const std::string	_name; // CONST !!!
 		const int			_grade_to_sign;
 		const int			_grade_to_exec;
-		bool				_signed;
+		bool				_signed; // BOOLEAN INDICATING WHETHER IT'S SIGNED
 
 	public:
 		// -- constructors and destructor ----
@@ -45,6 +45,6 @@ class Form {
 		};
 };
 
-std::ostream &operator << (std::ostream &stream, Form const &rhs);
+std::ostream &operator << (std::ostream &o, Form const &rhs);
 
 #endif

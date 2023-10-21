@@ -1,11 +1,14 @@
 #include "../inc/Bureaucrat.hpp"
 
+// SIC - we can do this kind of def. constructor:
+// Bureaucrat::Bureaucrat() {}
+// THEN - it will be bureaucrat w/o NAME & GRADE
+// BUT
+// we HAVE to move constructor to PRIVATE
+// bc we SHOULDN'T ber able to INIT bureaucrat w/o this data !!!
+
 Bureaucrat::Bureaucrat(void) : _name("def.name"), _grade(150) {
 	std::cout << "bureaucrat default constructor called" << std::endl;
-}
-
-Bureaucrat::Bureaucrat(std::string name) : _name(name) {
-	std::cout << "bureaucrat constructor called with name " << this->_name << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, size_t grade) : _name(name) {
@@ -33,10 +36,9 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
 }
 
 
-std::ostream &operator << (std::ostream &stream, Bureaucrat const &rhs) {
-
-	stream << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
-	return (stream);
+std::ostream &operator << (std::ostream &o, Bureaucrat const &rhs) {
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+	return (o);
 }
 
 const std::string Bureaucrat::getName(void) const{
