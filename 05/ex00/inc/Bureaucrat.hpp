@@ -26,10 +26,10 @@ class Bureaucrat {
         void incrementGrade();
         void decrementGrade();
 
-		// ------ nestes exception classes -----
+		// ------ nestes exception classes ----- 
 		// if the grade is invalid, an exception must thrown =>
 		// CUSTOM error message when the exception is caught
-		// INHERITING FROM EXCEPTION CLASS
+		// INHERIT FROM EXCEPTION CLASS
         class GradeTooHighException : public std::exception {
             public:
 			// function can be overridden in derived classes

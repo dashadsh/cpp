@@ -35,6 +35,9 @@ class AForm {
 		void				setSigned(int state);
 		void				checkAbleToExec(Bureaucrat const &bureaucrat) const;
 		// IMPLEMENT EXECUTE IN DERIVED CLASSES
+		// pure virtual - each derived class is responsible for 
+		// implementing "execute" method & performing grade checks specific to the form =>
+		// flexible approach + allows each derived class to have custom behavior&checks
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 	
 		// -----exception classes-------------- 

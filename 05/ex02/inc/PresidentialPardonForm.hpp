@@ -1,6 +1,8 @@
 #ifndef PRESIDENTIAL_PARDON_FORM_HPP
 # define PRESIDENTIAL_PARDON_FORM_HPP
 
+// DOUBLE-CHECK - SHOULD I MOVE DEFAULT CONSTRUCTOR TO PRIVATE???
+
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm {

@@ -29,6 +29,11 @@ int main() {
     Bureaucrat c("c", 150);
 	std::cout << std::endl;
 
+	Bureaucrat z("Z", 1);
+	z.decrementGrade();
+	std::cout << z << std::endl;
+	std::cout << std::endl;
+
 	try {
 		Bureaucrat d("d", 0);
 		// Bureaucrat e("d", 151);

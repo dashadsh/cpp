@@ -15,7 +15,7 @@ int main() {
 		b.signForm(form1);
 		// b.signForm(form2);
 		// b.signForm(form3);
-		// form3.becomeSigned(b);
+		// form3.beSigned(b);
 		// Form form4("FORM4", 0, 150);
 		// Form form5("FORM5", 151, 150);
 	}
