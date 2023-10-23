@@ -8,6 +8,10 @@
 // Any function to convert from a string to an int, a float or a double. 
 // This will help, but won’t do the whole job.
 
+// he code should make use of static_cast when it's necessary to convert values, 
+// but can rely on the compiler's implicit casts when they involve change from smaller data type
+//  to a larger one
+
 int main(int ac, char **av) {
     if (ac != 2) {
         return (std::cerr << "enter one argument" << std::endl, 1);
@@ -19,3 +23,7 @@ int main(int ac, char **av) {
 
     return 0;
 }
+
+// did student use static_cast to convert values? 
+// accepted to use of IMPLICIT CASTS for promotion casts only
+// SPIRIT OF EXERCISE!

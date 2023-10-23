@@ -31,6 +31,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src) {
 }
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const &rhs) {
+	this->_name = rhs.getName(); 
 	this->_grade = rhs.getGrade();
 	return (*this);
 }

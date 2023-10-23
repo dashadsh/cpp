@@ -10,7 +10,7 @@ int main()
 	std::cout << *rrf << std::endl << std::endl;
 	// delete called on 'AForm' that is abstract but has non-virtual destructor 
 	// [-Werror,-Wdelete-abstract-non-virtual-dtor]
-	delete rrf;
+	delete rrf; // AVOID MEMORY LEAKS !!!
 
 	rrf = guy.makeForm("PresidentialPardonForm", "olaf bender");
 	std::cout << *rrf << std::endl << std::endl;
@@ -19,7 +19,7 @@ int main()
 	rrf = guy.makeForm("RobotomyRequestForm", "olaf bender");
 	std::cout << *rrf << std::endl << std::endl;
 	delete rrf;
-	
+
 	rrf = guy.makeForm("someStupidForm", "olaf bender");
 	std::cout << std::endl;
 }
