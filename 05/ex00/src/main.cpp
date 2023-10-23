@@ -54,3 +54,41 @@ int main() {
 	std::cout << b << std::endl;
 	std::cout << c << std::endl << std::endl;
 }
+
+
+
+
+	// TEST 2: test to show exception with overload << operator
+	/*
+	Bureaucrat	Bob("Bob", 1000);
+	Bob.decrementGrade();
+	Bob.incrementGrade();
+	// constructor sets grade to 150
+	//std::cout << Bob.getGrade() << std::endl;
+	//std::cout << Bob;
+	
+	*/
+
+    // TEST 3: to test also cannoncial form
+	/*
+	try {
+		Bureaucrat	first("George", 0); //change to a valid number to proceed
+		Bureaucrat	second("Clooney", 2);
+		first.decrementGrade();
+		second.incrementGrade();
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+		return (1);
+	}
+
+	std::cout << "Testing the canonical form:" << std::endl;
+	
+	Bureaucrat office1("Hugo", 69);
+	Bureaucrat office2(office1); // deep copy gets created.
+	std::cout << office2;
+	office1.incrementGrade();
+	std::cout << office2;
+	office2 = office1; // increment also deep copy by 1.
+	std::cout << office2;
+	*/

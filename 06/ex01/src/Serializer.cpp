@@ -1,6 +1,29 @@
 #include "../inc/Serializer.hpp"
 
-# include "../inc/Serializer.hpp"
+// reinterpret_cast is one of the C++ casting operators, 
+// and it's used for low-level type conversions where you need to 
+// re-interpret or cast a pointer or data from one type to another, 
+// even if the resulting behavior is implementation-dependent or undefined. 
+// It is the most powerful and potentially dangerous of the C++ casts.
+
+// Some key points about reinterpret_cast:
+
+// It performs a bitwise type conversion, meaning it treats the object or pointer 
+// as a sequence of bits and changes the type without considering the original 
+// object's structure or semantics.
+// reinterpret_cast can be used for pointer-to-pointer conversions, 
+// casting pointers to integers, and vice versa.
+// It is not subject to the usual type safety checks performed by other casting operators, 
+// and it may lead to undefined behavior if used incorrectly.
+// reinterpret_cast should be used sparingly and only in situations where you need 
+// to work with low-level memory representation or when interfacing with external code 
+// that relies on specific memory layouts.
+
+// int number = 42;
+// int* numberPtr = &number;
+// uintptr_t intPtrValue = reinterpret_cast<uintptr_t>(numberPtr); // Casting a pointer to an integer
+// int* newNumberPtr = reinterpret_cast<int*>(intPtrValue); // Casting an integer back to a pointer
+
 
 Serializer::Serializer() {
     std::cout << "serializer default constructir is called.\n";
