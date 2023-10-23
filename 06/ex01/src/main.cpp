@@ -1,8 +1,10 @@
 #include "../inc/Serializer.hpp"
 
+//  we need to store memory address of an obj and then 
+// reconstruct the object from that address
 int main() {
     // create instance of the SerializableData structure
-    SerializableData originalData;
+    Data originalData;
     originalData.intValue = 42;
     originalData.stringValue = "hello";
 
@@ -10,25 +12,25 @@ int main() {
     uintptr_t serialized = Serializer::serialize(&originalData);
 
     // deserialize the serialized data into a new object
-    SerializableData* deserializedData = Serializer::deserialize(serialized);
+    Data* deserializedData = Serializer::deserialize(serialized);
 
     // print the original data, serialized data, deserialized content
-    std::cout << "Original data address: " << &originalData << std::endl;
-    std::cout << "After serialization: " << deserializedData << std::endl;
-    std::cout << "Deserialized content: " << deserializedData->intValue << " " << deserializedData->stringValue << std::endl;
+    std::cout << "original data address: " << &originalData << std::endl;
+    std::cout << "after serialization: " << deserializedData << std::endl;
+    std::cout << "deserialized content: " << deserializedData->intValue << " " << deserializedData->stringValue << std::endl;
 
     // additional tests with a different data obj
-    SerializableData additionalData;
-    additionalData.intValue = 99;
+    Data additionalData;
+    additionalData.intValue = 24;
     additionalData.stringValue = "world";
 
     uintptr_t serializedAdditional = Serializer::serialize(&additionalData);
-    SerializableData* deserializedAdditional = Serializer::deserialize(serializedAdditional);
+    Data* deserializedAdditional = Serializer::deserialize(serializedAdditional);
 
     // print original data, serialized data, and deserialized content for additionalData
-    std::cout << "\nAdditional data - Original data address: " << &additionalData << std::endl;
-    std::cout << "After serialization: " << deserializedAdditional << std::endl;
-    std::cout << "Deserialized content: " << deserializedAdditional->intValue << " " << deserializedAdditional->stringValue << std::endl;
+    std::cout << "\nadditional data - Original data address: " << &additionalData << std::endl;
+    std::cout << "after serialization: " << deserializedAdditional << std::endl;
+    std::cout << "deserialized content: " << deserializedAdditional->intValue << " " << deserializedAdditional->stringValue << std::endl;
 
     return 0;
 }
