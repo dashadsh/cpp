@@ -1,16 +1,4 @@
 #include "../inc/ScalarConverter.hpp"
-// # include <iomanip>
-#include <cmath>
-
-// static_cast:
-// static_cast is a compile-time type cast operator.
-// It is used for general type conversions that are known to be safe at compile time.
-// It performs a wide range of conversions, such as between related types 
-// (e.g., subclasses to base classes), primitive types, and user-defined types.
-// static_cast does not perform runtime type checking, so it may lead to undefined behavior 
-// if the conversion is not safe.
-// int integer = 42;
-// double floating = static_cast<double>(integer);
 
 ScalarConverter::ScalarConverter() {
     std::cout << "ScalarConverter constructor called"  << std::endl;
@@ -31,15 +19,6 @@ ScalarConverter  &ScalarConverter::operator=(ScalarConverter   const &src) {
 	(void)src;
     return *this;
 }
-
-// enum Type {
-//     INT,
-//     FLOAT,
-//     DOUBLE,
-//     CHAR,
-//     PSEUDO,
-//     INVALID
-// };
 
 // func. to determine the type of input
 int	findType(std::string s)
@@ -69,13 +48,12 @@ int	findType(std::string s)
 }
 
 // func. to print conversion results
-// added conditions to check if the floatVal and doubleVal 
-// have a fractional part, and if they don't, 
+//
+// I've added condition to check if floatVal and doubleVal 
+// have a fractional part, if they don't, 
 // it appends .0 to the output. 
-// this ensures that the format of float and double 
-// conversions matches desired output format.
 void printResult(char charVal, bool validChar, int intVal, float floatVal, double doubleVal) {
-    if (validChar && isprint(charVal)) {
+    if (isprint(charVal) && validChar) {
         std::cout << "char: '" <<  charVal << "'\n";
         std::cout << "int: " << intVal << "\n";
         // std::cout << "float: " << floatVal << "f\n";
@@ -147,7 +125,7 @@ void handleFloat(float floatVal) {
 }
 
 // func to handle  conversion of a double value
-void handle_double(double doubleVal) {
+void handleDouble(double doubleVal) {
     float floatVal = static_cast<float>(doubleVal);
     char charVal = static_cast<char>(doubleVal);
     if (doubleVal > INT_MAX || doubleVal < INT_MIN) {
@@ -161,10 +139,13 @@ void handle_double(double doubleVal) {
 }
 
 // func to handle conversion of a character
-void handle_char(char charVal) {
+void handleChar(char charVal) {
     float floatVal = static_cast<float>(charVal);
     double doubleVal = static_cast<double>(charVal);
     int intVal = static_cast<int>(charVal);
+	// int intVal = static_cast<int>(charVal); // ANOTHER SOLUTION
+    // float floatVal = static_cast<float>(intVal);
+    // double doubleVal = static_cast<double>(intVal);
     printResult(charVal, true, intVal, floatVal, doubleVal);
 }
 
@@ -173,7 +154,7 @@ void handle_char(char charVal) {
 // positive infinity, 
 // negative infinity,
 // "not-a-number" (NaN). 
-void handle_infs(std::string str) {
+void handleInfs(std::string str) {
 	// converts input string to float using 
 	// ATOF function to convert the string to a double and then casting it to a float. 
     float floatVal = static_cast<float>(atof(str.c_str()));
@@ -183,10 +164,11 @@ void handle_infs(std::string str) {
 	// int value set to INT_MIN, bc converting infinity (positive or negative) to an int isn't possible 
 	// due to limited range of ints. 
 	// By setting it to INT_MIN, it indicates: converting infinity to an int is impossible
-    int intVal = INT_MIN; 
+    int intVal = INT_MIN;
+
 	// floatVal is cast to a char. 
 	// This step is made to attempt conversion, even though its weird in most cases, 
-	// as the result might not be possible to display.
+	// as the result might not be possible to display:
     char charVal = static_cast<char>(floatVal);
     printResult(charVal, false, intVal, floatVal, doubleVal);
 }
@@ -198,8 +180,11 @@ void ScalarConverter::convert(std::string const &str) {
     long tmp = atol(str.c_str()); // PROMOTIONAL CAST
 
     // protect int from overflow
+	// std::numeric_limits<int>::max() is part of the STDLIB: 
+	// provides information abt properties of numbers:
+	// used to retrieve  max representable value for the int.
     if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
-        type = DOUBLE; // FLOAT;
+        type = DOUBLE; // FLOAT; - could be also possible, BUT
 		// "DOUBLE" represents double-precision floating-point numbers, 
 		// which have a wider range and higher precision compared to "FLOAT."
     }
@@ -212,13 +197,13 @@ void ScalarConverter::convert(std::string const &str) {
             handleFloat(atof(str.c_str()));
             break;
         case DOUBLE:
-            handle_double(atof(str.c_str()));
+            handleDouble(atof(str.c_str()));
             break;
         case CHAR:
-            handle_char(str.at(0));
+            handleChar(str.at(0)); // retrieves the first character in the input string
             break;
         case PSEUDO:
-            handle_infs(str);
+            handleInfs(str);
             break;
         case INVALID:
             std::cerr << "error: invalid string input" << std::endl;

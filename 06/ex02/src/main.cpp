@@ -1,4 +1,4 @@
-#include "../inc/Identity.hpp"
+#include "../inc/Base.hpp"
 // Dynamic Casting: to identify the actual type of an object at runtime. 
 // DC llows to check & convert ptrs and references to classes 
 // up and down the class hierarchy. 
@@ -8,19 +8,22 @@
 // for type identification
 
 int main() {
-
+	std::cout << std::endl;
 	Base* ptr;
 
     // generate random obj & store it as a Base pointer
 	   	ptr = generate();
     // create a reference to the generated object
 	    Base& refr = *ptr;
+
     // identify object's type using a ptr
   		identify(ptr);
     // identify object's type using a ref
     	identify(refr);
+		
     // clean up dynamically allocated object!!!
     	delete ptr;
-    
+    	std::cout << std::endl;
+
     return 0;
 }

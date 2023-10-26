@@ -1,9 +1,8 @@
-// Serializer.h
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
 #include <iostream>
-// #include <cstdint>
+#include <cstdint> // uintptr_t
 // #include <string>
 
 // simple data structure that can be serialized
@@ -32,3 +31,6 @@ class Serializer {
 };
 
 #endif
+
+// uintptr_t is an int in C and C++ that is designed to store
+// value of a memory address as an unsigned int

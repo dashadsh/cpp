@@ -1,4 +1,7 @@
-#include "../inc/Identity.hpp"
+#include "../inc/Base.hpp"
+#include "../inc/A.hpp"
+#include "../inc/B.hpp"
+#include "../inc/C.hpp"
 
 // dynamic_cast:
 // runtime type cast operator primarily used in the context of polymorphism and inheritance.
@@ -24,10 +27,16 @@ Base::~Base() {
 
 // generate a random instance of A, B, or C as a Base pointer
 Base *generate(void) {
-    time_t t;
-    Base *ptr;
-	// generate random number based on the current time
-    switch(time(&t) % 3) {
+	Base *ptr;
+
+	// // generate random number based on the current time:
+	// time_t t;
+    // switch(time(&t) % 3) {
+
+	// use random integer
+	srand(time(NULL));
+    int i = rand();
+    switch(i % 3) {
         case 0: // create an instance of class A
             ptr = new A;
             std::cout << "type A created" << std::endl;
@@ -47,9 +56,11 @@ Base *generate(void) {
 // It prints the actual type of the object pointed to by p: "A", "B" or "C".
 // identify the type of an object using a pointer
 void identify(Base *p) {
+	// tries to cast the Base* pointer to an A* pointer using dynamic_cast
     A   *Aptr = dynamic_cast<A *>(p);
     B   *Bptr = dynamic_cast<B *>(p);
     C   *Cptr = dynamic_cast<C *>(p);
+	// if cast succeeded (not a NULL pointer):
     if (Aptr)
         std::cout << Aptr << " - pointer of type: A" << std::endl;
     else if (Bptr)

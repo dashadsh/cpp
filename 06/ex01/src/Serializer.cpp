@@ -6,8 +6,6 @@
 // even if the resulting behavior is implementation-dependent or undefined. 
 // It is the most powerful and potentially dangerous of the C++ casts.
 
-// Some key points about reinterpret_cast:
-
 // It performs a bitwise type conversion, meaning it treats the object or pointer 
 // as a sequence of bits and changes the type without considering the original 
 // object's structure or semantics.
@@ -68,6 +66,8 @@ Data* Serializer::deserialize(uintptr_t raw) {
 	// SerializableData *tmp = reinterpret_cast<Data *>(raw);
     // return (tmp);
 }
+
+
 // When to use it:
 // when we want to deserialize an object, 
 // which involves converting previously serialized data back into an object. 

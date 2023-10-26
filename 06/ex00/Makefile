@@ -10,7 +10,7 @@ SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 

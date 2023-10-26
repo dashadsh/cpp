@@ -4,6 +4,9 @@
 // the type conversion must be solved using one specific type of casting. 
 // Your choice will be checked during defense.
 
+// STATIC CAST IS THE MOST APPROPRIATE CAST FOR NUMERIC DATA TYPES !!!
+// IMPLICIT CASTS ARE ALLOWED FOR PROMOTIONAL CASTS
+
 // Allowed functions : 
 // Any function to convert from a string to an int, a float or a double. 
 // This will help, but won’t do the whole job.
@@ -24,6 +27,11 @@ int main(int ac, char **av) {
     return 0;
 }
 
-// did student use static_cast to convert values? 
-// accepted to use of IMPLICIT CASTS for promotion casts only
-// SPIRIT OF EXERCISE!
+/*
+use of explicit casts, like atoi and atof, is crucial to accurately 
+and intentionally convert the input string to different data types. 
+In the specific case where the input string represents a number, 
+handling promotions (e.g., from int to long) and preventing overflow 
+(choosing DOUBLE over INT) is a good practice to ensure data integrity 
+and correct behavior in the face of potentially large or extreme values.
+*/

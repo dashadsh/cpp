@@ -2,9 +2,10 @@
 #define SCALARCONVERTER
 
 #include <iostream>
-// #include <cctype> // For std::isprint
-// #include <cstdlib> // For std::atof
-// #include <limits> // For numeric_limits
+#include <cctype> // For std::isprint
+#include <cstdlib> // For std::atof
+#include <limits> // For numeric_limits
+#include <cmath> // fmod
 
 # define INT 0
 # define FLOAT 1
@@ -12,7 +13,7 @@
 # define CHAR 3
 # define PSEUDO 4
 # define INVALID 5
-
+// static class doesnt really exist  - it contains static member functions
 class ScalarConverter {
 	private:
         ScalarConverter();

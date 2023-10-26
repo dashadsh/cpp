@@ -4,13 +4,13 @@ SRC_DIR = src
 INC_DIR = inc
 OBJ_DIR = obj
 
-SRCS = main.cpp Identity.cpp
+SRCS = main.cpp Base.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
