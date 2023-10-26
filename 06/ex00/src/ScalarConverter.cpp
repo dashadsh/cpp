@@ -195,11 +195,13 @@ void handle_infs(std::string str) {
 void ScalarConverter::convert(std::string const &str) {
     int type = findType(str);
 	// string -> long int
-    long tmp = atol(str.c_str());
+    long tmp = atol(str.c_str()); // PROMOTIONAL CAST
 
-    // protect int from having big numbers (overflow)
+    // protect int from overflow
     if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
         type = DOUBLE; // FLOAT;
+		// "DOUBLE" represents double-precision floating-point numbers, 
+		// which have a wider range and higher precision compared to "FLOAT."
     }
 
     switch (type) {

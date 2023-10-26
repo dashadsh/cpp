@@ -6,7 +6,6 @@
 // #include <cstdlib> // For std::atof
 // #include <limits> // For numeric_limits
 
-
 # define INT 0
 # define FLOAT 1
 # define DOUBLE 2
