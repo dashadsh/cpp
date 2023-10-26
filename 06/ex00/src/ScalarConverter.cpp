@@ -32,17 +32,17 @@ ScalarConverter  &ScalarConverter::operator=(ScalarConverter   const &src) {
     return *this;
 }
 
-enum Type {
-    INT,
-    FLOAT,
-    DOUBLE,
-    CHAR,
-    PSEUDO,
-    INVALID
-};
+// enum Type {
+//     INT,
+//     FLOAT,
+//     DOUBLE,
+//     CHAR,
+//     PSEUDO,
+//     INVALID
+// };
 
 // func. to determine the type of input
-Type	findType(std::string s)
+int	findType(std::string s)
 {
     if (s.length() == 1 && !isdigit(s.at(0)))
         return CHAR;
@@ -194,12 +194,12 @@ void handle_infs(std::string str) {
 // determine type of input & perform the appropriate conversion
 void ScalarConverter::convert(std::string const &str) {
     int type = findType(str);
-	// takes string, convert sit to a long int
+	// string -> long int
     long tmp = atol(str.c_str());
 
     // protect int from having big numbers (overflow)
     if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
-        type = FLOAT;
+        type = DOUBLE; // FLOAT;
     }
 
     switch (type) {

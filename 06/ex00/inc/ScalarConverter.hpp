@@ -2,9 +2,17 @@
 #define SCALARCONVERTER
 
 #include <iostream>
-#include <cctype> // For std::isprint
-#include <cstdlib> // For std::atof
-#include <limits> // For numeric_limits
+// #include <cctype> // For std::isprint
+// #include <cstdlib> // For std::atof
+// #include <limits> // For numeric_limits
+
+
+# define INT 0
+# define FLOAT 1
+# define DOUBLE 2
+# define CHAR 3
+# define PSEUDO 4
+# define INVALID 5
 
 class ScalarConverter {
 	private:

@@ -66,6 +66,16 @@ int main(void)
 
 	std::cout << std::endl;
 
+	std::cout << weak.getName() << " -  attempt to sign the form " << rrf_form.getName() << ":" << std::endl;
+	try {
+		weak.signForm(scf_form);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << std::endl;
+
 	std::cout << strong.getName() << " - attempt to sign the form " << rrf_form.getName() << ":" << std::endl;
 	try {
 		strong.signForm(rrf_form);
@@ -100,6 +110,16 @@ int main(void)
 		////////////////////////////////////////////////////////////////////////
 	std::cout << "------------- PRESIDENTAL TEST --------------------------" << std::endl; 
 	PresidentialPardonForm ppf_form("PPF_FORM");
+
+	std::cout << std::endl;
+
+		std::cout << weak.getName() << " -  attempt to sign the form " << ppf_form.getName() << ":" << std::endl;
+	try {
+		weak.signForm(scf_form);
+	}
+	catch (const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 
 	std::cout << std::endl;
 

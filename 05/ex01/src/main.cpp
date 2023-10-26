@@ -12,7 +12,7 @@ int main() {
 	std::cout << std::endl;
 
 	try {
-		b.signForm(form1);
+		b.signForm(form2);
 		// b.signForm(form2);
 		// b.signForm(form3);
 		// form3.beSigned(b);
@@ -34,5 +34,8 @@ int main() {
 	std::cout << form1 << std::endl;
 	std::cout << form2 << std::endl;
 	std::cout << form3 << std::endl;
+
+	// Form form4(form3);
+	// std::cout << form4 << std::endl;
 	std::cout << std::endl;
 }

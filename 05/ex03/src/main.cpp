@@ -4,6 +4,9 @@ int main()
 {
 	Intern guy;
 	
+	// pointers to abstract classes are used for polymorphism and dynamic object creation. 
+	// Polymorphism allows you to work with objects of different derived classes through a 
+	// common interface provided by the base class:
 	AForm* rrf;
 	
 	rrf = guy.makeForm("ShrubberyCreationForm", "olaf bender");
@@ -21,5 +24,10 @@ int main()
 	delete rrf;
 
 	rrf = guy.makeForm("someStupidForm", "olaf bender");
+	if (rrf) {
+   		 std::cout << *rrf << std::endl << std::endl;
+    delete rrf;
+	}
+	
 	std::cout << std::endl;
 }
