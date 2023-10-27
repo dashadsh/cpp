@@ -2,10 +2,12 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
-#include <cstdint> // uintptr_t
+#include <stdint.h>  // uintptr_t - C standart, can be used with C++98
+// #include <cstdint> // uintptr_t  - C 99 standart
 // #include <string>
 
 // simple data structure that can be serialized
+
 struct Data {
     int intValue;
     std::string stringValue;

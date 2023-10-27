@@ -143,9 +143,6 @@ void handleChar(char charVal) {
     float floatVal = static_cast<float>(charVal);
     double doubleVal = static_cast<double>(charVal);
     int intVal = static_cast<int>(charVal);
-	// int intVal = static_cast<int>(charVal); // ANOTHER SOLUTION
-    // float floatVal = static_cast<float>(intVal);
-    // double doubleVal = static_cast<double>(intVal);
     printResult(charVal, true, intVal, floatVal, doubleVal);
 }
 
@@ -183,7 +180,9 @@ void ScalarConverter::convert(std::string const &str) {
 	// std::numeric_limits<int>::max() is part of the STDLIB: 
 	// provides information abt properties of numbers:
 	// used to retrieve  max representable value for the int.
-    if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
+	
+	if (tmp > INT_MAX || tmp < INT_MIN) {
+    //if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
         type = DOUBLE; // FLOAT; - could be also possible, BUT
 		// "DOUBLE" represents double-precision floating-point numbers, 
 		// which have a wider range and higher precision compared to "FLOAT."
