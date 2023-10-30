@@ -4,11 +4,9 @@
 # include <iostream>
 
 /*
-syntax / semantics for a “function template”:
-template<typename T>
-void function(T& x, T& y, ...)
+T is place holder for data type
 
-function template that takes 3 parameters and returns nothing:
+VOID function template takes 3 parameters:
 1. address of an array, 
 2. length of the array, 
 3. function that's called on every element of the array.
@@ -25,7 +23,7 @@ void    iter(T *arrayAdress, size_t len, void (*f)(T const &ptr)) {
 }
 
 template < typename T >
-void    myPrint(T const &x) {
+void    myPrint(T const &x) { // takes constant refr to a value of data type T
     std::cout << x << std::endl;
 }
 

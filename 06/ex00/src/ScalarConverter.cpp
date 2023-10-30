@@ -181,8 +181,8 @@ void ScalarConverter::convert(std::string const &str) {
 	// provides information abt properties of numbers:
 	// used to retrieve  max representable value for the int.
 	
-	if (tmp > INT_MAX || tmp < INT_MIN) {
-    //if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
+	// if (tmp > INT_MAX || tmp < INT_MIN) {
+    if (tmp > std::numeric_limits<int>::max() || tmp < std::numeric_limits<int>::min()) {
         type = DOUBLE; // FLOAT; - could be also possible, BUT
 		// "DOUBLE" represents double-precision floating-point numbers, 
 		// which have a wider range and higher precision compared to "FLOAT."

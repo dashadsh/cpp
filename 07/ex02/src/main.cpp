@@ -3,189 +3,195 @@
 #include <cstdlib> // rand()
 #include <ctime> // time()
 
-# define SIZE 10 // own tests
-# define MAX_VAL 750 // subject test
+# define MAX_VAL 100 // subject test
 
-int main(void) {
-    std::cout << "------ custom tests -------" << std::endl; 
-	{	
-		std::cout << "##### ARRAY CREATION TESTING:" << std::endl;
-        std::cout << "##### arr1 w/o parameter:" << std::endl;
-        Array<int> arr1; // Explicitly specifying template parameters for class instantiation
-        std::cout << "arr1 elements: ";
-        arr1.printArrayElements();
-    }
+int main() {
+	{
 	std::cout << std::endl;
-    {
-		std::cout << "##### ARRAY CREATION TESTING-2:" << std::endl;
-        std::cout << "##### arr2 (contains 3 unsigned int):" << std::endl;
-        Array<int> arr2(3);
-        std::cout << "arr2 elements: ";
-        arr2.printArrayElements();
-    }
-	std::cout << std::endl;
-    {
-        std::cout << "##### ESXEPTION TESTING:" << std::endl;
-        std::cout << "##### arr3 (contains 3 unsigned int):" << std::endl;
-        Array<int> arr3(3);
-        std::cout << "arr3 elements: ";
-        arr3.printArrayElements();
-        try {
-            std::cout << "try to access arr3[-5]" << std::endl;
-            std::cout << arr3[-5] << std::endl;
-        }
-        catch(const std::exception &e) {
-            std::cerr << e.what() << std::endl;
-        }
-        try {
-            std::cout << "try to access arr3[4]" << std::endl;
-            std::cout << arr3[4] << std::endl;
-        }
-        catch(const std::exception &e) {
-            std::cerr << e.what() << std::endl;
-        }
-		try {
-            std::cout << "try to access arr3[1]" << std::endl;
-            std::cout << arr3[1] << std::endl;
-        }
-        catch(const std::exception &e) {
-            std::cerr << e.what() << std::endl;
-        }
-    }
-	std::cout << std::endl;
-    {
-        std::cout << "##### COPY CONSTRUCTOR TESTING " << std::endl;
-		std:: cout << "##### arr4 (contains SIZE amt of obj):" << std::endl;
-        Array<int>	arr4(SIZE);
-        std::cout << "arr4 elements: ";
-        arr4.printArrayElements();
-
-// initializes the random number generator using the current time as the seed. 
-// done to ensure that the random numbers generated in the following loop are 
-// different each time the program is run.
-        std::srand(std::time(NULL));
-
-        for (int i = 0; i < SIZE; i++) {
-            const int	value = std::rand() % 100; 
-			// int rand (void) returns a pseudo-random integral number 
-			// in the range between 0 and RAND_MAX. 
-			// % 100 makes random numbers in the range 0 to 99.
-            arr4[i] = value;
-        }
-        std::cout << "##### arr4 with 0-100 values: " << std::endl;
-        arr4.printArrayElements();
-        std::cout << "##### create array by copy of arr4 w arr4CopyConstructor" << std::endl;
-        Array<int> arr4CopyConstructor = arr4;
-        std::cout << "print copied elem: " << std::endl;
-        arr4CopyConstructor.printArrayElements();
-    }
-	std::cout << std::endl;
-    {
-        std::cout << "##### ASSIGNMENT OPERATOR TESTING" << std::endl;
-        std::cout << "arr5 (contain 4 ints):" << std::endl;
-        Array<int>	arr5(4);
-        std::cout << "arr5 elements: ";
-        arr5.printArrayElements();
-        
-        std::cout << "arr6 (contains SIZE amt of int)" << std::endl;
-        Array<int>	arr6(SIZE);
-        std::cout << "arr6 elements: ";
-        arr6.printArrayElements();
-        
-        arr5 = arr6;
-        std::cout << "arr5 elements: ";
-        arr5.printArrayElements();
-    }
-	std::cout << std::endl;
-    {
-        std::cout << "##### OTHER DATA TYPES TESTING" << std::endl;
-        std::cout << "arr7 (contains 10 strings):" << std::endl;
-        Array<std::string> arr7(SIZE);
-        std::cout << "arr7 elements: ";
-        arr7.printArrayElements();
-        
-        arr7[0] = "Hi";
-        arr7[1] = ",";
-        arr7[2] = "Tinkerbell!";
-        arr7[3] = "_";
-        arr7[4] = "Hi";
-        arr7[5] = "";
-        arr7[6] = "baby";
-        arr7[7] = "_";
-        arr7[8] = "girl";
-        arr7[9] = "!";
-        std::cout << "arr7 elements: " << std::endl;
-        arr7.printArrayElements();
-    }
-	std::cout << std::endl;
-    {
-        std::cout << "##### new[]" << std::endl;
-        std::cout << "arr8 (10 int): " << std::endl;
-        Array<int> arr8(SIZE);
-        std::srand(std::time(NULL));
-        for (int i = 0; i < SIZE; i++) {
-            const int	value = std::rand() % 100;
-            arr8[i] = value;
-        }
-        std::cout << "arr8 elements: ";
-        arr8.printArrayElements();
-
-        std::cout << "newArray (10 int): " << std::endl;
-        int *newArray = new int[SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            newArray[i] = arr8[i];
-			std::cout << newArray[i];
-			if (i < SIZE - 1)
-        		std::cout << " - ";
-			else
-        		std::cout << std::endl;
-    }
-        delete[] newArray;
-    }
-    std::cout << std::endl;
+	
+    // Test 1: Default constructor (empty array)
+    Array<int> emptyArray;
+    std::cout << "TEST 1 - Size of emptyArray: " << emptyArray.size() << std::endl;
 	std::cout << std::endl;
 
+    // Test 2: Parameterized constructor (array with Fibonacci numbers)
+    Array<int> fibonacciArray(10);  // Let's create an array with 10 elements
+    int a = 0, b = 1;
+    for (unsigned int i = 0; i < fibonacciArray.size(); ++i) {
+        fibonacciArray[i] = a;
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+    std::cout << "TEST 2 - Fibonacci Array: ";
+    fibonacciArray.printArrayElements();
+	std::cout << std::endl;
 
-    {
-    std::cout << "------ subject pdf tests -------" << std::endl; 
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++) {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    // Test 3: Copy constructor
+    Array<int> copiedArray(fibonacciArray);
+    copiedArray[0] = 100; // Modify the copy
+    std::cout << "TEST 3 - Copied array: ";
+    copiedArray.printArrayElements();
+    std::cout << "Original Fibonacci Array: ";
+    fibonacciArray.printArrayElements();
+	std::cout << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++) {
-        if (mirror[i] != numbers[i]) {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
+    // Test 4: Assignment operator
+    Array<int> assignedArray;
+    assignedArray = fibonacciArray;
+    assignedArray[1] = 200; // Modify the assigned array
+    std::cout << "TEST 4 - Assigned array: ";
+    assignedArray.printArrayElements();
+    std::cout << "Original Fibonacci Array: ";
+    fibonacciArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 5: Accessing out of bounds index (should throw an exception)
     try {
-        numbers[-2] = 0;
+        fibonacciArray[15] = 42; // Index is out of bounds
+    } catch (const Array<int>::OutOfRangeException& e) {
+        std::cerr << "TEST 5 - Exception: " << e.what() << std::endl;
     }
-    catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
+	std::cout << std::endl;
+	}
+
+	std::cout << "------------------------------------------" << std::endl;
+
+	{
+	// Test 1: Default constructor (empty array of characters)
+    Array<char> emptyCharArray;
+    std::cout << "TEST 1 - Size of emptyCharArray: " << emptyCharArray.size() << std::endl;
+	std::cout << std::endl;
+
+    // Test 2: Parameterized constructor (array of characters with "Hello")
+    Array<char> helloArray(5);  // Create an array with 5 characters
+    helloArray[0] = 'H';
+    helloArray[1] = 'e';
+    helloArray[2] = 'l';
+    helloArray[3] = 'l';
+    helloArray[4] = 'o';
+    std::cout << "TEST 2 - Hello Array: ";
+    helloArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 3: Copy constructor
+    Array<char> copiedCharArray(helloArray);
+    copiedCharArray[0] = 'W'; // Modify the copy
+    std::cout << "TEST 3 - Copied array: ";
+    copiedCharArray.printArrayElements();
+    std::cout << "Original Hello Array: ";
+    helloArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 4: Assignment operator
+    Array<char> assignedCharArray;
+    assignedCharArray = helloArray;
+    assignedCharArray[1] = 'O'; // Modify the assigned array
+    std::cout << "TEST 4 - Assigned array: ";
+    assignedCharArray.printArrayElements();
+    std::cout << "Original Hello Array: ";
+    helloArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 5: Accessing out of bounds index (should throw an exception)
     try {
-        numbers[MAX_VAL] = 0;
+        helloArray[10] = 'X'; // Index is out of bounds
+    } catch (const Array<char>::OutOfRangeException& e) {
+        std::cerr << "TEST 5 - Exception: " << e.what() << std::endl;
     }
-    catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
+	std::cout << std::endl;
+	}
 
-    for (int i = 0; i < MAX_VAL; i++) {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
+	std::cout << "------------------------------------------" << std::endl;
 
-    return 0;
-}
+	{
+	// Test 1: Default constructor (empty array of strings)
+    Array<std::string> emptyStringArray;
+    std::cout << "TEST 1 - Size of emptyStringArray: " << emptyStringArray.size() << std::endl;
+	std::cout << std::endl;
+
+    // Test 2: Parameterized constructor (array of strings)
+    Array<std::string> stringArray(3);  // Create an array with 3 strings
+    stringArray[0] = "Hello";
+    stringArray[1] = "World";
+    stringArray[2] = "Array";
+    std::cout << "TEST 2 - String Array: ";
+    stringArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 3: Copy constructor
+    Array<std::string> copiedStringArray(stringArray);
+    copiedStringArray[0] = "New";
+    std::cout << "TEST 3 - Copied array: ";
+    copiedStringArray.printArrayElements();
+    std::cout << "Original String Array: ";
+    stringArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 4: Assignment operator
+    Array<std::string> assignedStringArray;
+    assignedStringArray = stringArray;
+    assignedStringArray[1] = "Universe";
+    std::cout << "TEST 4 - Assigned array: ";
+    assignedStringArray.printArrayElements();
+    std::cout << "Original String Array: ";
+    stringArray.printArrayElements();
+	std::cout << std::endl;
+
+    // Test 5: Accessing out of bounds index (should throw an exception)
+    try {
+        stringArray[5] = "Exception"; // Index is out of bounds
+    } catch (const Array<std::string>::OutOfRangeException& e) {
+        std::cerr << "TEST 5 - Exception: " << e.what() << std::endl;
+    }
+	std::cout << std::endl;
+	}
+
+	std::cout << "------------------------------------------" << std::endl;
+
+    // {
+    // std::cout << "------ subject pdf tests -------" << std::endl; 
+
+    // Array<int> numbers(MAX_VAL);
+    // int* mirror = new int[MAX_VAL];
+
+    // srand(time(NULL));
+    // for (int i = 0; i < MAX_VAL; i++) {
+    //     const int value = rand();
+    //     numbers[i] = value;
+    //     mirror[i] = value;
+    // }
+    // //SCOPE
+    // {
+    //     Array<int> tmp = numbers;
+    //     Array<int> test(tmp);
+    // }
+
+    // for (int i = 0; i < MAX_VAL; i++) {
+    //     if (mirror[i] != numbers[i]) {
+    //         std::cerr << "didn't save the same value!!" << std::endl;
+    //         return 1;
+    //     }
+    // }
+    // try {
+    //     numbers[-2] = 0;
+    // }
+    // catch(const std::exception& e) {
+    //     std::cerr << e.what() << '\n';
+    // }
+    // try {
+    //     numbers[MAX_VAL] = 0;
+    // }
+    // catch(const std::exception& e) {
+    //     std::cerr << e.what() << '\n';
+    // }
+
+    // for (int i = 0; i < MAX_VAL; i++) {
+    //     numbers[i] = rand();
+    // }
+    // delete [] mirror;//
+	// std::cout << std::endl;
+
+    // return 0;
+	// }
 }

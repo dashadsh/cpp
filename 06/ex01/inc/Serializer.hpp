@@ -7,7 +7,6 @@
 // #include <string>
 
 // simple data structure that can be serialized
-
 struct Data {
     int intValue;
     std::string stringValue;
