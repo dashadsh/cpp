@@ -3,12 +3,12 @@
 #include <cstdlib> // rand()
 #include <ctime> // time()
 
-# define MAX_VAL 100 // subject test
+# define MAX_VAL 750 // subject test
 
 int main() {
 	{
 	std::cout << std::endl;
-	
+
     // Test 1: Default constructor (empty array)
     Array<int> emptyArray;
     std::cout << "TEST 1 - Size of emptyArray: " << emptyArray.size() << std::endl;
