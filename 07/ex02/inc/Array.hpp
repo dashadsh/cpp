@@ -2,6 +2,9 @@
 # define ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib> // rand()
+#include <ctime> // time()
+// #include <exception>
 
 //	https://isocpp.org/wiki/faq/templates#class-templates
 

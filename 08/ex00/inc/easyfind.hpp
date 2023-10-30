@@ -28,14 +28,17 @@
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <array>
+#include <array> // array container
+#include <algorithm> // find()
+#include <vector> // vector container, end()
 // #include <iterator>
-#include <vector> // end()
 
 template <class T> int easyfind(T &container_type, int tofind) {
 	// CONST bc. won't accidentally modify the container while searching for an element
     typename T::const_iterator it;
 
+	// std::find() returns iterator to 1st elem- in the range [0,last) that compares equal to val
+	// it's STL algorithm that searches for an element in a container
     it = std::find(container_type.begin(), container_type.end(), tofind);
     if (it != container_type.end()) { // past-the-end element
         std::cout << "element: " << tofind << "	1st occurence at idx: ";

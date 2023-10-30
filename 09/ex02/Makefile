@@ -1,4 +1,4 @@
-NAME = iter
+NAME = whatever
 
 SRC_DIR = src
 INC_DIR = inc

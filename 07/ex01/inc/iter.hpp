@@ -12,6 +12,8 @@ VOID function template takes 3 parameters:
 3. function that's called on every element of the array.
 */
 
+// T: type of elements in the arr.
+// const &ptr: function will not modify the elements of the arr.
 template < typename T >
 void    iter(T *arrayAdress, size_t len, void (*f)(T const &ptr)) {
     size_t 	i = 0;
