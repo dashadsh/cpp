@@ -3,6 +3,7 @@
 int main() {
 
 std::cout << "\n---------- subject pdf test -------\n" << std::endl;
+  
   Span sp = Span(5);
   sp.addNumber(6);
   sp.addNumber(3);
@@ -24,6 +25,7 @@ std::cout << "\n---------------------\n" << std::endl;
 	// consecutive.printElements();
 
 std::cout << "\n---------------------\n" << std::endl;
+	
 	Span random(100);
 	random.fillRandomNumbers();
 	// random.printElements();
@@ -35,6 +37,7 @@ std::cout << "\n---------------------\n" << std::endl;
     }
 
 std::cout << "\n---------------------\n" << std::endl;
+
 	Span single(1);
 	try {
         single.shortestSpan();
@@ -42,6 +45,7 @@ std::cout << "\n---------------------\n" << std::endl;
     catch(const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
+
 std::cout << "\n---------------------\n" << std::endl;
 	Span empty;
 	try {
@@ -53,5 +57,26 @@ std::cout << "\n---------------------\n" << std::endl;
     }
 	empty.printElements();
 
+std::cout << "\n---------------------\n" << std::endl;
+	Span range = Span(5);
+    std::vector<int> numbers;
+    numbers.push_back(5);
+    numbers.push_back(3);
+    numbers.push_back(1);
+    numbers.push_back(2);
+    numbers.push_back(4);
+    
+	range.addNumber(42);
+    // add multiple numbers at once
+	try {
+   		range.addRange(numbers.begin(), numbers.end());
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    // range.addRange(numbers.begin(), numbers.end());
+	range.printElements();
+	std::cout << "shortest span:	" << range.shortestSpan() << std::endl;
+	std::cout << "longest span:	" << range.longestSpan() << std::endl;
 	return 0;
 }

@@ -1,10 +1,10 @@
-NAME = span
+NAME = mutantstack
 
 SRC_DIR = src
 INC_DIR = inc
 OBJ_DIR = obj
 
-SRCS = main.cpp Span.cpp
+SRCS = main.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

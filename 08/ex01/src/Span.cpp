@@ -63,6 +63,12 @@ void Span::fillRandomNumbers() {
             _vec.push_back(rand());
 }
 
+void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) {
+    for (std::vector<int>::const_iterator it = begin; it != end; ++it) {
+        addNumber(*it);
+    }
+}
+
 void    Span::printElements() {
 	int idx = 0;
     for(std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); it++) {

@@ -5,9 +5,16 @@
 #include <vector>
 #include <algorithm>
 
+// member func. should use STL algorithms
+// provide improved addNumber function
+
+// If you don’t have a clue, study the Containers.  Some member
+// functions take a range of iterators in order to add a sequence of
+// elements to the container.
+
 class Span {
 	private:
-		unsigned int					_N;
+		unsigned int		_N;
 		std::vector<int>	_vec;
 
 	public:
@@ -28,6 +35,7 @@ class Span {
 		int 	longestSpan();
 
 		// ------custom functions------
+		void	addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 		void 	fillConsecutiveNumbers();
 		void 	fillRandomNumbers();
 		void	printElements();
