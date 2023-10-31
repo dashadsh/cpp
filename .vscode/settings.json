@@ -64,6 +64,10 @@
 		"variant": "cpp",
 		"vector": "cpp",
 		"algorithm": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"__tree": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"numeric": "cpp"
 	}
 }

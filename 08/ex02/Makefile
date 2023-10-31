@@ -1,10 +1,10 @@
-NAME = whatever
+NAME = span
 
 SRC_DIR = src
 INC_DIR = inc
 OBJ_DIR = obj
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))

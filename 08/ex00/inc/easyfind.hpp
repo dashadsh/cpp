@@ -31,25 +31,33 @@
 #include <array> // array container
 #include <algorithm> // find()
 #include <vector> // vector container, end()
-// #include <iterator>
+#include <list>
+#include <deque>
 
-template <class T> int easyfind(T &container_type, int tofind) {
-	// CONST bc. won't accidentally modify the container while searching for an element
-    typename T::const_iterator it;
+template <class T>
+int easyfind(T &container_type, int tofind) {
+	// std::find to search for the elem.in the container
+    typename T::iterator it = std::find(container_type.begin(), container_type.end(), tofind);
 
-	// std::find() returns iterator to 1st elem- in the range [0,last) that compares equal to val
-	// it's STL algorithm that searches for an element in a container
-    it = std::find(container_type.begin(), container_type.end(), tofind);
-    if (it != container_type.end()) { // past-the-end element
-        std::cout << "element: " << tofind << "	1st occurence at idx: ";
-        std::cout << it - container_type.begin() << std::endl;
+    if (it != container_type.end()) {
+        int index = 0; // bc of LIST
+        for (typename T::iterator i = container_type.begin(); i != it; ++i) { // bc of LIST
+            ++index; // bc of LIST
+        }
+        std::cout << "element: " << tofind << " 1st occurrence at index: " << index << std::endl;
+		// std::cout << "element: " << tofind << " 1st occurrence at index: " << std::endl; // doesn't work for LIST
+		// std::cout << it - container_type.begin() << std::endl; // doesn't work for LIST
         return 0;
-    }
-    else {
+    } else {
         std::cout << "element: " << tofind << " not found" << std::endl;
         return 1;
     }
 }
+// POSSIBLE PROBLEM: subtraction of iterators in the easyfind 
+// when we try to calculate the idx of an element within a std::list. 
+// Unlike random-access containers like std::vector, 
+// we cannot subtract iterators from std::list directly to get the idx bc 
+// it doesn't support random access.
 
 template <class T>
 void printContainer(const T &type) {
