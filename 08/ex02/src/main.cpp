@@ -1,6 +1,13 @@
 // #include "../inc/MutantStack.hpp"
 #include "../inc/MutantStack.tpp"
 
+// std::stack member functions:
+// push(const value_type& value): Adds an element to the top of the stack.
+// pop(): Removes the top element from the stack.
+// top(): Returns a reference to the top element of the stack without removing it.
+// empty(): Checks if the stack is empty and returns a Boolean value.
+// size(): Returns the number of elements in the stack.
+
 int main() {
 
 	std::cout << "\n===================================" << std::endl;
@@ -13,6 +20,7 @@ int main() {
 	std::cout << "\nTop element: " << mstack.top() << std::endl;
 	mstack.pop();
 	std::cout << "Size after pop: " << mstack.size() << std::endl;
+	std::cout << "Is stack empty? " << (mstack.empty() ? "Yes" : "No") << std::endl; // NEW
 	std::cout << "Top element: " << mstack.top() << std::endl;
 	mstack.push(3); 
 	mstack.push(5); 
