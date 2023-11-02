@@ -1,17 +1,76 @@
 #include "../inc/easyfind.hpp"
 
-// 2 containers:
+/*
+std::list (Doubly-linked list) - efficient insertions and deletions in the middle
 
-// std::vector<int> vecInt: This is a vector of integers.
-// std::array<int, 5> arrInt: This is an array of integers with a FIXED size of 5.
+>>>>> ALGORITHMS
+std::insert: inserting elements at specified positions.
+std::erase: remove elements by providing iterators.
+std::splice: transfers elements from one list to another.
 
-// >>>> std::list 
-// if you need frequent insertions and deletions in the middle of a sequence. 
-// >>>> std::vector 
-// if you need fast random access and efficient memory usage.
+>>>>> ITERATORS
+begin(), end(): forward traversal.
+rbegin(), rend(): reverse traversal.
 
-// (Associative containers provide efficient ways 
-// to store and retrieve data based on key-value pairs)
+>>>>> MEMBER FUNCTIONS
+push_back: adds an element to the end.
+push_front: adds an element to the front.
+pop_back: removes the last element.
+pop_front: removes the first element.
+size: returns the number of elements.
+empty: checks if the list is empty.
+--------------------------------
+std::vector (Dynamic array) - fast random access
+
+>>>>> ALGORITHMS
+std::at and operator[]: For random access by index.
+std::find: Useful for searching elements.
+
+>>>>> ITERATORS
+begin(), end(): For forward traversal.
+
+>>>>> MEMBER FUNCTIONS
+push_back: Adds an element to the end.
+pop_back: Removes the last element.
+at and operator[]: Provides random access by index.
+size: Returns the number of elements.
+empty: Checks if the vector is empty.
+resize: Changes the size of the vector.
+--------------------------------
+std::array (Fixed-size array) - fixed-size array with fast access
+
+>>>>> ALGORITHMS
+std::at and operator[]: For direct access to elements.
+std::sort and std::binary_search: For sorting and searching.
+
+>>>>> ITERATORS
+begin(), end(): For forward traversal.
+
+>>>>> MEMBER FUNCTIONS
+at and operator[]: Provides direct access to elements.
+size: Returns the number of elements.
+empty: Checks if the array is empty.
+--------------------------------
+std::deque (Double-ended queue) - efficient insertions and deletions at both ends
+
+>>>>> ALGORITHMS
+push_front and push_back: Efficient for inserting elements at the front and back.
+pop_front and pop_back: For removing elements from the front and back.
+std::at, operator[], and std::find: Suitable for random access.
+
+>>>>> ITERATORS
+begin(), end(): For forward traversal.
+rbegin(), rend(): For reverse traversal.
+
+>>>>> MEMBER FUNCTIONS
+push_back: Adds an element to the end.
+push_front: Adds an element to the front.
+pop_back: Removes the last element.
+pop_front: Removes the first element.
+at and operator[]: Provides random access by index.
+size: Returns the number of elements.
+empty: Checks if the deque is empty.
+*/
 
 int main(void) {
 	std::cout << "\n============= VECTOR TEST =============" << std::endl;
@@ -96,75 +155,40 @@ int main(void) {
     return 0;
 }
 
-// ---- DATA STRUCTURE ----
-// >>>> std::list: 
-// Doubly-linked list - each element is in a node that contains pointers to the previous and next elements.
-// >>>> std::vector: 
-// Dynamic array, which means elements are stored in contiguous memory locations.
-// >>>> std::array:
-// Fixed-size array with elements stored in contiguous memory locations.
-// >>>> std::deque:
-// Double-ended queue - a dynamic array-like container that supports efficient insertion and deletion at both ends.
+/*
+**1. std::list:**
+   - Data Structure: Doubly-linked list with each element in a node containing pointers to the previous and next elements.
+   - Memory Allocation: Allocates memory for each element separately.
+   - Access Time: Slower access by index, involving linear traversal.
+   - Insertion and Deletion: Efficient insertions and deletions in the middle.
+   - Dynamic Sizing: Easily grows or shrinks without reallocation.
+   - Iterators: Bidirectional iterators.
+   - Use Cases: Efficient for insertions and deletions in the middle without requiring fast random access.
 
-// ---- MEMORY ALLOCATION ----
-// >>>> std::list: 
-// Allocates memory for each element separately, which can lead to some overhead in terms of memory usage due to the additional pointers.
-// >>>> std::vector:
-// Allocates memory for a block of elements, making it more memory-efficient in most cases, as it doesn't have the overhead of separate nodes.
-// >>>> std::array:
-// Allocates memory for a fixed number of elements, making it memory-efficient with no overhead.
-// >>>> std::deque:
-// Allocates memory for multiple blocks, allowing for efficient dynamic sizing and insertion at both ends.
+**2. std::vector:**
+   - Data Structure: Dynamic array storing elements in contiguous memory locations.
+   - Memory Allocation: Allocates memory for a block of elements.
+   - Access Time: Fast and constant-time access by index.
+   - Insertion and Deletion: Slower for insertions within the vector.
+   - Dynamic Sizing: Can grow dynamically but may involve reallocation.
+   - Iterators: Random access iterators.
+   - Use Cases: Fast random access is required, and less efficient insertions and deletions in the middle are acceptable.
 
-// ---- ACCESS TIME ----
-// >>>> std::list: 
-// Accessing elements by index in a std::list is slower compared to std::vector because it involves traversing 
-// the list from the beginning or end, which takes linear time.
-// >>>> std::vector: 
-// Accessing elements by index in a std::vector is fast and constant time, as it uses direct memory addressing.
-// >>>> std::array:
-// Accessing elements by index in a std::array is also fast and constant time, similar to std::vector.
-// >>>> std::deque:
-// Provides fast random access to elements, similar to std::vector, but also supports efficient access and insertion at both ends.
+**3. std::array:**
+   - Data Structure: Fixed-size array storing elements in contiguous memory locations.
+   - Memory Allocation: Allocates memory for a fixed number of elements.
+   - Access Time: Fast and constant-time access by index.
+   - Insertion and Deletion: Not applicable; size is fixed.
+   - Dynamic Sizing: Cannot change size dynamically.
+   - Iterators: Random access iterators.
+   - Use Cases: When you need a fixed-size array with fast random access and efficient memory usage.
 
-// ---- INSERTION AND DELETION ----
-// >>>> std::list: 
-// Insertions and deletions in the middle of a list are efficient (constant time) because they involve changing a few pointers. 
-// However, inserting or deleting at the beginning or end is faster in std::vector.
-// >>>> std::vector: 
-// Insertions within the vector (not at the beginning or end) can be slower because they require moving elements to accommodate the change.
-// >>>> std::array:
-// Has a fixed size, so you cannot insert or delete elements in the middle. You can only modify existing elements.
-// >>>> std::deque:
-// Supports efficient insertions and deletions at both ends, making it suitable for use cases requiring dynamic queue-like behavior.
-
-// ---- DYNAMIC SIZING ----
-// >>>> std::list: 
-// Can easily grow or shrink as elements are added or removed, without reallocation.
-// >>>> std::vector:
-// Can also grow dynamically, but it may require reallocation of memory when it reaches its capacity, 
-// which can be an expensive operation in terms of time and may involve copying elements.
-// >>>> std::array:
-// Has a fixed size and cannot change its size dynamically.
-// >>>> std::deque:
-// Supports dynamic sizing by allocating memory in blocks, allowing for efficient expansion and contraction as needed.
-
-// ---- ITERATORS ----
-// >>>> std::list: 
-// Provides bidirectional iterators, allowing efficient traversal in both directions.
-// >>>> std::vector:
-// Provides random access iterators, allowing efficient random access to elements but not efficient traversal in reverse.
-// >>>> std::array:
-// Provides random access iterators similar to std::vector.
-// >>>> std::deque:
-// Provides random access iterators, similar to std::vector, enabling efficient random access to elements at both ends.
-
-// ---- USE CASES ----
-// >>>> std::list 
-// When you need efficient insertions and deletions in the middle of a sequence, and you don't require fast random access.
-// >>>> std::vector 
-// When you need fast random access, and you can tolerate less efficient insertions and deletions in the middle.
-// >>>> std::array:
-// When you need a fixed-size array with fast random access and efficient memory usage.
-// >>>> std::deque:
-// When you need a double-ended queue with efficient insertions and deletions at both ends, such as implementing a queue or stack.
+**4. std::deque:**
+   - Data Structure: Double-ended queue with memory allocated in blocks.
+   - Memory Allocation: Allocates memory for multiple blocks.
+   - Access Time: Fast random access to elements.
+   - Insertion and Deletion: Efficient at both ends.
+   - Dynamic Sizing: Supports dynamic sizing by allocating memory in blocks.
+   - Iterators: Random access iterators.
+   - Use Cases: When you need a double-ended queue with efficient insertions and deletions at both ends, such as implementing a queue or stack.
+*/
