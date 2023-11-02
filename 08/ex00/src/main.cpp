@@ -99,18 +99,6 @@ int main(void) {
 
 	std::cout << "\n>>>>> try to find non-existing element in vecInt" << std::endl;
 	::easyfind(vecInt, 100);
-
-	std::cout << "\n============= ARRAY TEST =============" << std::endl;
-    std::array<int, 5> arrInt = {111, 222, 333, 444, 222};
-	std::cout << "arrInt.size(): " << arrInt.size() << std::endl;
-	printContainer(arrInt);
-
-	std::cout << "\n>>>>> find existing element in arrInt" << std::endl;
-    ::easyfind(arrInt, 222);
-
-	std::cout << "\n>>>>> try to find non-existing element in arrInt" << std::endl;
-    ::easyfind(arrInt, 666);
-	std::cout << std::endl;
     
 	std::cout << "\n============= LIST TEST =============" << std::endl;
     std::list<int> listInt;

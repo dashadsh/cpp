@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <climits>
 // member func. should use STL algorithms
 // provide improved addNumber function
 
