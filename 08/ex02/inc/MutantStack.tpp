@@ -3,13 +3,11 @@
 
 #include "MutantStack.hpp"
 
-// Constructor
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>() {
     std::cout << "MutantStack default constructor called" << std::endl;
 }
 
-// Destructor
 template <typename T>
 MutantStack<T>::~MutantStack() {
     std::cout << "MutantStack destructor called" << std::endl;
