@@ -96,30 +96,23 @@ std::cout << "\n----- test 50000 values Span -------\n" << std::endl;
 std::cout << "\n----- test deep copy -------\n" << std::endl;
 	Span original(5);
 	original.addNumber(1);
-
-	Span copy(original);
-	Span assignment = original;
-
 	original.addNumber(2);
-	copy.addNumber(3);
-	assignment.addNumber(4);
+	original.addNumber(3);
+
+	Span copyConstructor(original);
+	Span assignmentOperator = original;
+
+	original.addNumber(4);
+	copyConstructor.addNumber(44);
+	assignmentOperator.addNumber(444);
 
 	std::cout << std::endl;
 	std::cout << "original:	\n";
 	original.printElements();
 	std::cout << "copy:		\n";
-	copy.printElements();
+	copyConstructor.printElements();
 	std::cout << "assignment:	\n";
-	assignment.printElements();
-
-	original.addNumber(5);
-	std::cout << std::endl;
-	std::cout << "original:	\n";
-	original.printElements();
-	std::cout << "copy:		\n";
-	copy.printElements();
-	std::cout << "assignment:	\n";
-	assignment.printElements();
+	assignmentOperator.printElements();
 
 	std::cout << std::endl;
 

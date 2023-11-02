@@ -45,10 +45,8 @@ int main() {
 	}
 
 	// std::stack<int> s(mstack); 
-    std::cout << "\nTesting deep copies of MutantStack:" << std::endl;
+    std::cout << "\nTesting copyConstructor:" << std::endl;
     MutantStack<int> copyConstructor(mstack); // copy constructor
-    MutantStack<int> assignmentOperator;
-    assignmentOperator = mstack; // assignment operator
 
     // addresses of original container elements
     std::cout << "Original container addresses:" << std::endl;
@@ -62,11 +60,35 @@ int main() {
         std::cout << &(*deepIt) << std::endl;
     }
 
+    std::cout << "\nTesting assignmentOperator:" << std::endl;
+	MutantStack<int> assignmentOperator;
+    assignmentOperator = mstack; // assignment operator
 	// print addresses of copied container elements
     std::cout << "Deep copy using assignment operator addresses:" << std::endl;
     for (MutantStack<int>::iterator deepIt = assignmentOperator.begin(); deepIt != assignmentOperator.end(); ++deepIt) {
         std::cout << &(*deepIt) << std::endl;
     }
+
+	mstack.push(42);
+	copyConstructor.push(4242);
+	assignmentOperator.push(424242);
+
+	std::cout << "\nChanges made to the original MutantStack:" << std::endl;
+    for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it) {
+        std::cout << "Element: " << *it << std::endl;
+    }
+
+    // Check that the copied MutantStacks are not affected by the changes
+    std::cout << "\nValues in the copied MutantStack using copy constructor:" << std::endl;
+    for (MutantStack<int>::iterator copyIt = copyConstructor.begin(); copyIt != copyConstructor.end(); ++copyIt) {
+        std::cout << "Element: " << *copyIt << std::endl;
+    }
+
+    std::cout << "\nValues in the copied MutantStack using assignment operator:" << std::endl;
+    for (MutantStack<int>::iterator assignIt = assignmentOperator.begin(); assignIt != assignmentOperator.end(); ++assignIt) {
+        std::cout << "Element: " << *assignIt << std::endl;
+    }
+
 
 	std::cout << "\n===================================" << std::endl;
 	std::cout << "\n-------- Testing std::list --------\n" << std::endl;
