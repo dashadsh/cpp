@@ -2,7 +2,6 @@
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <array> // array container
 #include <algorithm> // find()
 #include <vector> // vector container
 #include <list>
