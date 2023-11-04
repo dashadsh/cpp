@@ -1,25 +1,36 @@
 #include "../inc/PmergeMe.hpp"
 
-// • The name of the program is PmergeMe.
-// • Your program must be able to use a positive integer sequence as argument.
-// • Your program must use the merge-insert sort algorithm to sort the positive integer sequence.
-
-// Ford-Johnson algorithm
-// also known as merge-insertion sort is an in-place sorting algorithm designed
-// to perform as few comparisons as possible to sort a collection. 
-// Unfortunately, the algorithm needs some specific data structures to keep track 
-// of the order of the elements and is generally too slow to be practical.
-// Anyway, it's an interesting algorithm from a computer science point of view; 
-// while not performing an optimal number of comparisons, it's still a reference and 
-// one of the best known comparison sorts when it comes to reducing the number of comparisons.
-
-// you must use at least two different containers in your code to validate this exercise.  
-// Your program must be able to handle at least 3000 different integers.
-
-// On the first line you must display an explicit text followed by the unsorted positive integer sequence.
-// On the second line you must display an explicit text followed by the sorted positive integer sequence.
-// On the third line you must display an explicit text indicating the time used by your algorithm by specifying the first container used to sort the positive integer sequence.
-// On the last line you must display an explicit text indicating the time used by your algorithm by specifying the second container used to sort the positive integer sequence.
+// -------------------------------------------------------------------------------------------------------------
+// std::vector is implemented as a dynamic array, where elements are stored in a contiguous block of memory. 
+// This makes it very efficient for accessing elements by their index. 
+// Insertions and deletions at the beginning or middle of the vector can be slower 
+// because all elements after the insertion point need to be shifted.
+// -------------------------------------------------------------------------------------------------------------
+// std::deque is implemented as a double-ended queue, which allows for efficient insertions and deletions 
+// at both the beginning and end. It typically consists of multiple blocks of memory, 
+// so it is not as memory-efficient as a vector but provides faster insertions at both ends.
+// -------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------
+// MERGE sort is an efficient and stable sorting algorithm that is well-suited for containers like vectors
+// because it relies on efficient random access to elements. It's a divide-and-conquer algorithm that is efficient for larger datasets.
+// -------------------------------------------------------------------------------------------------------------
+// INSERTION sort is a simple sorting algorithm that works well for small datasets and is particularly 
+// efficient when the number of elements to sort is small. It has good cache locality and can take advantage 
+// of the efficient insertions available in std::deque.
+// -------------------------------------------------------------------------------------------------------------
+// FORD-JOHNSON ALGORITHM  - merge-insertion sort is an in-place sorting algorithm designed to perform as few comparisons 
+// as possible to sort a collection. 
+// Unfortunately, the algorithm needs some specific data structures to keep track of the order of the elements and is 
+// generally too slow to be practical. Anyway, it's an interesting algorithm from a computer science point of view; 
+// while not performing an optimal number of comparisons, it's still a reference and one of the best known comparison sorts 
+// when it comes to reducing the number of comparisons.
+// -------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------
+// For small datasets or when the size of the subarray being sorted is small, std::deque might perform better
+// due to its efficient insertion characteristics, making insertion sort more effective.
+// For larger datasets, or when the subarray size is larger, std::vector might perform better with merge sort, 
+// as it can take advantage of better cache locality and efficient random access.
+// -------------------------------------------------------------------------------------------------------------
 
 int main(int ac, char **av) {	
 	if (ac < 2) {
