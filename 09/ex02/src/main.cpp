@@ -9,7 +9,7 @@
 // to perform as few comparisons as possible to sort a collection. 
 // Unfortunately, the algorithm needs some specific data structures to keep track 
 // of the order of the elements and is generally too slow to be practical.
-// Anyway, it is an interesting algorithm from a computer science point of view; 
+// Anyway, it's an interesting algorithm from a computer science point of view; 
 // while not performing an optimal number of comparisons, it's still a reference and 
 // one of the best known comparison sorts when it comes to reducing the number of comparisons.
 
