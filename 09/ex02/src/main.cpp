@@ -48,16 +48,11 @@ int main(int ac, char **av) {
 		sorter.printContainer();
 
 		// CLOCKS_PER_SEC is a macro defined in <ctime> header, it represents the number of clock ticks per second.
-
-		//std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " 
-    	//	<< static_cast<double>(end_vec - start_vec) * 1000000.0 / CLOCKS_PER_SEC << "us\n";
 		std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector : " 
 			<< ((end_vec - start_vec) * 1000000 / CLOCKS_PER_SEC) << "us\n";
 			// divide by CLOCKS_PER_SEC to convert clock ticks to seconds
 			// multiply by 1000000 to convert seconds to microseconds
 		
-		//std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " 
-    	//	<< static_cast<double>(end_deq - start_deq) * 1000000.0 / CLOCKS_PER_SEC << "us\n";
 		std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque : " 
 			<< ((end_deq - start_deq) * 1000000  / CLOCKS_PER_SEC) << "us\n";
 	
