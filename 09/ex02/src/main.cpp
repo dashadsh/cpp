@@ -1,25 +1,34 @@
 #include "../inc/PmergeMe.hpp"
-// ---------------------------------------------------------
-// Merge Sort: efficient and stable sorting algorith suitable for large datasets.
+// ----------------------------------------------------------------------------------------------
+// Merge Sort: suitable for large datasets.
 // Efficient random access and cache locality, making it highly compatible with std::vector.
-// ---------------------------------------------------------
-// Insertion Sort: simple and efficient for small datasets. Compatible with both std::vector and std::deque, 
-// and it is particularly efficient for small datasets.
-// ---------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// Insertion Sort: efficient for small datasets. Compatible with both std::vector and std::deque.
+// ----------------------------------------------------------------------------------------------
 // Merge-Insert Sort: hybrid sorting algorithm that uses merge sort for larger subarrays and insertion sort for
 // smaller subarrays. Highly compatible with std::vector due to its efficient random access and cache locality during
 // merge steps. Also compatible with std::deque and can efficiently handle insertion sort for small subarrays.
-// ---------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// std::vector - dynamic array, elements are stored in a contiguous block of memory. 
+// Very efficient for accessing elements by their index. 
+// Insertions and deletions at the beginning or middle of the vector can be slower 
+// bc all elements after the insertion point need to be shifted.
+//
 // Compatibility with std::vector:
 // - Merge Sort: Highly compatible, benefits from efficient random access and cache locality.
 // - Insertion Sort: Compatible, efficient for small datasets.
 // - Merge-Insert Sort: Highly compatible, benefits from efficient random access and cache locality for merge steps.
-// ---------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
+// std::deque - double-ended queue, efficient insertions and deletions at both the beginning and end. 
+// It typically consists of multiple blocks of memory, so it is not as memory-efficient as a vector but provides 
+// faster insertions at both ends.
+//
 // Compatibility with std::deque:
 // - Merge Sort: Compatible, but may not be as memory-efficient as std::deque.
 // - Insertion Sort: Compatible, benefits from efficient insertions at both ends.
 // - Merge-Insert Sort: Compatible, can efficiently handle Insertion Sort for small subarrays.
-// ---------------------------------------------------------
+// ----------------------------------------------------------------------------------------------
 
 int main(int ac, char **av) {	
 	if (ac < 2) {
