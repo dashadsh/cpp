@@ -1,44 +1,43 @@
 #ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
-# include <iostream>
-# include <fstream> // close()
-# include <cstring>  // c_str()
-# include <algorithm> // atof()
-# include <map>  // map container
+#include <iostream>
+#include <string> // .c_str(), std::getline (also in <istream> and <sstream>)
+#include <fstream> // std::ifstream class
+#include <algorithm> // find
+#include <cstdlib> // atof
+#include <map>
+// #include <iomanip>
+// #include <sstream> 
 
-// Using map container in this exercise
+#define DATABASE "data.csv"
 
-// std::map - sorted associative container that contains key-value pairs with unique keys (mapped value).
-// Key values (date) are generally used to sort and uniquely identify the elements, 
-// Mapped values (numericValue) store the content associated to this key.
-// Types of key and mapped value may differ & are grouped together in member type value_type, 
-// which is a pair type combining both:
-// ypedef pair<const Key, T> value_type --> std::pair<std::string, float > (date, numericValue)
+class BitcoinExchange {
 
+	public:
 
-class	BitcoinExchange {
-	    public:
-                BitcoinExchange();
-		        BitcoinExchange(const BitcoinExchange &src);
-                ~BitcoinExchange();
-		        BitcoinExchange	&operator=(const BitcoinExchange &src);
+		BitcoinExchange(std::string database_file);
+		BitcoinExchange(const BitcoinExchange& src); // those can stay in public bc we cannot instantiate the class w/o database anyway
+		BitcoinExchange& operator=(const BitcoinExchange& src);
+		~BitcoinExchange();
+	
+		void showExchange(std::string input_file);
+	
+ 	 private:
 
-                void    						setExchangeRate(const std::pair<std::string, float>& exchangeRate);
-                std::map<std::string, float>	getExchangeRateMap(void);
-                
-		        void							checkOpenFile(std::ifstream &infile);
-		        void							dataExchangeRate(char* datafileName);
-                
-                bool                            checkDeliminator(std::string line);
-                bool							checkDateValidity(std::string date);
-                bool                            checkNumValidity(std::string btcNumber);
-		        float							findBtcRate(std::string date);
-		        void							printBtcValue(char* infileName);
+		// std::map where the key is a std::string and the value is a double.
+		std::map<std::string, double> _db;
 
+		BitcoinExchange(); // we should prevent the default constructor from being called
 
-	    private:
-                std::map<std::string, float>	_btcExchangeRate;
+		double findRate(std::string date);
+		bool validDataLine(std::string line);
+		bool validInputLine(std::string line);
+		bool validDate(std::string line);
+		bool validValue(std::string line);
+		bool validYear(int year);
+		bool validMonth(int month);
+		bool validDay(int day, int month, int year);
 };
 
 #endif

@@ -1,17 +1,17 @@
-NAME = mutantstack
+NAME = PmergeMe
 
 SRC_DIR = src
 INC_DIR = inc
 OBJ_DIR = obj
 
 # Define source files
-SRCS = main.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 # Define object files based on source files
 OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -I$(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 # Default target (build the executable)
 all: $(NAME)

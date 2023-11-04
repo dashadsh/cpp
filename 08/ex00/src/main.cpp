@@ -91,7 +91,7 @@ int main(void) {
 	std::cout << "vecInt.size(): " << vecInt.size() << std::endl;
 	printContainer(vecInt);
 	std::cout << "\n>>>>> find existing element in vecInt" << std::endl;
-	::easyfind(vecInt, 10);
+	::easyfind(vecInt, 10); // :: - global scope, not a member of a class
 	::easyfind(vecInt, 20);
 	::easyfind(vecInt, 30);
 	::easyfind(vecInt, 40);
