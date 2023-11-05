@@ -1,34 +1,27 @@
 #include "../inc/PmergeMe.hpp"
 // ----------------------------------------------------------------------------------------------
-// Merge Sort: suitable for large datasets.
-// Efficient random access and cache locality, making it highly compatible with std::vector.
+// Merge-Insertion Sort:
+// 1. input list is divided into smaller sublists, typically using a recursion, 
+// until each sublist becomes small enough for efficient sorting -> GOOD MEMORY MANAGEMENT
+// 2. When size of the sublists reaches certain threshold, switch to insertion sort to sort the sublists.
+// Insertion sort works by inserting elements into the correct positions within the sorted part of the list.
+// 3. Merge sort: after sublists are sorted using insertion sort, they are merged
+// back together using the merge step of the merge sort algorithm.
+
+// std::vec  - dynamic arrays, efficient random access to elements.
+// contiguous storage of elements allows constant time random access to any element in the sequence.
+// Random access is essential for merge sort since it frequently divides and merges lists.
+// Merge sort can benefit from vectors due to efficient indexing, making it a preferred choice for this algorithm.
+
+// std::deque - double-ended queue, efficient insertion and deletion at both its beginning and its end.
+// Deques isn't required to store its elements in contiguous storage -> LESS GOOD MEMORY MANAGEMENT
+// Insertion sort benefits from efficient insertions since it frequently inserts elements into their correct positions.
+// Insertion sort can perform better with deques when it comes to maintaining the partially sorted portion of the list, 
+// making it a preferred choice for this algorithm.
 // ----------------------------------------------------------------------------------------------
-// Insertion Sort: efficient for small datasets. Compatible with both std::vector and std::deque.
-// ----------------------------------------------------------------------------------------------
-// Merge-Insert Sort: hybrid sorting algorithm that uses merge sort for larger subarrays and insertion sort for
-// smaller subarrays. Highly compatible with std::vector due to its efficient random access and cache locality during
-// merge steps. Also compatible with std::deque and can efficiently handle insertion sort for small subarrays.
-// ----------------------------------------------------------------------------------------------
-// ----------------------------------------------------------------------------------------------
-// std::vector - dynamic array, elements are stored in a contiguous block of memory. 
-// Very efficient for accessing elements by their index. 
-// Insertions and deletions at the beginning or middle of the vector can be slower 
-// bc all elements after the insertion point need to be shifted.
-//
-// Compatibility with std::vector:
-// - Merge Sort: Highly compatible, benefits from efficient random access and cache locality.
-// - Insertion Sort: Compatible, efficient for small datasets.
-// - Merge-Insert Sort: Highly compatible, benefits from efficient random access and cache locality for merge steps.
-// ----------------------------------------------------------------------------------------------
-// std::deque - double-ended queue, efficient insertions and deletions at both the beginning and end. 
-// It typically consists of multiple blocks of memory, so it is not as memory-efficient as a vector but provides 
-// faster insertions at both ends.
-//
-// Compatibility with std::deque:
-// - Merge Sort: Compatible, but may not be as memory-efficient as std::deque.
-// - Insertion Sort: Compatible, benefits from efficient insertions at both ends.
-// - Merge-Insert Sort: Compatible, can efficiently handle Insertion Sort for small subarrays.
-// ----------------------------------------------------------------------------------------------
+
+// std::vector is better for merge sort / merge-insert sort & bigger containers
+// std::deque is better used for insertion sort & smaller containers
 
 int main(int ac, char **av) {	
 	if (ac < 2) {

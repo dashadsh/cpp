@@ -37,7 +37,7 @@ class PmergeMe {
 		// and merge sort otherwise.
     	template <typename Container>
     	void mergeInsertSort(Container& container, int start, int end) {
-       		if (start < end) {
+       		if (start < end) { // if start idx is less than end idx - container with 1 elem. is 'sorted' already
 				// if container size is small, we use the insert sort algorithm
             	if (end - start < 10) {
                 	insertSort(container, start, end);
@@ -56,18 +56,25 @@ class PmergeMe {
     	}
 
     	// insert sort for a container of integers
+		// example: 3 2 1
     	template <typename Container>
-    	void insertSort(Container& container, int start, int end) {
-        	for (int i = start + 1; i <= end; ++i) {
-            	int key = container[i];
-            	int j = i - 1;
+    	void insertSort(Container& container, int start, int end) { // start = 0, end = 2
+        	for (int i = start + 1; i <= end; ++i) { // i = 1
 
-				// shift elem. greater than key to the right
-            	for (; j >= start && container[j] > key; --j)
-                	container[j + 1] = container[j];
-			
-				// insert key into right position
-            	container[j + 1] = key;
+            	int key = container[i]; // store current elem in 'key' (key = 2)
+            	int j = i - 1; // start 2nd loop with idx j (j = 1)
+
+				// compare 'key' (2) to elements in sorted portion of the container from 'start' to 'j'.
+        		// If element in sorted portion is greater than key, move it 1 position to the right
+        		// to make room for key.
+            	for (; j >= start && container[j] > key; --j) // no initialisation, just condition !!!!
+                	container[j + 1] = container[j];  // Shift elements to the right
+ 				// in 1st iteration, 2 is compared with 3. since 3 > 2, we move 3 to the right.
+        		// container becomes "3, 3, 1" & j becomes 0.
+        		// continue until 'key' (2) >= container[j] or j reaches 'start'
+
+				// put key (2) at its correct position in the sorted sequence
+            	container[j + 1] = key; // containter becomes "2, 3, 1"
         	}
     	}
 
@@ -110,3 +117,25 @@ class PmergeMe {
 	};
 
 #endif
+
+/* Insert Sort: 
+Here's how the values change based on the example 3 2 1:
+
+Original array: 3 2 1 (As it is)
+In the first iteration:
+key becomes 2 (from index 1, since i is 1)
+j starts at 0 (from i - 1)
+The inner loop compares key (2) to the elements in the sorted portion (only 3) and shifts 3 to the right.
+Array: 3 3 1
+Finally, key (2) is inserted at index 0.
+Array: 2 3 1
+In the second iteration:
+key becomes 1 (from index 2, since i is 2)
+j starts at 1 (from i - 1)
+The inner loop compares key (1) to the elements in the sorted portion (3 and 2) and shifts 3 and 2 to the right.
+Array: 2 3 3
+Finally, key (1) is inserted at index 0.
+Array: 1 2 3
+After the sorting process is complete, the sorted array is {1, 2, 3}.
+
+*/
