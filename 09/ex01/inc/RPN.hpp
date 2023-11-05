@@ -2,12 +2,11 @@
 #define RPN_HPP
 
 #include <iostream>
-#include <stack> // for stack container
-
-#include <string>
-#include <algorithm>
-#include <cstdlib>
-#include <sstream>
+#include <stack> // std::stack
+#include <string> // std::string
+#include <algorithm> // _s.size _s.empty _s.top
+#include <cstdlib> // std::atoi
+#include <sstream> // std::stringstream
 
 // Using Stack container in this exercise
 // https://www.geeksforgeeks.org/stack-in-cpp-stl/

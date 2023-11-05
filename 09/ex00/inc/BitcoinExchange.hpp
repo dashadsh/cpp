@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string> // .c_str(), std::getline (also in <istream> and <sstream>)
 #include <fstream> // std::ifstream class
-#include <algorithm> // find
+#include <algorithm> // .find .end .empty
 #include <cstdlib> // atof
-#include <map>
+#include <map> // std::map
 // #include <iomanip>
 // #include <sstream> 
 

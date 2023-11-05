@@ -7,9 +7,11 @@
 #define ERR_HEADER "Error: invalid header => "
 #define ERR_DATE "Error: invalid date => "
 #define ERR_VALUE "Error: invalid value => "
-#define ERR_VALUE_POS "Error: not a positive number.\n"
+#define ERR_VALUE_POSITIVE "Error: not a positive number.\n"
 #define ERR_VALUE_LARGE "Error: too large a number.\n"
 #define ERR_EXCHANGE "Error: No exchange rate available => "
+
+// ----------------------------------------------------------------------------------------------
 
 BitcoinExchange::BitcoinExchange() {
 	std::cout << "BitcoinExchange default constructor called" << std::endl;
@@ -30,6 +32,8 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &src) {
 	return *this;
 }
 
+// ------------- 1st part -  used to store and process database ---------------------------------
+
 // PARAMETRIC CONSTRUCTOR
 // will iterate through the file and store the data in the map - 
 // std::map is a sorted associative container that contains key-value pairs.
@@ -45,6 +49,7 @@ BitcoinExchange::BitcoinExchange(std::string database_file) {
 		std::cerr << ERR_FILE;
 		return ;
 	}
+
 	// getline is included in <string> and <sstream>
 	getline(db_stream, buffer, '\n');
 		if (buffer != DB_HEADER) {
@@ -68,12 +73,14 @@ BitcoinExchange::BitcoinExchange(std::string database_file) {
 			std::cerr << ERR_BAD_INPUT << buffer << "\n";
 			continue;
 		}
+		// insert our temp date and value into the map
 		_db[date] = value;
 	}	
 }
 
-// check all lines for length and separator
+// check all DATABASE lines after header for length and separator
 bool BitcoinExchange::validDataLine(std::string line) {
+	// make it const, bc we don't want to change it
     const size_t expectedDateLength = 10;
     const size_t minimumValidLength = 12;
 
@@ -87,7 +94,53 @@ bool BitcoinExchange::validDataLine(std::string line) {
     return true;
 }
 
-// check all lines for length and separator
+// ------------------ 2nd part -  used to process input file ----------------------------------
+
+// showExchange - takes a file as input and displays the exchange rate for each date in the file.
+// Input file will contain a header and a list of dates and values
+//
+void BitcoinExchange::showExchange(std::string input_file) {
+	std::ifstream input_stream(input_file.c_str());
+	std::string buffer;
+	if(!input_stream.is_open()) {
+		std::cerr << ERR_FILE;
+		return;
+	}
+
+	getline(input_stream, buffer, '\n');
+	if (buffer != IN_HEADER) {
+		std::cerr << ERR_HEADER << buffer << "\n";
+	}
+	while (getline(input_stream, buffer, '\n')) {
+		if(!validInputLine(buffer)) { // check all lines for length and separator
+			std::cerr << ERR_BAD_INPUT << buffer << "\n";
+			continue;
+		}
+
+		std::string date = buffer.substr(0, 10);
+		std::string raw_value = buffer.substr(13);
+
+		if(!validDate(date)) { // a valid date will always be in the following format: Year-Month-Day.
+			std::cerr << ERR_DATE << buffer << "\n";
+			continue;
+		}
+
+		if(!validValue(raw_value)) // a  valid value must be either a float or a positive integer, between 0 and 1000.
+			continue;
+
+		double rate = findRate(date); // find the exchange rate for the date from the database stored in the map container
+		if (rate == -1) {
+			std::cerr << ERR_EXCHANGE << buffer << "\n";
+			continue;
+		}
+
+		// do calculations and print the result
+		std::cout << date << " => " << raw_value << " = " 
+			<< atof(raw_value.c_str()) * rate << "\n";
+	}
+}
+
+// check all INPUT lines after headerfor length and separator
 // Each line in this file must use the following format: "date | value".
 bool BitcoinExchange::validInputLine(std::string line) {
     const size_t expectedSeparatorPosition = 10; // idx of " | "
@@ -113,10 +166,10 @@ bool BitcoinExchange::validMonth(int month) {
 bool BitcoinExchange::validDay(int day, int month, int year) {
     if (day < 1)
         return false;
-
     if (month == 4 || month == 6 || month == 9 || month == 11) {
         return day <= 30;
     } else if (month == 2) {
+		// leap year is divisible by 4, but not by 100, unless it is divisible by 400
         bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
         return (isLeapYear && day <= 29) || (!isLeapYear && day <= 28);
     } else {
@@ -126,6 +179,7 @@ bool BitcoinExchange::validDay(int day, int month, int year) {
 
 // a valid date will always be in the following format: Year-Month-Day.
 bool BitcoinExchange::validDate(std::string line) {
+	// check if the date is in the expected format: "YYYY-MM-DD"
 	if (line.at(4) != '-' || line.at(7) != '-')
 		return false;
 	
@@ -142,7 +196,7 @@ bool BitcoinExchange::validDate(std::string line) {
 	return true;
 }
 
-// a  valid value must be either a float or a positive integer, between 0 and 1000.
+// a valid value must be either a float or a positive integer, between 0 and 1000
 bool BitcoinExchange::validValue(std::string line) {
 	double value = std::atof(line.c_str());
 	
@@ -152,7 +206,7 @@ bool BitcoinExchange::validValue(std::string line) {
 		return false;
 	}
 	if (value < 0) { // exchange rate cannot be negative
- 		std::cerr << ERR_VALUE_POS;
+ 		std::cerr << ERR_VALUE_POSITIVE;
 		 return false;
 	}
 	if (value > 1000) {
@@ -168,49 +222,17 @@ bool BitcoinExchange::validValue(std::string line) {
 double BitcoinExchange::findRate(std::string date) {
 	// find an iterator pointing to the elem. w. the smallest key that is greater than or equal to 'date'.
 	std::map<std::string, double>::iterator it = _db.lower_bound(date);
+
 	if (it != _db.end()) { // check we are not at the and of _db map
 		if (it->first != date) // 'first' gives us access to key
 			--it; // if match for 'date' NOT found, move iterator to the closest earlier date.
 		return it->second; // 'second' gives us access to value (return the exchange rate for the date)
 	}
+
 	else if (!_db.empty()) 
 		// if 'date' is greater than any date in the map, use the exchange rate for the latest available date.
 		return (--it)->second;
+
 	// if map is empty or 'date' is before any date in the map, return -1 (no exchange rate is available)
 	return -1;
-}
-
-void BitcoinExchange::showExchange(std::string input_file) {
-	std::ifstream input_stream(input_file.c_str());
-	std::string buffer;
-	if(!input_stream.is_open()) {
-		std::cerr << ERR_FILE;
-		return;
-	}
-	getline(input_stream, buffer, '\n');
-	if (buffer != IN_HEADER) {
-		std::cerr << ERR_HEADER << buffer << "\n";
-	}
-	while (getline(input_stream, buffer, '\n')) {
-		if(!validInputLine(buffer)) { // check all lines for length and separator
-			std::cerr << ERR_BAD_INPUT << buffer << "\n";
-			continue;
-		}
-		std::string date = buffer.substr(0, 10);
-		std::string raw_value = buffer.substr(13);
-		if(!validDate(date)) { // a valid date will always be in the following format: Year-Month-Day.
-			std::cerr << ERR_DATE << buffer << "\n";
-			continue;
-		}
-		if(!validValue(raw_value)) // a  valid value must be either a float or a positive integer, between 0 and 1000.
-			continue;
-
-		double rate = findRate(date);
-		if (rate == -1) {
-			std::cerr << ERR_EXCHANGE << buffer << "\n";
-			continue;
-		}
-		std::cout << date << " => " << raw_value << " = " 
-			<< atof(raw_value.c_str()) * rate << "\n";
-	}
 }

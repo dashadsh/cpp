@@ -56,7 +56,8 @@ void PmergeMe::sortVector() {
     mergeInsertSort(_vec, 0, _vec.size() - 1);
 }
 
-// iusage for sorting a std::deque
+// usage for sorting a std::deque
+// sort deque from start to end idx
 void PmergeMe::sortDeque() {
     mergeInsertSort(_deq, 0, _deq.size() - 1);
 }

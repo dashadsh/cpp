@@ -2,12 +2,12 @@
 #define PMERGEME_HPP
 
 #include <iostream>
-#include <string>
+#include <string> // std::string
 #include <algorithm> // _vec.size, _deq.size
-#include <vector>
-#include <deque>
-#include <sstream>
-#include <ctime>
+#include <vector> // std::vector
+#include <deque> // std::deque
+#include <sstream> // std::stringstream
+#include <ctime> // std::clock_t, std::clock, CLOCKS_PER_SEC
 
 class PmergeMe {
 
@@ -22,7 +22,7 @@ class PmergeMe {
 		void sortVector();
 		void sortDeque();
 
-		class ErrorException: public std::exception { // Add this class definition
+		class ErrorException: public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};
@@ -45,7 +45,7 @@ class PmergeMe {
             	} else {
                 	int mid = start + (end - start) / 2;
 
-					// recursively sort the two halves
+					// recursively sort the two halves !!!
                 	mergeInsertSort(container, start, mid);
                 	mergeInsertSort(container, mid + 1, end);
 

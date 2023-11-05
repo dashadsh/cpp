@@ -22,9 +22,11 @@ bool RPN::operationToken(char c) {
 	return c == '+' || c == '-' || c == '/' || c == '*' ;
 }
 
+// had to add operandCount and operatorCount to handle "1 1 + 1"
+// there should be exactly one more operand than operator !
 double RPN::calculate(std::string input) {
-	int operandCount = 0; // had to add this variable to keep track of operands/operator
-    int operatorCount = 0; // to handle "1 1 + 1"
+	int operandCount = 0; 
+    int operatorCount = 0;
 
 	// iterate through the input string, if it's a number, push it to the stack
 	for (size_t i = 0; i < input.length(); i++) {
